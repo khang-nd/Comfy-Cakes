@@ -28,6 +28,11 @@
                 "key": "FufuSuperDino"
             },
             {
+                "url": "assets/left-carousel-animations.json",
+                "type": "animation",
+                "key": "left-carousel-animations"
+            },
+            {
                 "type": "multiatlas",
                 "url": "assets/machine.json",
                 "path": "assets",
@@ -38,6 +43,11 @@
                 "url": "assets/material.json",
                 "path": "assets",
                 "key": "material"
+            },
+            {
+                "url": "assets/right-carousel-animations.json",
+                "type": "animation",
+                "key": "right-carousel-animations"
             },
             {
                 "type": "multiatlas",

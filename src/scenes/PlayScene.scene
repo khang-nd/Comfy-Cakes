@@ -35,6 +35,30 @@
             "y": 248
         },
         {
+            "prefabId": "dd1ba3c9-acee-4e9c-8250-28813f206209",
+            "id": "4c226e97-6880-4600-ae25-2a786309e1d3",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "leftCarousel",
+            "components": [],
+            "x": 0,
+            "y": 25
+        },
+        {
+            "prefabId": "a331293a-7d8d-42f5-ae89-2af39ffeb242",
+            "id": "24d12160-f3f5-4b4d-ab56-331e0357248d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "targetScreen",
+            "components": [],
+            "x": 0,
+            "y": 0
+        },
+        {
             "prefabId": "5ae46468-ab1a-493d-9dc6-dbac29c783d0",
             "id": "3a1aad72-3173-419e-862e-e61feffc7e61",
             "unlock": [
@@ -143,6 +167,127 @@
             "components": [],
             "x": 728,
             "y": 161
+        },
+        {
+            "prefabId": "e23363e6-8d98-4091-b8b1-46fe8121d909",
+            "id": "cbca3b34-eb1f-4319-a33f-2942414650b0",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "rightCarousel",
+            "components": [],
+            "x": 698,
+            "y": 55
+        },
+        {
+            "prefabId": "ee4cf8fa-9182-42d1-9d53-c470451bf048",
+            "id": "7f81c6b3-404d-4f25-8ba6-e5ea54ec559e",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "timer",
+            "components": [],
+            "x": 7,
+            "y": 339,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "da0a388c-2bad-46ee-aa40-b9acf502cca5",
+            "id": "356982b5-e37f-4440-9c4c-1358897c1e04",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "alarmLight",
+            "components": [],
+            "x": 17,
+            "y": 304
+        },
+        {
+            "prefabId": "5cc0bb62-e582-4a50-9119-513dfd5a2f46",
+            "id": "fe34a0a3-9e79-459e-a41b-5798278e8fcc",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "resultScreen",
+            "components": [],
+            "x": 685,
+            "y": 6
+        },
+        {
+            "prefabId": "a20725c8-eea2-4546-ac7f-d3f989392e44",
+            "id": "41790764-539f-4a33-817e-d76476619d6f",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "desk",
+            "components": [],
+            "x": 658,
+            "y": 245
+        },
+        {
+            "type": "Image",
+            "id": "df1c1685-d30c-4d3f-b481-3bd6cb671f8b",
+            "label": "circleFrame",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"cirle_frame_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"cirle_frame_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"cirle_frame_down.png\"}",
+            "ButtonComponent.callback": "this.circle",
+            "texture": {
+                "key": "material",
+                "frame": "cirle_frame_normal.png"
+            },
+            "x": 113,
+            "y": 347
+        },
+        {
+            "type": "Image",
+            "id": "a9f5b309-d048-4b8f-b495-e3f73f1cac9f",
+            "label": "image_1",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"square_frame_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"square_frame_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"square_frame_down.png\"}",
+            "ButtonComponent.callback": "this.square",
+            "texture": {
+                "key": "material",
+                "frame": "square_frame_normal.png"
+            },
+            "x": 89,
+            "y": 368,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "fd858c87-09c2-4c0e-a185-56b96cb37a82",
+            "label": "image_2",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"heart_frame_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"heart_frame_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"heart_frame_down.png\"}",
+            "ButtonComponent.callback": "this.heart",
+            "texture": {
+                "key": "material",
+                "frame": "heart_frame_normal.png"
+            },
+            "x": 89,
+            "y": 294,
+            "originX": 0,
+            "originY": 0
         }
     ],
     "plainObjects": [],
