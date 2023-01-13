@@ -13,6 +13,16 @@
                 "key": "cakes"
             },
             {
+                "url": "assets/canvasIcon.png",
+                "type": "image",
+                "key": "canvasIcon"
+            },
+            {
+                "url": "assets/cream-spot-animations.json",
+                "type": "animation",
+                "key": "cream-spot-animations"
+            },
+            {
                 "url": "assets/FufuSuperDino.png",
                 "type": "image",
                 "key": "FufuSuperDino"
@@ -34,6 +44,11 @@
                 "url": "assets/trash.json",
                 "path": "assets",
                 "key": "trash"
+            },
+            {
+                "url": "assets/trash-animations.json",
+                "type": "animation",
+                "key": "trash-animations"
             }
         ]
     },

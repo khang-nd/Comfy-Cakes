@@ -8,7 +8,8 @@
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
         "sceneKey": "Preload",
-        "compilerOutputLanguage": "TYPE_SCRIPT"
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderHeight": 496
     },
     "displayList": [
         {
@@ -33,8 +34,20 @@
             ],
             "x": 400,
             "y": 349,
+            "originX": 0.5,
+            "originY": 0.5,
             "text": "0%",
             "fontSize": "30px"
+        },
+        {
+            "type": "Image",
+            "id": "edf6fb1f-a550-4e9a-a01c-138fb13be8db",
+            "label": "CanvasRef",
+            "components": [],
+            "texture": {
+                "key": "canvasIcon"
+            },
+            "visible": false
         }
     ],
     "plainObjects": [],
@@ -42,6 +55,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 2
+        "version": 3
     }
 }

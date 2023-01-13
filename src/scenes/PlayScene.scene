@@ -1,0 +1,155 @@
+{
+    "id": "b685c081-ee5f-4b67-b583-415922c9e2c4",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "PlayScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderHeight": 496
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "31a78c75-ca6e-409b-903d-3640bd2128c5",
+            "label": "CanvasRef",
+            "components": [
+                "AlignCanvas"
+            ],
+            "texture": {
+                "key": "canvasIcon"
+            },
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "dc6df7f7-ce4d-4046-8c8a-46b05e3c2862",
+            "label": "bg",
+            "components": [],
+            "texture": {
+                "key": "bg"
+            },
+            "x": 400,
+            "y": 248
+        },
+        {
+            "prefabId": "5ae46468-ab1a-493d-9dc6-dbac29c783d0",
+            "id": "3a1aad72-3173-419e-862e-e61feffc7e61",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "frameSpot",
+            "components": [],
+            "x": 123,
+            "y": 0
+        },
+        {
+            "prefabId": "d8d4230f-3ab7-4797-acb7-583b684882d6",
+            "id": "e3ca3c4d-f837-44c0-bdaf-44cd701dc301",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "flourSpot",
+            "components": [],
+            "x": 234,
+            "y": 0
+        },
+        {
+            "prefabId": "c4fc3b2b-9fda-4c8b-bce3-00f07d425741",
+            "id": "f08d735d-05ee-45fe-9c51-c99e0d7fd4b7",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "ribbonSpot",
+            "components": [],
+            "x": 340,
+            "y": 0
+        },
+        {
+            "prefabId": "263c0b47-1dbe-4385-93c5-757be69eaf90",
+            "id": "0e8e7f76-17cf-4ce5-90c6-ee662d59fbee",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "creamSpot",
+            "components": [],
+            "x": 438,
+            "y": 0
+        },
+        {
+            "prefabId": "251e5b49-b3c8-49d1-aac2-47d143bf7378",
+            "id": "5008fdba-a9ed-4541-889e-926bfcc0fd69",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "iconSpot",
+            "components": [],
+            "x": 540,
+            "y": 0
+        },
+        {
+            "type": "Image",
+            "id": "791d7621-c338-48bd-99ec-a1ee3476b0fe",
+            "label": "leftBtn",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"cakes\",\"frame\":\"left_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"cakes\",\"frame\":\"left_over.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"cakes\",\"frame\":\"left_down.png\"}",
+            "ButtonComponent.callback": "this.left",
+            "texture": {
+                "key": "cakes",
+                "frame": "left_normal.png"
+            },
+            "x": 203,
+            "y": 433
+        },
+        {
+            "type": "Image",
+            "id": "2b64e53a-7b3c-4655-8592-6a75e49e9b47",
+            "label": "rightBtn",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"cakes\",\"frame\":\"right_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"cakes\",\"frame\":\"right_over.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"cakes\",\"frame\":\"right_down.png\"}",
+            "ButtonComponent.callback": "this.right",
+            "texture": {
+                "key": "cakes",
+                "frame": "right_normal.png"
+            },
+            "x": 278,
+            "y": 433
+        },
+        {
+            "prefabId": "51345886-6d76-4269-9c54-957c042406cb",
+            "id": "ebca3222-073d-473d-94fd-c3b744afb3dd",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "trash",
+            "components": [],
+            "x": 728,
+            "y": 161
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

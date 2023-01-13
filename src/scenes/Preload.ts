@@ -32,6 +32,10 @@ export default class Preload extends Phaser.Scene {
 		progress.text = "0%";
 		progress.setStyle({ "fontSize": "30px" });
 
+		// CanvasRef
+		const canvasRef = this.add.image(0, 0, "canvasIcon");
+		canvasRef.visible = false;
+
 		// progress (components)
 		new PreloadText(progress);
 
@@ -47,12 +51,13 @@ export default class Preload extends Phaser.Scene {
 		this.editorCreate();
 
 		this.load.pack("asset-pack", assetPackUrl);
+		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("PlayScene"));
 	}
 
-	create() {
+	//create() {
 
-		this.scene.start("Level");
-	}
+		//this.scene.start("PlayScene");
+	//}
 
 	/* END-USER-CODE */
 }
