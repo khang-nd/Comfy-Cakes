@@ -1,0 +1,47 @@
+{
+    "anims": [
+        {
+            "key": "run",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "machine",
+                    "frame": "center_l_carousel_00.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "machine",
+                    "frame": "center_l_carousel_01.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "machine",
+                    "frame": "center_l_carousel_02.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "machine",
+                    "frame": "center_l_carousel_03.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 15,
+            "skipMissedFrames": true,
+            "repeat": -1
+        }
+    ],
+    "globalTimeScale": 1,
+    "meta": {
+        "app": "Phaser Editor 2D v3",
+        "contentType": "Phaser v3 Animations"
+    },
+    "settings": {
+        "sourceLang": "JAVA_SCRIPT",
+        "esModule": false,
+        "generateCode": false
+    }
+}

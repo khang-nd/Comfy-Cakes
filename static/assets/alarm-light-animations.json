@@ -1,0 +1,35 @@
+{
+    "anims": [
+        {
+            "key": "run",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "cakes",
+                    "frame": "alarm_light.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "cakes",
+                    "frame": "alarm_normal.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 15,
+            "skipMissedFrames": true,
+            "repeat": -1
+        }
+    ],
+    "globalTimeScale": 1,
+    "meta": {
+        "app": "Phaser Editor 2D v3",
+        "contentType": "Phaser v3 Animations"
+    },
+    "settings": {
+        "sourceLang": "JAVA_SCRIPT",
+        "esModule": false,
+        "generateCode": false
+    }
+}

@@ -252,7 +252,8 @@
         {
             "type": "Image",
             "id": "a9f5b309-d048-4b8f-b495-e3f73f1cac9f",
-            "label": "image_1",
+            "label": "squareFrame",
+            "scope": "CLASS",
             "components": [
                 "ButtonComponent"
             ],
@@ -272,7 +273,8 @@
         {
             "type": "Image",
             "id": "fd858c87-09c2-4c0e-a185-56b96cb37a82",
-            "label": "image_2",
+            "label": "heartFrame",
+            "scope": "CLASS",
             "components": [
                 "ButtonComponent"
             ],
@@ -288,6 +290,329 @@
             "y": 294,
             "originX": 0,
             "originY": 0
+        },
+        {
+            "prefabId": "5a5cb819-9423-43f2-87c7-8efd4817c459",
+            "id": "836be7f7-9d54-4c1a-8355-984fe7f56d21",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "centerLeftCarousel",
+            "components": [],
+            "x": 2,
+            "y": 227,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "c799b67a-d77e-40f5-8b35-860647a5f976",
+            "id": "7d0f2b83-f784-45bf-a36e-8eb6bd8ee79f",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "centerRightCarousel",
+            "components": [],
+            "x": 606,
+            "y": 228
+        },
+        {
+            "type": "Image",
+            "id": "e125db90-775d-4637-9678-be28880296b8",
+            "label": "brownFlour",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"brown_bin_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"brown_bin_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"brown_bin_down.png\"}",
+            "ButtonComponent.callback": "this.doBrownFlour",
+            "texture": {
+                "key": "material",
+                "frame": "brown_bin_normal.png"
+            },
+            "x": 212,
+            "y": 310
+        },
+        {
+            "type": "Image",
+            "id": "30555316-79a8-4b86-bdb8-c3444440b41b",
+            "label": "pinkFlour",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"pink_bin_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"pink_bin_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"pink_bin_down.png\"}",
+            "ButtonComponent.callback": "this.doPinkFlour",
+            "texture": {
+                "key": "material",
+                "frame": "pink_bin_normal.png"
+            },
+            "x": 212,
+            "y": 347
+        },
+        {
+            "type": "Image",
+            "id": "ec97b53d-37ab-4a42-85bc-82a561550478",
+            "label": "yellowFlour",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"yellow_bin_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"yellow_bin_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"yellow_bin_down.png\"}",
+            "ButtonComponent.callback": "this.doYellowFlour",
+            "texture": {
+                "key": "material",
+                "frame": "yellow_bin_normal.png"
+            },
+            "x": 212,
+            "y": 384
+        },
+        {
+            "type": "Image",
+            "id": "0fe81a67-2032-43c2-8ba8-96306203d686",
+            "label": "redRibbon",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"red_ribbon_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"red_ribbon_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"red_ribbon_down.png\"}",
+            "ButtonComponent.callback": "this.redRibbon",
+            "texture": {
+                "key": "material",
+                "frame": "red_ribbon_normal.png"
+            },
+            "x": 313,
+            "y": 316
+        },
+        {
+            "type": "Image",
+            "id": "138b4e01-c5c7-4960-ab08-c2434037859f",
+            "label": "greenRibbon",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "texture": {
+                "key": "material",
+                "frame": "green_ribbon_normal.png"
+            },
+            "x": 314,
+            "y": 388
+        },
+        {
+            "type": "Image",
+            "id": "9fc818a5-a1f2-49be-a95d-33a358b4c089",
+            "label": "whiteRibbon",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"white_ribbon_noraml.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"white_ribbon_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"white_ribbon_noraml.png\"}",
+            "ButtonComponent.callback": "this.whiteRibbon",
+            "texture": {
+                "key": "material",
+                "frame": "white_ribbon_noraml.png"
+            },
+            "x": 314,
+            "y": 354
+        },
+        {
+            "type": "Image",
+            "id": "2df836ca-0d6d-4dc3-8bd5-5a77f755d253",
+            "label": "brownCream",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"brown_cream_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"brown_cream_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"brown_cream_down.png\"}",
+            "ButtonComponent.callback": "this.brownCream",
+            "texture": {
+                "key": "material",
+                "frame": "brown_cream_normal.png"
+            },
+            "x": 414,
+            "y": 314
+        },
+        {
+            "type": "Image",
+            "id": "aae1a39b-519a-4406-bb16-d1c725cb6406",
+            "label": "pinkCream",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"pink_frame_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"pink_frame_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"pink_frame_down.png\"}",
+            "ButtonComponent.callback": "this.pinkCream",
+            "texture": {
+                "key": "material",
+                "frame": "pink_frame_normal.png"
+            },
+            "x": 414,
+            "y": 351
+        },
+        {
+            "type": "Image",
+            "id": "065e10e5-1bea-4123-9628-9818661c2053",
+            "label": "yellowCream",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"yellow_cream_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"yellow_cream_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"yellow_cream_down.png\"}",
+            "ButtonComponent.callback": "this.yellowCream",
+            "texture": {
+                "key": "material",
+                "frame": "yellow_cream_normal.png"
+            },
+            "x": 414,
+            "y": 388
+        },
+        {
+            "type": "Image",
+            "id": "5d511cbf-539f-4cd9-927e-5947a85b1598",
+            "label": "threeIcon",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"three_icons_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"three_icons_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"three_icons_down.png\"}",
+            "ButtonComponent.callback": "this.threeIcon",
+            "texture": {
+                "key": "material",
+                "frame": "three_icons_normal.png"
+            },
+            "x": 499,
+            "y": 340
+        },
+        {
+            "type": "Image",
+            "id": "a6648be6-825b-4661-8fe9-2debc86d65b7",
+            "label": "heartIcon",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"heart_icon_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"heart_icon_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"heart_icon_down.png\"}",
+            "ButtonComponent.callback": "this.heartIcon",
+            "texture": {
+                "key": "material",
+                "frame": "heart_icon_normal.png"
+            },
+            "x": 536,
+            "y": 340
+        },
+        {
+            "type": "Image",
+            "id": "9c2d2ae5-0168-41f4-97c6-b083aca33507",
+            "label": "emoticon",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"emoticon_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"emoticon_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"emoticon_down.png\"}",
+            "ButtonComponent.callback": "this.doEmoticon",
+            "texture": {
+                "key": "material",
+                "frame": "emoticon_normal.png"
+            },
+            "x": 538,
+            "y": 375
+        },
+        {
+            "type": "Image",
+            "id": "ba979efb-1ccd-4727-82d2-66eb76e0aa43",
+            "label": "leaf",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"emoticon_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"emoticon_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"emoticon_down.png\"}",
+            "ButtonComponent.callback": "this.doLeaf",
+            "texture": {
+                "key": "material",
+                "frame": "leaf_normal.png"
+            },
+            "x": 500,
+            "y": 375
+        },
+        {
+            "type": "Image",
+            "id": "2cc39b34-a571-4b76-8762-f7fa58def939",
+            "label": "burn",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"burn_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"burn_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"burn_down.png\"}",
+            "ButtonComponent.callback": "this.doBurn",
+            "texture": {
+                "key": "material",
+                "frame": "burn_normal.png"
+            },
+            "x": 613,
+            "y": 326
+        },
+        {
+            "type": "Image",
+            "id": "33747c5a-09b4-458e-9a1a-999ffb15267c",
+            "label": "spice",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"spice_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"spice_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"spice_down.png\"}",
+            "ButtonComponent.callback": "this.doBurn",
+            "texture": {},
+            "x": 199,
+            "y": 318
+        },
+        {
+            "type": "Image",
+            "id": "1d9ef21a-b42f-405e-a10b-2f801a635b5b",
+            "label": "spice",
+            "scope": "CLASS",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.normFrame": "{\"key\":\"material\",\"frame\":\"spice_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"material\",\"frame\":\"spice_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"material\",\"frame\":\"spice_down.png\"}",
+            "ButtonComponent.callback": "this.doSpice",
+            "texture": {
+                "key": "material",
+                "frame": "spice_normal.png"
+            },
+            "x": 614,
+            "y": 380
         }
     ],
     "plainObjects": [],

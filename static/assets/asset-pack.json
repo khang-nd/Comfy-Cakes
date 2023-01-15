@@ -18,6 +18,16 @@
                 "key": "canvasIcon"
             },
             {
+                "url": "assets/center-left-carousel-animations.json",
+                "type": "animation",
+                "key": "center-left-carousel-animations"
+            },
+            {
+                "url": "assets/center-right-carousel-animations.json",
+                "type": "animation",
+                "key": "center-right-carousel-animations"
+            },
+            {
                 "url": "assets/cream-spot-animations.json",
                 "type": "animation",
                 "key": "cream-spot-animations"
