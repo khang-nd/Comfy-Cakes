@@ -33,6 +33,12 @@
                 "key": "cream-spot-animations"
             },
             {
+                "type": "multiatlas",
+                "url": "assets/finalSpot.json",
+                "path": "assets",
+                "key": "finalSpot"
+            },
+            {
                 "url": "assets/FufuSuperDino.png",
                 "type": "image",
                 "key": "FufuSuperDino"
