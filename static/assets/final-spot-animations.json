@@ -1,0 +1,144 @@
+{
+    "anims": [
+        {
+            "key": "spice",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "finalSpot",
+                    "frame": "spice_00.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "spice_01.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "spice_02.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "spice_03.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "spice_04.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "spice_05.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "spice_06.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "spice_07.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 15,
+            "skipMissedFrames": true
+        },
+        {
+            "key": "burn",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_00.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_01.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_02.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_03.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_04.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_05.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_06.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_07.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_08.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_09.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "finalSpot",
+                    "frame": "burn_10.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 15,
+            "skipMissedFrames": true
+        }
+    ],
+    "globalTimeScale": 1,
+    "meta": {
+        "app": "Phaser Editor 2D v3",
+        "contentType": "Phaser v3 Animations"
+    },
+    "settings": {
+        "sourceLang": "JAVA_SCRIPT",
+        "esModule": false,
+        "generateCode": false
+    }
+}

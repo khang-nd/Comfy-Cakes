@@ -1,0 +1,58 @@
+{
+    "id": "ac25aefa-cb87-4a98-805b-000f449d4982",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "MenuScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderHeight": 496
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "5862e8b8-0d58-435a-8836-389bcf9cca2b",
+            "label": "easy",
+            "scope": "CLASS",
+            "components": [
+                "PushOnClick"
+            ],
+            "x": 369,
+            "y": 224,
+            "text": "Easy"
+        },
+        {
+            "type": "Text",
+            "id": "b142bda7-1700-4637-8704-27ef095c257c",
+            "label": "intermediate",
+            "scope": "CLASS",
+            "components": [
+                "PushOnClick"
+            ],
+            "x": 369,
+            "y": 269,
+            "text": "Intermediate"
+        },
+        {
+            "type": "Text",
+            "id": "c2fd2714-994e-4087-a93c-d038ed5b32ac",
+            "label": "advanced",
+            "scope": "CLASS",
+            "components": [
+                "PushOnClick"
+            ],
+            "x": 369,
+            "y": 314,
+            "text": "Advanced"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

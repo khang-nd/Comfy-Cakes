@@ -20,7 +20,7 @@ import AlarmLight from "./prefabs/AlarmLight";
 import ResultScreen from "./prefabs/ResultScreen";
 import Desk from "./prefabs/Desk";
 import CenterLeftCarousel from "./prefabs/CenterLeftCarousel";
-import CenterRightCarousel from "./prefabs/CenterRightCarousel";
+import FinalSpot from "./prefabs/FinalSpot";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -56,19 +56,19 @@ export default class PlayScene extends Phaser.Scene {
 		this.add.existing(frameSpot);
 
 		// flourSpot
-		const flourSpot = new FlourSpot(this, 234, 0);
+		const flourSpot = new FlourSpot(this, 235, 0);
 		this.add.existing(flourSpot);
 
 		// ribbonSpot
-		const ribbonSpot = new RibbonSpot(this, 340, 0);
+		const ribbonSpot = new RibbonSpot(this, 343, 0);
 		this.add.existing(ribbonSpot);
 
 		// creamSpot
-		const creamSpot = new CreamSpot(this, 438, 0);
+		const creamSpot = new CreamSpot(this, 447, 0);
 		this.add.existing(creamSpot);
 
 		// iconSpot
-		const iconSpot = new IconSpot(this, 540, 0);
+		const iconSpot = new IconSpot(this, 547, 0);
 		this.add.existing(iconSpot);
 
 		// leftBtn
@@ -82,7 +82,7 @@ export default class PlayScene extends Phaser.Scene {
 		this.add.existing(trash);
 
 		// rightCarousel
-		const rightCarousel = new RightCarousel(this, 698, 55);
+		const rightCarousel = new RightCarousel(this, 698, 44);
 		this.add.existing(rightCarousel);
 
 		// timer
@@ -98,7 +98,7 @@ export default class PlayScene extends Phaser.Scene {
 		this.add.existing(resultScreen);
 
 		// desk
-		const desk = new Desk(this, 658, 245);
+		const desk = new Desk(this, 658, 233);
 		this.add.existing(desk);
 
 		// circleFrame
@@ -113,12 +113,8 @@ export default class PlayScene extends Phaser.Scene {
 		heartFrame.setOrigin(0, 0);
 
 		// centerLeftCarousel
-		const centerLeftCarousel = new CenterLeftCarousel(this, 2, 227);
+		const centerLeftCarousel = new CenterLeftCarousel(this, 0, 220);
 		this.add.existing(centerLeftCarousel);
-
-		// centerRightCarousel
-		const centerRightCarousel = new CenterRightCarousel(this, 606, 228);
-		this.add.existing(centerRightCarousel);
 
 		// brownFlour
 		const brownFlour = this.add.image(212, 310, "material", "brown_bin_normal.png");
@@ -163,10 +159,11 @@ export default class PlayScene extends Phaser.Scene {
 		const burn = this.add.image(613, 326, "material", "burn_normal.png");
 
 		// spice
-		const spice = this.add.image(199, 318, "_MISSING");
-
-		// spice
 		const spice = this.add.image(614, 380, "material", "spice_normal.png");
+
+		// finalSpot
+		const finalSpot = new FinalSpot(this, 641, 0);
+		this.add.existing(finalSpot);
 
 		// canvasRef (components)
 		new AlignCanvas(canvasRef);
@@ -232,52 +229,56 @@ export default class PlayScene extends Phaser.Scene {
 		redRibbonButtonComponent.normFrame = {"key":"material","frame":"red_ribbon_normal.png"};
 		redRibbonButtonComponent.overFrame = {"key":"material","frame":"red_ribbon_up.png"};
 		redRibbonButtonComponent.downFrame = {"key":"material","frame":"red_ribbon_down.png"};
-		redRibbonButtonComponent.callback = this.redRibbon;
+		redRibbonButtonComponent.callback = this.doRedRibbon;
 
 		// greenRibbon (components)
-		new ButtonComponent(greenRibbon);
+		const greenRibbonButtonComponent = new ButtonComponent(greenRibbon);
+		greenRibbonButtonComponent.normFrame = {"key":"material","frame":"green_ribbon_normal.png"};
+		greenRibbonButtonComponent.overFrame = {"key":"material","frame":"green_ribbon_over.png"};
+		greenRibbonButtonComponent.downFrame = {"key":"material","frame":"green_ribbon_down.png"};
+		greenRibbonButtonComponent.callback = this.doGreenRibbon;
 
 		// whiteRibbon (components)
 		const whiteRibbonButtonComponent = new ButtonComponent(whiteRibbon);
 		whiteRibbonButtonComponent.normFrame = {"key":"material","frame":"white_ribbon_noraml.png"};
 		whiteRibbonButtonComponent.overFrame = {"key":"material","frame":"white_ribbon_up.png"};
 		whiteRibbonButtonComponent.downFrame = {"key":"material","frame":"white_ribbon_noraml.png"};
-		whiteRibbonButtonComponent.callback = this.whiteRibbon;
+		whiteRibbonButtonComponent.callback = this.doWhiteRibbon;
 
 		// brownCream (components)
 		const brownCreamButtonComponent = new ButtonComponent(brownCream);
 		brownCreamButtonComponent.normFrame = {"key":"material","frame":"brown_cream_normal.png"};
 		brownCreamButtonComponent.overFrame = {"key":"material","frame":"brown_cream_up.png"};
 		brownCreamButtonComponent.downFrame = {"key":"material","frame":"brown_cream_down.png"};
-		brownCreamButtonComponent.callback = this.brownCream;
+		brownCreamButtonComponent.callback = this.doBrownCream;
 
 		// pinkCream (components)
 		const pinkCreamButtonComponent = new ButtonComponent(pinkCream);
 		pinkCreamButtonComponent.normFrame = {"key":"material","frame":"pink_frame_normal.png"};
 		pinkCreamButtonComponent.overFrame = {"key":"material","frame":"pink_frame_up.png"};
 		pinkCreamButtonComponent.downFrame = {"key":"material","frame":"pink_frame_down.png"};
-		pinkCreamButtonComponent.callback = this.pinkCream;
+		pinkCreamButtonComponent.callback = this.doPinkCream;
 
 		// yellowCream (components)
 		const yellowCreamButtonComponent = new ButtonComponent(yellowCream);
 		yellowCreamButtonComponent.normFrame = {"key":"material","frame":"yellow_cream_normal.png"};
 		yellowCreamButtonComponent.overFrame = {"key":"material","frame":"yellow_cream_up.png"};
 		yellowCreamButtonComponent.downFrame = {"key":"material","frame":"yellow_cream_down.png"};
-		yellowCreamButtonComponent.callback = this.yellowCream;
+		yellowCreamButtonComponent.callback = this.doYellowCream;
 
 		// threeIcon (components)
 		const threeIconButtonComponent = new ButtonComponent(threeIcon);
 		threeIconButtonComponent.normFrame = {"key":"material","frame":"three_icons_normal.png"};
 		threeIconButtonComponent.overFrame = {"key":"material","frame":"three_icons_up.png"};
 		threeIconButtonComponent.downFrame = {"key":"material","frame":"three_icons_down.png"};
-		threeIconButtonComponent.callback = this.threeIcon;
+		threeIconButtonComponent.callback = this.doThreeIcon;
 
 		// heartIcon (components)
 		const heartIconButtonComponent = new ButtonComponent(heartIcon);
 		heartIconButtonComponent.normFrame = {"key":"material","frame":"heart_icon_normal.png"};
 		heartIconButtonComponent.overFrame = {"key":"material","frame":"heart_icon_up.png"};
 		heartIconButtonComponent.downFrame = {"key":"material","frame":"heart_icon_down.png"};
-		heartIconButtonComponent.callback = this.heartIcon;
+		heartIconButtonComponent.callback = this.doHeartIcon;
 
 		// emoticon (components)
 		const emoticonButtonComponent = new ButtonComponent(emoticon);
@@ -299,13 +300,6 @@ export default class PlayScene extends Phaser.Scene {
 		burnButtonComponent.overFrame = {"key":"material","frame":"burn_up.png"};
 		burnButtonComponent.downFrame = {"key":"material","frame":"burn_down.png"};
 		burnButtonComponent.callback = this.doBurn;
-
-		// spice (components)
-		const spiceButtonComponent = new ButtonComponent(spice);
-		spiceButtonComponent.normFrame = {"key":"material","frame":"spice_normal.png"};
-		spiceButtonComponent.overFrame = {"key":"material","frame":"spice_up.png"};
-		spiceButtonComponent.downFrame = {"key":"material","frame":"spice_down.png"};
-		spiceButtonComponent.callback = this.doBurn;
 
 		// spice (components)
 		const spiceButtonComponent = new ButtonComponent(spice);
@@ -334,7 +328,6 @@ export default class PlayScene extends Phaser.Scene {
 		this.leaf = leaf;
 		this.burn = burn;
 		this.spice = spice;
-		this.spice = spice;
 
 		this.events.emit("scene-awake");
 	}
@@ -359,7 +352,6 @@ export default class PlayScene extends Phaser.Scene {
 	private leaf!: Phaser.GameObjects.Image;
 	private burn!: Phaser.GameObjects.Image;
 	private spice!: Phaser.GameObjects.Image;
-	private spice!: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 
@@ -376,9 +368,27 @@ export default class PlayScene extends Phaser.Scene {
 	right(){
 	}
 
+
+
 circle(){}
 square(){}
 heart(){}
+doBrownFlour(){}
+doPinkFlour(){}
+doYellowFlour(){}
+doEmoticon(){}
+doLeaf(){}
+doBurn(){}
+doSpice(){}
+doRedRibbon(){}
+doWhiteRibbon(){}
+doGreenRibbon(){}
+doBrownCream(){}
+doPinkCream(){}
+doYellowCream(){}
+doThreeIcon(){}
+doHeartIcon(){}
+
 
 	/* END-USER-CODE */
 }

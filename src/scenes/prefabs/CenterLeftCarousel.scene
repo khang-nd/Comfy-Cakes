@@ -24,7 +24,7 @@
                     "components": [],
                     "texture": {
                         "key": "machine",
-                        "frame": "center_l_carousel_01.png"
+                        "frame": "center_l_carousel_02.png"
                     },
                     "originX": 0,
                     "originY": 0
@@ -36,9 +36,9 @@
                     "components": [],
                     "texture": {
                         "key": "machine",
-                        "frame": "center_l_carousel_01.png"
+                        "frame": "center_l_carousel_02.png"
                     },
-                    "x": 206,
+                    "x": 104,
                     "originX": 0,
                     "originY": 0
                 },
@@ -49,10 +49,58 @@
                     "components": [],
                     "texture": {
                         "key": "machine",
-                        "frame": "center_l_carousel_01.png"
+                        "frame": "center_l_carousel_02.png"
                     },
-                    "x": 412,
+                    "x": 105,
                     "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "e430f5df-4a5e-4621-8d4d-2c71072635be",
+                    "label": "sprite_4",
+                    "components": [],
+                    "texture": {
+                        "key": "machine",
+                        "frame": "center_l_carousel_02.png"
+                    },
+                    "x": 312,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "fdb6f046-fff5-4d5a-8efc-445195aa517b",
+                    "label": "sprite_5",
+                    "components": [],
+                    "texture": {
+                        "key": "machine",
+                        "frame": "center_l_carousel_02.png"
+                    },
+                    "x": 415,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "4f325305-f302-4386-b88d-014e38bea7ed",
+                    "label": "sprite_6",
+                    "components": [],
+                    "texture": {
+                        "key": "machine",
+                        "frame": "center_r_carousel_00.png"
+                    },
+                    "x": 651,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c0deb8eb-2ac2-4c35-abf2-0320b729f707",
+                    "label": "sprite_7",
+                    "components": [],
+                    "texture": {
+                        "key": "machine",
+                        "frame": "center_l_carousel_02.png"
+                    },
+                    "x": 518,
                     "originY": 0
                 }
             ]

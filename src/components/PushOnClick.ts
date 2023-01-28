@@ -8,7 +8,7 @@ import Phaser from "phaser";
 
 export default class PushOnClick extends UserComponent {
 
-	constructor(gameObject: Phaser.GameObjects.Image) {
+	constructor(gameObject: Phaser.GameObjects.GameObject) {
 		super(gameObject);
 
 		this.gameObject = gameObject;
@@ -19,11 +19,11 @@ export default class PushOnClick extends UserComponent {
 		/* END-USER-CTR-CODE */
 	}
 
-	static getComponent(gameObject: Phaser.GameObjects.Image): PushOnClick {
+	static getComponent(gameObject: Phaser.GameObjects.GameObject): PushOnClick {
 		return (gameObject as any)["__PushOnClick"];
 	}
 
-	private gameObject: Phaser.GameObjects.Image;
+	private gameObject: Phaser.GameObjects.GameObject;
 
 	/* START-USER-CODE */
 

@@ -13,19 +13,39 @@ export default class CenterLeftCarousel extends Phaser.GameObjects.Container {
 		super(scene, x ?? 0, y ?? 0);
 
 		// sprite_1
-		const sprite_1 = scene.add.sprite(0, 0, "machine", "center_l_carousel_01.png");
+		const sprite_1 = scene.add.sprite(0, 0, "machine", "center_l_carousel_02.png");
 		sprite_1.setOrigin(0, 0);
 		this.add(sprite_1);
 
 		// sprite_2
-		const sprite_2 = scene.add.sprite(206, 0, "machine", "center_l_carousel_01.png");
+		const sprite_2 = scene.add.sprite(104, 0, "machine", "center_l_carousel_02.png");
 		sprite_2.setOrigin(0, 0);
 		this.add(sprite_2);
 
 		// sprite_3
-		const sprite_3 = scene.add.sprite(412, 0, "machine", "center_l_carousel_01.png");
+		const sprite_3 = scene.add.sprite(105, 0, "machine", "center_l_carousel_02.png");
 		sprite_3.setOrigin(0, 0);
 		this.add(sprite_3);
+
+		// sprite_4
+		const sprite_4 = scene.add.sprite(312, 0, "machine", "center_l_carousel_02.png");
+		sprite_4.setOrigin(0.5, 0);
+		this.add(sprite_4);
+
+		// sprite_5
+		const sprite_5 = scene.add.sprite(415, 0, "machine", "center_l_carousel_02.png");
+		sprite_5.setOrigin(0.5, 0);
+		this.add(sprite_5);
+
+		// sprite_6
+		const sprite_6 = scene.add.sprite(651, 0, "machine", "center_r_carousel_00.png");
+		sprite_6.setOrigin(0.5, 0);
+		this.add(sprite_6);
+
+		// sprite_7
+		const sprite_7 = scene.add.sprite(518, 0, "machine", "center_l_carousel_02.png");
+		sprite_7.setOrigin(0.5, 0);
+		this.add(sprite_7);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.

@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import PlayScene from "./scenes/PlayScene";
+import MenuScene from "./scenes/MenuScene"
 import preloadAssetPackUrl from "../static/assets/preload-asset-pack.json";
 import Preload from "./scenes/Preload";
 
@@ -42,7 +43,7 @@ const SIZE_WIDTH_SCREEN = 800;
 			createContainer: true
 		},
 		backgroundColor: "#2f2f2f",
-		scene: [Boot, Preload, PlayScene]
+		scene: [Boot, Preload, PlayScene, MenuScene]
 	});
 
 
