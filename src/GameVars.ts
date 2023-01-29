@@ -4,6 +4,8 @@ export default class GameVars {
     public static gameData: GameData;
     public static development: boolean;
     public static currentScene: Phaser.Scene;
+    public static prevScene: string;
+    public static gameOver: boolean;
     public static areValidDomains(domains: string[]): boolean {
 
         if (domains.length === 0) {

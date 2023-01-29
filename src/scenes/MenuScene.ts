@@ -1,6 +1,7 @@
 
 // You can write more code here
 import GameConstants from "~/GameConstants";
+import GameManager from "../GameManager";
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -59,6 +60,7 @@ export default class MenuScene extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+		GameManager.setCurrentScene(this);
 		this.easy.on("pointerdown", () => {
 			window.parent.postMessage(GameConstants.EASY, '*');
 
@@ -73,7 +75,7 @@ export default class MenuScene extends Phaser.Scene {
 			window.parent.postMessage(GameConstants.ADVANCED, '*');
 
 		});
-
+		
 	}
 
 	/* END-USER-CODE */

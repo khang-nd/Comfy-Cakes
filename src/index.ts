@@ -3,27 +3,28 @@ import PlayScene from "./scenes/PlayScene";
 import MenuScene from "./scenes/MenuScene"
 import preloadAssetPackUrl from "../static/assets/preload-asset-pack.json";
 import Preload from "./scenes/Preload";
+import GameManager from './GameManager';
 
 class Boot extends Phaser.Scene {
 
-    constructor() {
-        super("Boot");
-    }
+	constructor() {
+		super("Boot");
+	}
 
-    preload() {
+	preload() {
 
-        this.load.pack("pack", preloadAssetPackUrl);
-    }
+		this.load.pack("pack", preloadAssetPackUrl);
+	}
 
-    create() {
-
-       this.scene.start("Preload");
-    }
+	create() {
+		GameManager.setCurrentScene(this);
+		GameManager.init();
+	}
 }
 
 window.addEventListener('load', function () {
-	
-const SIZE_WIDTH_SCREEN = 800;
+
+	const SIZE_WIDTH_SCREEN = 800;
 	const SIZE_HEIGHT_SCREEN = 496;
 
 	globalThis.screenBaseSize = {

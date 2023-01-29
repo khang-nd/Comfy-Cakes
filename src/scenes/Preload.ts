@@ -1,6 +1,6 @@
 
 // You can write more code here
-
+import GameManager from "../GameManager";
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -49,15 +49,17 @@ export default class Preload extends Phaser.Scene {
 	preload() {
 
 		this.editorCreate();
-
+		GameManager.setCurrentScene(this);
 		this.load.pack("asset-pack", assetPackUrl);
-		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("MenuScene"));
+		this.load.on(Phaser.Loader.Events.COMPLETE, () => {
+			GameManager.enterMenuScene();
+		});
 	}
 
-	//create() {
-
+	create() {
+		
 		//this.scene.start("PlayScene");
-	//}
+	}
 
 	/* END-USER-CODE */
 }

@@ -6,4 +6,5 @@ export default class GameConstants{
 	public static readonly INTERMEDIATE = "4";
 	public static readonly ADVANCED = "5";
 	public static readonly LANGUAGE_ENGLISH = 'en';
+	public static readonly VERBOSE = false;
 }

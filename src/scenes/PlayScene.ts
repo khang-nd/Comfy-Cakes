@@ -1,6 +1,6 @@
 
 // You can write more code here
-
+import GameManager from "../GameManager";
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -360,6 +360,7 @@ export default class PlayScene extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+		GameManager.setCurrentScene(this);
 	}
 
 	left(){
