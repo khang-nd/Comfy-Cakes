@@ -1,4 +1,5 @@
 import GameData from "./GameData";
+import { LEVEL } from 'GameConstants';
 export default class GameVars {
 	public static gameText: any;
     public static gameData: GameData;
@@ -6,6 +7,7 @@ export default class GameVars {
     public static currentScene: Phaser.Scene;
     public static prevScene: string;
     public static gameOver: boolean;
+    public static level: LEVEL;
     public static areValidDomains(domains: string[]): boolean {
 
         if (domains.length === 0) {

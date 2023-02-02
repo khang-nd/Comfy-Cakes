@@ -1,6 +1,8 @@
 
 // You can write more code here
 import GameManager from "../GameManager";
+import GameVars from "../GameVars";
+import Model from "./prefabs/Model";
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -21,6 +23,8 @@ import ResultScreen from "./prefabs/ResultScreen";
 import Desk from "./prefabs/Desk";
 import CenterLeftCarousel from "./prefabs/CenterLeftCarousel";
 import FinalSpot from "./prefabs/FinalSpot";
+
+
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -170,142 +174,142 @@ export default class PlayScene extends Phaser.Scene {
 
 		// leftBtn (components)
 		const leftBtnButtonComponent = new ButtonComponent(leftBtn);
-		leftBtnButtonComponent.normFrame = {"key":"cakes","frame":"left_normal.png"};
-		leftBtnButtonComponent.overFrame = {"key":"cakes","frame":"left_over.png"};
-		leftBtnButtonComponent.downFrame = {"key":"cakes","frame":"left_down.png"};
+		leftBtnButtonComponent.normFrame = { "key": "cakes", "frame": "left_normal.png" };
+		leftBtnButtonComponent.overFrame = { "key": "cakes", "frame": "left_over.png" };
+		leftBtnButtonComponent.downFrame = { "key": "cakes", "frame": "left_down.png" };
 		leftBtnButtonComponent.callback = this.left;
 
 		// rightBtn (components)
 		const rightBtnButtonComponent = new ButtonComponent(rightBtn);
-		rightBtnButtonComponent.normFrame = {"key":"cakes","frame":"right_normal.png"};
-		rightBtnButtonComponent.overFrame = {"key":"cakes","frame":"right_over.png"};
-		rightBtnButtonComponent.downFrame = {"key":"cakes","frame":"right_down.png"};
+		rightBtnButtonComponent.normFrame = { "key": "cakes", "frame": "right_normal.png" };
+		rightBtnButtonComponent.overFrame = { "key": "cakes", "frame": "right_over.png" };
+		rightBtnButtonComponent.downFrame = { "key": "cakes", "frame": "right_down.png" };
 		rightBtnButtonComponent.callback = this.right;
 
 		// circleFrame (components)
 		const circleFrameButtonComponent = new ButtonComponent(circleFrame);
-		circleFrameButtonComponent.normFrame = {"key":"material","frame":"cirle_frame_normal.png"};
-		circleFrameButtonComponent.overFrame = {"key":"material","frame":"cirle_frame_up.png"};
-		circleFrameButtonComponent.downFrame = {"key":"material","frame":"cirle_frame_down.png"};
+		circleFrameButtonComponent.normFrame = { "key": "material", "frame": "cirle_frame_normal.png" };
+		circleFrameButtonComponent.overFrame = { "key": "material", "frame": "cirle_frame_up.png" };
+		circleFrameButtonComponent.downFrame = { "key": "material", "frame": "cirle_frame_down.png" };
 		circleFrameButtonComponent.callback = this.circle;
 
 		// squareFrame (components)
 		const squareFrameButtonComponent = new ButtonComponent(squareFrame);
-		squareFrameButtonComponent.normFrame = {"key":"material","frame":"square_frame_normal.png"};
-		squareFrameButtonComponent.overFrame = {"key":"material","frame":"square_frame_up.png"};
-		squareFrameButtonComponent.downFrame = {"key":"material","frame":"square_frame_down.png"};
+		squareFrameButtonComponent.normFrame = { "key": "material", "frame": "square_frame_normal.png" };
+		squareFrameButtonComponent.overFrame = { "key": "material", "frame": "square_frame_up.png" };
+		squareFrameButtonComponent.downFrame = { "key": "material", "frame": "square_frame_down.png" };
 		squareFrameButtonComponent.callback = this.square;
 
 		// heartFrame (components)
 		const heartFrameButtonComponent = new ButtonComponent(heartFrame);
-		heartFrameButtonComponent.normFrame = {"key":"material","frame":"heart_frame_normal.png"};
-		heartFrameButtonComponent.overFrame = {"key":"material","frame":"heart_frame_up.png"};
-		heartFrameButtonComponent.downFrame = {"key":"material","frame":"heart_frame_down.png"};
+		heartFrameButtonComponent.normFrame = { "key": "material", "frame": "heart_frame_normal.png" };
+		heartFrameButtonComponent.overFrame = { "key": "material", "frame": "heart_frame_up.png" };
+		heartFrameButtonComponent.downFrame = { "key": "material", "frame": "heart_frame_down.png" };
 		heartFrameButtonComponent.callback = this.heart;
 
 		// brownFlour (components)
 		const brownFlourButtonComponent = new ButtonComponent(brownFlour);
-		brownFlourButtonComponent.normFrame = {"key":"material","frame":"brown_bin_normal.png"};
-		brownFlourButtonComponent.overFrame = {"key":"material","frame":"brown_bin_up.png"};
-		brownFlourButtonComponent.downFrame = {"key":"material","frame":"brown_bin_down.png"};
+		brownFlourButtonComponent.normFrame = { "key": "material", "frame": "brown_bin_normal.png" };
+		brownFlourButtonComponent.overFrame = { "key": "material", "frame": "brown_bin_up.png" };
+		brownFlourButtonComponent.downFrame = { "key": "material", "frame": "brown_bin_down.png" };
 		brownFlourButtonComponent.callback = this.doBrownFlour;
 
 		// pinkFlour (components)
 		const pinkFlourButtonComponent = new ButtonComponent(pinkFlour);
-		pinkFlourButtonComponent.normFrame = {"key":"material","frame":"pink_bin_normal.png"};
-		pinkFlourButtonComponent.overFrame = {"key":"material","frame":"pink_bin_up.png"};
-		pinkFlourButtonComponent.downFrame = {"key":"material","frame":"pink_bin_down.png"};
+		pinkFlourButtonComponent.normFrame = { "key": "material", "frame": "pink_bin_normal.png" };
+		pinkFlourButtonComponent.overFrame = { "key": "material", "frame": "pink_bin_up.png" };
+		pinkFlourButtonComponent.downFrame = { "key": "material", "frame": "pink_bin_down.png" };
 		pinkFlourButtonComponent.callback = this.doPinkFlour;
 
 		// yellowFlour (components)
 		const yellowFlourButtonComponent = new ButtonComponent(yellowFlour);
-		yellowFlourButtonComponent.normFrame = {"key":"material","frame":"yellow_bin_normal.png"};
-		yellowFlourButtonComponent.overFrame = {"key":"material","frame":"yellow_bin_up.png"};
-		yellowFlourButtonComponent.downFrame = {"key":"material","frame":"yellow_bin_down.png"};
+		yellowFlourButtonComponent.normFrame = { "key": "material", "frame": "yellow_bin_normal.png" };
+		yellowFlourButtonComponent.overFrame = { "key": "material", "frame": "yellow_bin_up.png" };
+		yellowFlourButtonComponent.downFrame = { "key": "material", "frame": "yellow_bin_down.png" };
 		yellowFlourButtonComponent.callback = this.doYellowFlour;
 
 		// redRibbon (components)
 		const redRibbonButtonComponent = new ButtonComponent(redRibbon);
-		redRibbonButtonComponent.normFrame = {"key":"material","frame":"red_ribbon_normal.png"};
-		redRibbonButtonComponent.overFrame = {"key":"material","frame":"red_ribbon_up.png"};
-		redRibbonButtonComponent.downFrame = {"key":"material","frame":"red_ribbon_down.png"};
+		redRibbonButtonComponent.normFrame = { "key": "material", "frame": "red_ribbon_normal.png" };
+		redRibbonButtonComponent.overFrame = { "key": "material", "frame": "red_ribbon_up.png" };
+		redRibbonButtonComponent.downFrame = { "key": "material", "frame": "red_ribbon_down.png" };
 		redRibbonButtonComponent.callback = this.doRedRibbon;
 
 		// greenRibbon (components)
 		const greenRibbonButtonComponent = new ButtonComponent(greenRibbon);
-		greenRibbonButtonComponent.normFrame = {"key":"material","frame":"green_ribbon_normal.png"};
-		greenRibbonButtonComponent.overFrame = {"key":"material","frame":"green_ribbon_over.png"};
-		greenRibbonButtonComponent.downFrame = {"key":"material","frame":"green_ribbon_down.png"};
+		greenRibbonButtonComponent.normFrame = { "key": "material", "frame": "green_ribbon_normal.png" };
+		greenRibbonButtonComponent.overFrame = { "key": "material", "frame": "green_ribbon_over.png" };
+		greenRibbonButtonComponent.downFrame = { "key": "material", "frame": "green_ribbon_down.png" };
 		greenRibbonButtonComponent.callback = this.doGreenRibbon;
 
 		// whiteRibbon (components)
 		const whiteRibbonButtonComponent = new ButtonComponent(whiteRibbon);
-		whiteRibbonButtonComponent.normFrame = {"key":"material","frame":"white_ribbon_noraml.png"};
-		whiteRibbonButtonComponent.overFrame = {"key":"material","frame":"white_ribbon_up.png"};
-		whiteRibbonButtonComponent.downFrame = {"key":"material","frame":"white_ribbon_noraml.png"};
+		whiteRibbonButtonComponent.normFrame = { "key": "material", "frame": "white_ribbon_noraml.png" };
+		whiteRibbonButtonComponent.overFrame = { "key": "material", "frame": "white_ribbon_up.png" };
+		whiteRibbonButtonComponent.downFrame = { "key": "material", "frame": "white_ribbon_noraml.png" };
 		whiteRibbonButtonComponent.callback = this.doWhiteRibbon;
 
 		// brownCream (components)
 		const brownCreamButtonComponent = new ButtonComponent(brownCream);
-		brownCreamButtonComponent.normFrame = {"key":"material","frame":"brown_cream_normal.png"};
-		brownCreamButtonComponent.overFrame = {"key":"material","frame":"brown_cream_up.png"};
-		brownCreamButtonComponent.downFrame = {"key":"material","frame":"brown_cream_down.png"};
+		brownCreamButtonComponent.normFrame = { "key": "material", "frame": "brown_cream_normal.png" };
+		brownCreamButtonComponent.overFrame = { "key": "material", "frame": "brown_cream_up.png" };
+		brownCreamButtonComponent.downFrame = { "key": "material", "frame": "brown_cream_down.png" };
 		brownCreamButtonComponent.callback = this.doBrownCream;
 
 		// pinkCream (components)
 		const pinkCreamButtonComponent = new ButtonComponent(pinkCream);
-		pinkCreamButtonComponent.normFrame = {"key":"material","frame":"pink_frame_normal.png"};
-		pinkCreamButtonComponent.overFrame = {"key":"material","frame":"pink_frame_up.png"};
-		pinkCreamButtonComponent.downFrame = {"key":"material","frame":"pink_frame_down.png"};
+		pinkCreamButtonComponent.normFrame = { "key": "material", "frame": "pink_frame_normal.png" };
+		pinkCreamButtonComponent.overFrame = { "key": "material", "frame": "pink_frame_up.png" };
+		pinkCreamButtonComponent.downFrame = { "key": "material", "frame": "pink_frame_down.png" };
 		pinkCreamButtonComponent.callback = this.doPinkCream;
 
 		// yellowCream (components)
 		const yellowCreamButtonComponent = new ButtonComponent(yellowCream);
-		yellowCreamButtonComponent.normFrame = {"key":"material","frame":"yellow_cream_normal.png"};
-		yellowCreamButtonComponent.overFrame = {"key":"material","frame":"yellow_cream_up.png"};
-		yellowCreamButtonComponent.downFrame = {"key":"material","frame":"yellow_cream_down.png"};
+		yellowCreamButtonComponent.normFrame = { "key": "material", "frame": "yellow_cream_normal.png" };
+		yellowCreamButtonComponent.overFrame = { "key": "material", "frame": "yellow_cream_up.png" };
+		yellowCreamButtonComponent.downFrame = { "key": "material", "frame": "yellow_cream_down.png" };
 		yellowCreamButtonComponent.callback = this.doYellowCream;
 
 		// threeIcon (components)
 		const threeIconButtonComponent = new ButtonComponent(threeIcon);
-		threeIconButtonComponent.normFrame = {"key":"material","frame":"three_icons_normal.png"};
-		threeIconButtonComponent.overFrame = {"key":"material","frame":"three_icons_up.png"};
-		threeIconButtonComponent.downFrame = {"key":"material","frame":"three_icons_down.png"};
+		threeIconButtonComponent.normFrame = { "key": "material", "frame": "three_icons_normal.png" };
+		threeIconButtonComponent.overFrame = { "key": "material", "frame": "three_icons_up.png" };
+		threeIconButtonComponent.downFrame = { "key": "material", "frame": "three_icons_down.png" };
 		threeIconButtonComponent.callback = this.doThreeIcon;
 
 		// heartIcon (components)
 		const heartIconButtonComponent = new ButtonComponent(heartIcon);
-		heartIconButtonComponent.normFrame = {"key":"material","frame":"heart_icon_normal.png"};
-		heartIconButtonComponent.overFrame = {"key":"material","frame":"heart_icon_up.png"};
-		heartIconButtonComponent.downFrame = {"key":"material","frame":"heart_icon_down.png"};
+		heartIconButtonComponent.normFrame = { "key": "material", "frame": "heart_icon_normal.png" };
+		heartIconButtonComponent.overFrame = { "key": "material", "frame": "heart_icon_up.png" };
+		heartIconButtonComponent.downFrame = { "key": "material", "frame": "heart_icon_down.png" };
 		heartIconButtonComponent.callback = this.doHeartIcon;
 
 		// emoticon (components)
 		const emoticonButtonComponent = new ButtonComponent(emoticon);
-		emoticonButtonComponent.normFrame = {"key":"material","frame":"emoticon_normal.png"};
-		emoticonButtonComponent.overFrame = {"key":"material","frame":"emoticon_up.png"};
-		emoticonButtonComponent.downFrame = {"key":"material","frame":"emoticon_down.png"};
+		emoticonButtonComponent.normFrame = { "key": "material", "frame": "emoticon_normal.png" };
+		emoticonButtonComponent.overFrame = { "key": "material", "frame": "emoticon_up.png" };
+		emoticonButtonComponent.downFrame = { "key": "material", "frame": "emoticon_down.png" };
 		emoticonButtonComponent.callback = this.doEmoticon;
 
 		// leaf (components)
 		const leafButtonComponent = new ButtonComponent(leaf);
-		leafButtonComponent.normFrame = {"key":"material","frame":"emoticon_normal.png"};
-		leafButtonComponent.overFrame = {"key":"material","frame":"emoticon_up.png"};
-		leafButtonComponent.downFrame = {"key":"material","frame":"emoticon_down.png"};
+		leafButtonComponent.normFrame = { "key": "material", "frame": "emoticon_normal.png" };
+		leafButtonComponent.overFrame = { "key": "material", "frame": "emoticon_up.png" };
+		leafButtonComponent.downFrame = { "key": "material", "frame": "emoticon_down.png" };
 		leafButtonComponent.callback = this.doLeaf;
 
 		// burn (components)
 		const burnButtonComponent = new ButtonComponent(burn);
-		burnButtonComponent.normFrame = {"key":"material","frame":"burn_normal.png"};
-		burnButtonComponent.overFrame = {"key":"material","frame":"burn_up.png"};
-		burnButtonComponent.downFrame = {"key":"material","frame":"burn_down.png"};
+		burnButtonComponent.normFrame = { "key": "material", "frame": "burn_normal.png" };
+		burnButtonComponent.overFrame = { "key": "material", "frame": "burn_up.png" };
+		burnButtonComponent.downFrame = { "key": "material", "frame": "burn_down.png" };
 		burnButtonComponent.callback = this.doBurn;
 
 		// spice (components)
 		const spiceButtonComponent = new ButtonComponent(spice);
-		spiceButtonComponent.normFrame = {"key":"material","frame":"spice_normal.png"};
-		spiceButtonComponent.overFrame = {"key":"material","frame":"spice_up.png"};
-		spiceButtonComponent.downFrame = {"key":"material","frame":"spice_down.png"};
+		spiceButtonComponent.normFrame = { "key": "material", "frame": "spice_normal.png" };
+		spiceButtonComponent.overFrame = { "key": "material", "frame": "spice_up.png" };
+		spiceButtonComponent.downFrame = { "key": "material", "frame": "spice_down.png" };
 		spiceButtonComponent.callback = this.doSpice;
 
 		this.leftBtn = leftBtn;
@@ -356,39 +360,88 @@ export default class PlayScene extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
-
+	private model: Model;
+	private modelImage: Phaser.GameObjects.Container;
 	create() {
 
 		this.editorCreate();
 		GameManager.setCurrentScene(this);
+		this.model = new Model(GameVars.level);
+
 	}
 
-	left(){
+	left() {
 	}
 
-	right(){
+	right() {
 	}
 
+	createModelImage(){
+		let frame, flour, ribbon, cream, decorate, taste;
+		for(let i = 0; i < this.model.features.length; i++){
+			if(this.model.features[i].frame){
+				
+			}
+			if(this.model.features[i].flour){
+				
+			}
+			if(this.model.features[i].ribbon){
+				
+			}
+			if(this.model.features[i].cream){
+				
+			}
+			if(this.model.features[i].decorate){
+				
+			}
+			if(this.model.features[i].taste){
+				
+			}
+		}
+	}
 
+	createFrame(x: number, y: number, container:Phaser.GameObjects.Container){
 
-circle(){}
-square(){}
-heart(){}
-doBrownFlour(){}
-doPinkFlour(){}
-doYellowFlour(){}
-doEmoticon(){}
-doLeaf(){}
-doBurn(){}
-doSpice(){}
-doRedRibbon(){}
-doWhiteRibbon(){}
-doGreenRibbon(){}
-doBrownCream(){}
-doPinkCream(){}
-doYellowCream(){}
-doThreeIcon(){}
-doHeartIcon(){}
+	}
+
+	createFlour(x: number, y: number, container:Phaser.GameObjects.Container){
+
+	}
+
+	createRibbon(x: number, y: number, container:Phaser.GameObjects.Container){
+
+	}
+
+	createCream(x: number, y: number, container:Phaser.GameObjects.Container){
+
+	}
+
+	createDecorate(x: number, y: number, container:Phaser.GameObjects.Container){
+
+	}
+
+	createTaste(x: number, y: number, container:Phaser.GameObjects.Container){
+
+	}
+
+	circle() { }
+	square() { }
+	heart() { }
+	doBrownFlour() { }
+	doPinkFlour() { }
+	doYellowFlour() { }
+	doEmoticon() { }
+	doLeaf() { }
+	doBurn() { }
+	doSpice() { }
+	doRedRibbon() { }
+	doWhiteRibbon() { }
+	doGreenRibbon() { }
+	doBrownCream() { }
+	doPinkCream() { }
+	doYellowCream() { }
+	doThreeIcon() { }
+	doHeartIcon() { }
 
 
 	/* END-USER-CODE */

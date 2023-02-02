@@ -1,11 +1,13 @@
 
 // You can write more code here
-import GameConstants from "~/GameConstants";
+import { LEVEL } from 'GameConstants';
 import GameManager from "../GameManager";
+import GameVars from '../GameVars';
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
 import PushOnClick from "../components/PushOnClick";
+
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -62,18 +64,23 @@ export default class MenuScene extends Phaser.Scene {
 		this.editorCreate();
 		GameManager.setCurrentScene(this);
 		this.easy.on("pointerdown", () => {
-			window.parent.postMessage(GameConstants.EASY, '*');
+			window.parent.postMessage(LEVEL.EASY, '*');
+			GameVars.level = LEVEL.EASY;
+			GameManager.enterPlayScene();
 
 		});
 
 		this.intermediate.on("pointerdown", () => {
-			window.parent.postMessage(GameConstants.INTERMEDIATE, '*');
+			window.parent.postMessage(LEVEL.INTERMEDIATE, '*');
+			GameVars.level = LEVEL.INTERMEDIATE;
+			GameManager.enterPlayScene();
 
 		});
 
 		this.advanced.on("pointerdown", () => {
-			window.parent.postMessage(GameConstants.ADVANCED, '*');
-
+			window.parent.postMessage(LEVEL.ADVANCED, '*');
+			GameVars.level = LEVEL.ADVANCED;
+			GameManager.enterPlayScene();
 		});
 		
 	}
