@@ -1,6 +1,6 @@
 
 // You can write more code here
-import { LEVEL } from 'GameConstants';
+import { LEVEL } from '../GameConstants';
 import GameManager from "../GameManager";
 import GameVars from '../GameVars';
 /* START OF COMPILED CODE */

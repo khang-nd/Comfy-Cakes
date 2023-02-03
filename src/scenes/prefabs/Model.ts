@@ -1,7 +1,7 @@
-import { COLOR, DECORATE, FRAME, FEATURES, TASTE, LEVEL } from 'GameConstants';
+import { COLOR, DECORATE, FRAME, FEATURES, TASTE, LEVEL } from '../../GameConstants';
 import Feature from './Feature';
 export default class Model {
-    public features: Feature[];
+    public features: Feature[] = [];
     constructor(level: LEVEL) {
         let frame, flour, ribbon, cream, decorate, taste, feature;
         switch (level) {

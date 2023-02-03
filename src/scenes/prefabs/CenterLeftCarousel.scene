@@ -51,7 +51,7 @@
                         "key": "machine",
                         "frame": "center_l_carousel_02.png"
                     },
-                    "x": 105,
+                    "x": 101,
                     "originX": 0,
                     "originY": 0
                 },
@@ -64,7 +64,7 @@
                         "key": "machine",
                         "frame": "center_l_carousel_02.png"
                     },
-                    "x": 312,
+                    "x": 304,
                     "originY": 0
                 },
                 {
@@ -76,7 +76,7 @@
                         "key": "machine",
                         "frame": "center_l_carousel_02.png"
                     },
-                    "x": 415,
+                    "x": 403,
                     "originY": 0
                 },
                 {
@@ -88,7 +88,7 @@
                         "key": "machine",
                         "frame": "center_r_carousel_00.png"
                     },
-                    "x": 651,
+                    "x": 636,
                     "originY": 0
                 },
                 {
@@ -100,7 +100,7 @@
                         "key": "machine",
                         "frame": "center_l_carousel_02.png"
                     },
-                    "x": 518,
+                    "x": 503,
                     "originY": 0
                 }
             ]

@@ -54,6 +54,7 @@
                 "y"
             ],
             "label": "targetScreen",
+            "scope": "CLASS",
             "components": [],
             "x": 0,
             "y": 0
@@ -63,12 +64,15 @@
             "id": "3a1aad72-3173-419e-862e-e61feffc7e61",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "visible"
             ],
             "label": "frameSpot",
+            "scope": "CLASS",
             "components": [],
             "x": 123,
-            "y": 0
+            "y": 0,
+            "visible": true
         },
         {
             "prefabId": "d8d4230f-3ab7-4797-acb7-583b684882d6",
@@ -78,6 +82,7 @@
                 "y"
             ],
             "label": "flourSpot",
+            "scope": "CLASS",
             "components": [],
             "x": 235,
             "y": 0
@@ -90,8 +95,9 @@
                 "y"
             ],
             "label": "ribbonSpot",
+            "scope": "CLASS",
             "components": [],
-            "x": 343,
+            "x": 331,
             "y": 0
         },
         {
@@ -102,8 +108,9 @@
                 "y"
             ],
             "label": "creamSpot",
+            "scope": "CLASS",
             "components": [],
-            "x": 447,
+            "x": 433,
             "y": 0
         },
         {
@@ -113,9 +120,10 @@
                 "x",
                 "y"
             ],
-            "label": "iconSpot",
+            "label": "decorateSpot",
+            "scope": "CLASS",
             "components": [],
-            "x": 547,
+            "x": 538,
             "y": 0
         },
         {
@@ -164,6 +172,7 @@
                 "y"
             ],
             "label": "trash",
+            "scope": "CLASS",
             "components": [],
             "x": 728,
             "y": 161
@@ -188,6 +197,7 @@
                 "y"
             ],
             "label": "timer",
+            "scope": "CLASS",
             "components": [],
             "x": 7,
             "y": 339,
@@ -202,6 +212,7 @@
                 "y"
             ],
             "label": "alarmLight",
+            "scope": "CLASS",
             "components": [],
             "x": 17,
             "y": 304
@@ -214,6 +225,7 @@
                 "y"
             ],
             "label": "resultScreen",
+            "scope": "CLASS",
             "components": [],
             "x": 685,
             "y": 6
@@ -246,8 +258,10 @@
                 "key": "material",
                 "frame": "cirle_frame_normal.png"
             },
-            "x": 113,
-            "y": 347
+            "x": 89,
+            "y": 333,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
@@ -266,7 +280,7 @@
                 "frame": "square_frame_normal.png"
             },
             "x": 89,
-            "y": 368,
+            "y": 370,
             "originX": 0,
             "originY": 0
         },
@@ -287,7 +301,7 @@
                 "frame": "heart_frame_normal.png"
             },
             "x": 89,
-            "y": 294,
+            "y": 296,
             "originX": 0,
             "originY": 0
         },
@@ -321,8 +335,10 @@
                 "key": "material",
                 "frame": "brown_bin_normal.png"
             },
-            "x": 212,
-            "y": 310
+            "x": 188,
+            "y": 297,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
@@ -340,8 +356,10 @@
                 "key": "material",
                 "frame": "pink_bin_normal.png"
             },
-            "x": 212,
-            "y": 347
+            "x": 188,
+            "y": 334,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
@@ -359,8 +377,10 @@
                 "key": "material",
                 "frame": "yellow_bin_normal.png"
             },
-            "x": 212,
-            "y": 384
+            "x": 188,
+            "y": 371,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
@@ -378,8 +398,10 @@
                 "key": "material",
                 "frame": "red_ribbon_normal.png"
             },
-            "x": 313,
-            "y": 316
+            "x": 290,
+            "y": 297,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
@@ -397,8 +419,10 @@
                 "key": "material",
                 "frame": "green_ribbon_normal.png"
             },
-            "x": 314,
-            "y": 388
+            "x": 291,
+            "y": 369,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
@@ -416,8 +440,10 @@
                 "key": "material",
                 "frame": "white_ribbon_noraml.png"
             },
-            "x": 314,
-            "y": 354
+            "x": 291,
+            "y": 335,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
@@ -435,8 +461,10 @@
                 "key": "material",
                 "frame": "brown_cream_normal.png"
             },
-            "x": 414,
-            "y": 314
+            "x": 388,
+            "y": 297,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
@@ -454,8 +482,10 @@
                 "key": "material",
                 "frame": "pink_frame_normal.png"
             },
-            "x": 414,
-            "y": 351
+            "x": 388,
+            "y": 334,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
@@ -473,13 +503,15 @@
                 "key": "material",
                 "frame": "yellow_cream_normal.png"
             },
-            "x": 414,
-            "y": 388
+            "x": 388,
+            "y": 371,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
             "id": "5d511cbf-539f-4cd9-927e-5947a85b1598",
-            "label": "threeIcon",
+            "label": "buttonsIcon",
             "scope": "CLASS",
             "components": [
                 "ButtonComponent"
@@ -536,7 +568,7 @@
         {
             "type": "Image",
             "id": "ba979efb-1ccd-4727-82d2-66eb76e0aa43",
-            "label": "leaf",
+            "label": "leafIcon",
             "scope": "CLASS",
             "components": [
                 "ButtonComponent"
@@ -597,7 +629,8 @@
                 "x",
                 "y"
             ],
-            "label": "finalSpot",
+            "label": "tasteSpot",
+            "scope": "CLASS",
             "components": [],
             "x": 641,
             "y": 0
