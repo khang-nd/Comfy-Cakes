@@ -1,4 +1,4 @@
-import { COLOR, DECORATE, FRAME, FEATURES, TASTE, LEVEL } from '../../GameConstants';
+import { FLOUR, CREAM, RIBBON, DECORATE, FRAME, FEATURES, TASTE, LEVEL } from '../../GameConstants';
 import Feature from './Feature';
 export default class Model {
     public features: Feature[] = [];
@@ -8,8 +8,8 @@ export default class Model {
             case LEVEL.EASY:
                 for (let i = 0; i < level; i++) {
                     frame = this.getRandom(FRAME);
-                    flour = this.getRandom(COLOR);
-                    cream = this.getRandom(COLOR);
+                    flour = this.getRandom(FLOUR);
+                    cream = this.getRandom(CREAM);
                     decorate = this.getRandom(DECORATE);
                     feature = new Feature(frame, flour, ribbon, cream, decorate, taste);
                     this.features.push(feature);
@@ -19,9 +19,9 @@ export default class Model {
             case LEVEL.INTERMEDIATE:
                 for (let i = 0; i < level; i++) {
                     frame = this.getRandom(FRAME);
-                    flour = this.getRandom(COLOR);
-                    ribbon = this.getRandom(COLOR);
-                    cream = this.getRandom(COLOR);
+                    flour = this.getRandom(FLOUR);
+                    ribbon = this.getRandom(RIBBON);
+                    cream = this.getRandom(CREAM);
                     decorate = this.getRandom(DECORATE);
                     feature = new Feature(frame, flour, ribbon, cream, decorate, taste);
                     this.features.push(feature);
@@ -29,13 +29,13 @@ export default class Model {
                 break;
             case LEVEL.ADVANCED:
                 for (let i = 0; i < level; i++) {
-                    let frame = this.getRandom(FRAME);
-                    let flour = this.getRandom(COLOR);
-                    let ribbon = this.getRandom(COLOR);
-                    let cream = this.getRandom(COLOR);
-                    let decorate = this.getRandom(DECORATE);
-                    let taste = this.getRandom(TASTE);
-                    let feature = new Feature(frame, flour, ribbon, cream, decorate, taste);
+                    frame = this.getRandom(FRAME);
+                    flour = this.getRandom(FLOUR);
+                    ribbon = this.getRandom(RIBBON);
+                    cream = this.getRandom(CREAM);
+                    decorate = this.getRandom(DECORATE);
+                    taste = this.getRandom(TASTE);
+                    feature = new Feature(frame, flour, ribbon, cream, decorate, taste);
                     this.features.push(feature);
                 }
                 break;
@@ -44,10 +44,12 @@ export default class Model {
     }
 
 
-    private getRandom(objs: any): any {
-        const index = Math.floor(Math.random() * Object.keys(objs).length);
-        const value = Object.values(objs)[index];
-
-        return objs[value as number];
+    private getRandom<T>(anEnum: T): T[keyof T] {
+        const enumValues = Object.keys(anEnum)
+            .map(n => Number.parseInt(n))
+            .filter(n => !Number.isNaN(n)) as unknown as T[keyof T][]
+        const randomIndex = Math.floor(Math.random() * enumValues.length)
+        const randomEnumValue = enumValues[randomIndex]
+        return randomEnumValue;
     }
 }

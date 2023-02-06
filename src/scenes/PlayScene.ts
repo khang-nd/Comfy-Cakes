@@ -179,6 +179,81 @@ export default class PlayScene extends Phaser.Scene {
 		const tasteSpot = new FinalSpot(this, 641, 0);
 		this.add.existing(tasteSpot);
 
+		// currentBegin
+		const currentBegin = this.add.container(132, 246);
+		currentBegin.scaleX = 0.8;
+		currentBegin.scaleY = 0.8;
+
+		// frameBegin
+		const frameBegin = this.add.image(-3, 4, "cakes", "brown_heart_06.png");
+		currentBegin.add(frameBegin);
+
+		// creamBegin
+		const creamBegin = this.add.image(-4, -3, "cakes", "brown_cream_heart.png");
+		currentBegin.add(creamBegin);
+
+		// decorateBegin
+		const decorateBegin = this.add.image(-8, -14, "material", "leaf_icon.png");
+		currentBegin.add(decorateBegin);
+
+		// currentInter
+		const currentInter = this.add.container(132, 246);
+		currentInter.scaleX = 0.8;
+		currentInter.scaleY = 0.8;
+
+		// frameOneInter
+		const frameOneInter = this.add.image(-3, 4, "cakes", "brown_heart_06.png");
+		currentInter.add(frameOneInter);
+
+		// ribbonInter
+		const ribbonInter = this.add.image(-2, -7, "cakes", "green_ribbon_heart.png");
+		currentInter.add(ribbonInter);
+
+		// frameTwoInter
+		const frameTwoInter = this.add.image(-3, -18, "cakes", "brown_heart_06.png");
+		currentInter.add(frameTwoInter);
+
+		// creamInter
+		const creamInter = this.add.image(-3, -26, "cakes", "brown_cream_heart.png");
+		currentInter.add(creamInter);
+
+		// decorateInter
+		const decorateInter = this.add.image(-6, -33, "material", "leaf_icon.png");
+		currentInter.add(decorateInter);
+
+		// currentAdvanced
+		const currentAdvanced = this.add.container(132, 246);
+		currentAdvanced.scaleX = 0.8;
+		currentAdvanced.scaleY = 0.8;
+
+		// frameOneAdvanced
+		const frameOneAdvanced = this.add.image(-3, 4, "cakes", "brown_heart_06.png");
+		currentAdvanced.add(frameOneAdvanced);
+
+		// ribbonOneAdvanced
+		const ribbonOneAdvanced = this.add.image(-3, -6, "cakes", "green_ribbon_heart.png");
+		currentAdvanced.add(ribbonOneAdvanced);
+
+		// frameTwoAdvanced
+		const frameTwoAdvanced = this.add.image(-3, -18, "cakes", "brown_heart_06.png");
+		currentAdvanced.add(frameTwoAdvanced);
+
+		// ribbonTwoAdvanced
+		const ribbonTwoAdvanced = this.add.image(-3, -23, "cakes", "green_ribbon_heart.png");
+		currentAdvanced.add(ribbonTwoAdvanced);
+
+		// frameThreeAdvanced
+		const frameThreeAdvanced = this.add.image(-3, -32, "cakes", "brown_heart_06.png");
+		currentAdvanced.add(frameThreeAdvanced);
+
+		// creamAdvanced
+		const creamAdvanced = this.add.image(-4, -39, "cakes", "brown_cream_heart.png");
+		currentAdvanced.add(creamAdvanced);
+
+		// decorateAdvanced
+		const decorateAdvanced = this.add.image(-8, -46, "material", "leaf_icon.png");
+		currentAdvanced.add(decorateAdvanced);
+
 		// canvasRef (components)
 		new AlignCanvas(canvasRef);
 
@@ -353,6 +428,24 @@ export default class PlayScene extends Phaser.Scene {
 		this.burn = burn;
 		this.spice = spice;
 		this.tasteSpot = tasteSpot;
+		this.currentBegin = currentBegin;
+		this.frameBegin = frameBegin;
+		this.creamBegin = creamBegin;
+		this.decorateBegin = decorateBegin;
+		this.currentInter = currentInter;
+		this.frameOneInter = frameOneInter;
+		this.ribbonInter = ribbonInter;
+		this.frameTwoInter = frameTwoInter;
+		this.creamInter = creamInter;
+		this.decorateInter = decorateInter;
+		this.currentAdvanced = currentAdvanced;
+		this.frameOneAdvanced = frameOneAdvanced;
+		this.ribbonOneAdvanced = ribbonOneAdvanced;
+		this.frameTwoAdvanced = frameTwoAdvanced;
+		this.ribbonTwoAdvanced = ribbonTwoAdvanced;
+		this.frameThreeAdvanced = frameThreeAdvanced;
+		this.creamAdvanced = creamAdvanced;
+		this.decorateAdvanced = decorateAdvanced;
 
 		this.events.emit("scene-awake");
 	}
@@ -388,6 +481,24 @@ export default class PlayScene extends Phaser.Scene {
 	private burn!: Phaser.GameObjects.Image;
 	private spice!: Phaser.GameObjects.Image;
 	private tasteSpot!: FinalSpot;
+	private currentBegin!: Phaser.GameObjects.Container;
+	private frameBegin!: Phaser.GameObjects.Image;
+	private creamBegin!: Phaser.GameObjects.Image;
+	private decorateBegin!: Phaser.GameObjects.Image;
+	private currentInter!: Phaser.GameObjects.Container;
+	private frameOneInter!: Phaser.GameObjects.Image;
+	private ribbonInter!: Phaser.GameObjects.Image;
+	private frameTwoInter!: Phaser.GameObjects.Image;
+	private creamInter!: Phaser.GameObjects.Image;
+	private decorateInter!: Phaser.GameObjects.Image;
+	private currentAdvanced!: Phaser.GameObjects.Container;
+	private frameOneAdvanced!: Phaser.GameObjects.Image;
+	private ribbonOneAdvanced!: Phaser.GameObjects.Image;
+	private frameTwoAdvanced!: Phaser.GameObjects.Image;
+	private ribbonTwoAdvanced!: Phaser.GameObjects.Image;
+	private frameThreeAdvanced!: Phaser.GameObjects.Image;
+	private creamAdvanced!: Phaser.GameObjects.Image;
+	private decorateAdvanced!: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 
@@ -424,7 +535,8 @@ export default class PlayScene extends Phaser.Scene {
 
 				this.hideRibbonControl();
 				this.hideTasteControl();
-				
+				this.hideTimerControl();
+
 			break;
 			case LEVEL.INTERMEDIATE:
 				this.hideTasteControl();
@@ -436,12 +548,13 @@ export default class PlayScene extends Phaser.Scene {
 
 	createModelImage(){
 		let frame, flour, ribbon, cream, decorate, taste;
-		for(let i = 0; i < this.model.features.length; i++){
+		/*for(let i = 0; i < this.model.features.length; i++){
 			if(this.model.features[i].frame){
 				console.log('create frame...');
 			}
 			if(this.model.features[i].flour){
-				console.log('create flour...');
+				//console.log('create flour...');
+				
 			}
 			if(this.model.features[i].ribbon){
 				console.log('create ribbon...');
@@ -455,7 +568,18 @@ export default class PlayScene extends Phaser.Scene {
 			if(this.model.features[i].taste){
 				console.log('create taste...');
 			}
-		}
+		}*/
+		this.targetScreen.createImage(this.model);
+	}
+
+	showTimerControl(){
+		this.alarmLight.visible = true;
+		this.timer.visible = true;
+	}
+
+	hideTimerControl(){
+		this.alarmLight.visible = false;
+		this.timer.visible = false;
 	}
 
 	showFrameControl(){

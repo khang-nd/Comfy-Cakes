@@ -2446,23 +2446,23 @@
 					}
 				},
 				{
-					"filename": "heart_icon.png",
+					"filename": "emoticon_icon.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 18,
+						"w": 24,
 						"h": 14
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 18,
+						"w": 24,
 						"h": 14
 					},
 					"frame": {
 						"x": 1319,
 						"y": 206,
-						"w": 18,
+						"w": 24,
 						"h": 14
 					}
 				},
@@ -2677,66 +2677,24 @@
 					}
 				},
 				{
-					"filename": "leaf_icon.png",
+					"filename": "heart_icon.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 23,
-						"h": 16
+						"w": 18,
+						"h": 14
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 23,
-						"h": 16
+						"w": 18,
+						"h": 14
 					},
 					"frame": {
 						"x": 1132,
 						"y": 234,
-						"w": 23,
-						"h": 16
-					}
-				},
-				{
-					"filename": "red_ribbon_00.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 18
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 18
-					},
-					"frame": {
-						"x": 1157,
-						"y": 232,
-						"w": 24,
-						"h": 18
-					}
-				},
-				{
-					"filename": "white_ribbon_00.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 18
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 18
-					},
-					"frame": {
-						"x": 1183,
-						"y": 229,
-						"w": 24,
-						"h": 18
+						"w": 18,
+						"h": 14
 					}
 				},
 				{
@@ -2754,8 +2712,8 @@
 						"h": 15
 					},
 					"frame": {
-						"x": 1209,
-						"y": 229,
+						"x": 1152,
+						"y": 232,
 						"w": 25,
 						"h": 15
 					}
@@ -2775,10 +2733,73 @@
 						"h": 15
 					},
 					"frame": {
-						"x": 1389,
-						"y": 199,
+						"x": 1183,
+						"y": 229,
 						"w": 25,
 						"h": 15
+					}
+				},
+				{
+					"filename": "red_ribbon_00.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 18
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 18
+					},
+					"frame": {
+						"x": 1210,
+						"y": 229,
+						"w": 24,
+						"h": 18
+					}
+				},
+				{
+					"filename": "white_ribbon_00.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 18
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 18
+					},
+					"frame": {
+						"x": 1389,
+						"y": 199,
+						"w": 24,
+						"h": 18
+					}
+				},
+				{
+					"filename": "leaf_icon.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 23,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 23,
+						"h": 16
+					},
+					"frame": {
+						"x": 1363,
+						"y": 208,
+						"w": 23,
+						"h": 16
 					}
 				},
 				{
@@ -2796,8 +2817,8 @@
 						"h": 11
 					},
 					"frame": {
-						"x": 1363,
-						"y": 208,
+						"x": 1388,
+						"y": 219,
 						"w": 16,
 						"h": 11
 					}
@@ -2871,6 +2892,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:2b434330561d837cb3884ba6e1208356:4cdfc195f77717e4e63d065f12dcf1c4:1bf19507363c28cf085ae9105ee4e0e7$"
+		"smartupdate": "$TexturePacker:SmartUpdate:a4f420779e87fd109c619e40fbd7c4b1:3f6d69038c8a02c805979a7225c3f2bb:1bf19507363c28cf085ae9105ee4e0e7$"
 	}
 }
