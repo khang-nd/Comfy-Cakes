@@ -4,8 +4,8 @@
 			"image": "cakes.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 503,
-				"h": 1506
+				"w": 508,
+				"h": 1509
 			},
 			"scale": 1,
 			"frames": [
@@ -115,6 +115,27 @@
 					}
 				},
 				{
+					"filename": "seek.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 6,
+						"h": 15
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 6,
+						"h": 15
+					},
+					"frame": {
+						"x": 501,
+						"y": 1,
+						"w": 6,
+						"h": 15
+					}
+				},
+				{
 					"filename": "alarm_normal.png",
 					"rotated": false,
 					"trimmed": false,
@@ -196,27 +217,6 @@
 						"y": 55,
 						"w": 111,
 						"h": 51
-					}
-				},
-				{
-					"filename": "seek.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 6,
-						"h": 15
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 6,
-						"h": 15
-					},
-					"frame": {
-						"x": 469,
-						"y": 65,
-						"w": 6,
-						"h": 15
 					}
 				},
 				{
@@ -514,44 +514,23 @@
 					}
 				},
 				{
-					"filename": "spice_circle.png",
+					"filename": "spice_heart.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 69,
-						"h": 32
+						"w": 74,
+						"h": 36
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 69,
-						"h": 32
+						"w": 74,
+						"h": 36
 					},
 					"frame": {
 						"x": 431,
 						"y": 252,
-						"w": 69,
-						"h": 32
-					}
-				},
-				{
-					"filename": "right_normal.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 67,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 67,
-						"h": 36
-					},
-					"frame": {
-						"x": 431,
-						"y": 286,
-						"w": 67,
+						"w": 74,
 						"h": 36
 					}
 				},
@@ -619,6 +598,27 @@
 					}
 				},
 				{
+					"filename": "spice_circle.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 69,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 69,
+						"h": 32
+					},
+					"frame": {
+						"x": 431,
+						"y": 290,
+						"w": 69,
+						"h": 32
+					}
+				},
+				{
 					"filename": "pink_square_07.png",
 					"rotated": false,
 					"trimmed": true,
@@ -637,6 +637,27 @@
 						"y": 300,
 						"w": 102,
 						"h": 52
+					}
+				},
+				{
+					"filename": "brown_heart_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 0,
+						"w": 84,
+						"h": 65
+					},
+					"frame": {
+						"x": 423,
+						"y": 324,
+						"w": 84,
+						"h": 65
 					}
 				},
 				{
@@ -703,27 +724,6 @@
 					}
 				},
 				{
-					"filename": "spice_heart.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 74,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 74,
-						"h": 36
-					},
-					"frame": {
-						"x": 423,
-						"y": 324,
-						"w": 74,
-						"h": 36
-					}
-				},
-				{
 					"filename": "brown_square_00.png",
 					"rotated": false,
 					"trimmed": true,
@@ -745,23 +745,23 @@
 					}
 				},
 				{
-					"filename": "brown_heart_01.png",
+					"filename": "yellow_circle_02.png",
 					"rotated": false,
-					"trimmed": true,
+					"trimmed": false,
 					"sourceSize": {
-						"w": 94,
+						"w": 89,
 						"h": 65
 					},
 					"spriteSourceSize": {
-						"x": 4,
+						"x": 0,
 						"y": 0,
-						"w": 84,
+						"w": 89,
 						"h": 65
 					},
 					"frame": {
 						"x": 418,
-						"y": 362,
-						"w": 84,
+						"y": 391,
+						"w": 89,
 						"h": 65
 					}
 				},
@@ -850,6 +850,27 @@
 					}
 				},
 				{
+					"filename": "brown_heart_04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 90,
+						"h": 65
+					},
+					"frame": {
+						"x": 417,
+						"y": 458,
+						"w": 90,
+						"h": 65
+					}
+				},
+				{
 					"filename": "square_00.png",
 					"rotated": false,
 					"trimmed": true,
@@ -913,27 +934,6 @@
 					}
 				},
 				{
-					"filename": "brown_heart_00.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 65
-					},
-					"spriteSourceSize": {
-						"x": 4,
-						"y": 0,
-						"w": 85,
-						"h": 65
-					},
-					"frame": {
-						"x": 417,
-						"y": 429,
-						"w": 85,
-						"h": 65
-					}
-				},
-				{
 					"filename": "brown_cream_square.png",
 					"rotated": false,
 					"trimmed": false,
@@ -952,27 +952,6 @@
 						"y": 460,
 						"w": 102,
 						"h": 46
-					}
-				},
-				{
-					"filename": "brown_heart_05.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 65
-					},
-					"spriteSourceSize": {
-						"x": 4,
-						"y": 0,
-						"w": 85,
-						"h": 65
-					},
-					"frame": {
-						"x": 417,
-						"y": 496,
-						"w": 85,
-						"h": 65
 					}
 				},
 				{
@@ -1060,6 +1039,48 @@
 					}
 				},
 				{
+					"filename": "pink_heart_04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 90,
+						"h": 65
+					},
+					"frame": {
+						"x": 416,
+						"y": 525,
+						"w": 90,
+						"h": 65
+					}
+				},
+				{
+					"filename": "tableCloths.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 41
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 41
+					},
+					"frame": {
+						"x": 209,
+						"y": 545,
+						"w": 100,
+						"h": 41
+					}
+				},
+				{
 					"filename": "yellow_square_02.png",
 					"rotated": false,
 					"trimmed": false,
@@ -1074,8 +1095,8 @@
 						"h": 51
 					},
 					"frame": {
-						"x": 209,
-						"y": 545,
+						"x": 104,
+						"y": 586,
 						"w": 99,
 						"h": 51
 					}
@@ -1095,8 +1116,8 @@
 						"h": 58
 					},
 					"frame": {
-						"x": 104,
-						"y": 586,
+						"x": 1,
+						"y": 618,
 						"w": 96,
 						"h": 58
 					}
@@ -1116,8 +1137,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 1,
-						"y": 618,
+						"x": 311,
+						"y": 562,
 						"w": 95,
 						"h": 65
 					}
@@ -1137,8 +1158,8 @@
 						"h": 58
 					},
 					"frame": {
-						"x": 310,
-						"y": 562,
+						"x": 408,
+						"y": 592,
 						"w": 95,
 						"h": 58
 					}
@@ -1158,8 +1179,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 407,
-						"y": 563,
+						"x": 205,
+						"y": 588,
 						"w": 94,
 						"h": 65
 					}
@@ -1179,8 +1200,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 202,
-						"y": 598,
+						"x": 99,
+						"y": 639,
 						"w": 94,
 						"h": 65
 					}
@@ -1200,8 +1221,8 @@
 						"h": 55
 					},
 					"frame": {
-						"x": 98,
-						"y": 646,
+						"x": 1,
+						"y": 678,
 						"w": 94,
 						"h": 55
 					}
@@ -1221,8 +1242,8 @@
 						"h": 53
 					},
 					"frame": {
-						"x": 1,
-						"y": 685,
+						"x": 301,
+						"y": 629,
 						"w": 94,
 						"h": 53
 					}
@@ -1242,8 +1263,8 @@
 						"h": 53
 					},
 					"frame": {
-						"x": 298,
-						"y": 622,
+						"x": 195,
+						"y": 655,
 						"w": 94,
 						"h": 53
 					}
@@ -1263,52 +1284,10 @@
 						"h": 53
 					},
 					"frame": {
-						"x": 194,
-						"y": 665,
+						"x": 97,
+						"y": 706,
 						"w": 94,
 						"h": 53
-					}
-				},
-				{
-					"filename": "brown_heart_04.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 65
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 0,
-						"w": 90,
-						"h": 65
-					},
-					"frame": {
-						"x": 97,
-						"y": 703,
-						"w": 90,
-						"h": 65
-					}
-				},
-				{
-					"filename": "pink_heart_04.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 94,
-						"h": 65
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 0,
-						"w": 90,
-						"h": 65
-					},
-					"frame": {
-						"x": 1,
-						"y": 740,
-						"w": 90,
-						"h": 65
 					}
 				},
 				{
@@ -1326,8 +1305,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 394,
-						"y": 630,
+						"x": 1,
+						"y": 735,
 						"w": 90,
 						"h": 65
 					}
@@ -1347,8 +1326,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 290,
-						"y": 677,
+						"x": 397,
+						"y": 652,
 						"w": 90,
 						"h": 64
 					}
@@ -1368,8 +1347,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 189,
-						"y": 720,
+						"x": 291,
+						"y": 684,
 						"w": 90,
 						"h": 64
 					}
@@ -1389,8 +1368,8 @@
 						"h": 60
 					},
 					"frame": {
-						"x": 93,
-						"y": 770,
+						"x": 193,
+						"y": 710,
 						"w": 90,
 						"h": 60
 					}
@@ -1410,8 +1389,8 @@
 						"h": 54
 					},
 					"frame": {
-						"x": 1,
-						"y": 807,
+						"x": 93,
+						"y": 761,
 						"w": 90,
 						"h": 54
 					}
@@ -1431,8 +1410,8 @@
 						"h": 54
 					},
 					"frame": {
-						"x": 382,
-						"y": 697,
+						"x": 1,
+						"y": 802,
 						"w": 90,
 						"h": 54
 					}
@@ -1452,31 +1431,10 @@
 						"h": 54
 					},
 					"frame": {
-						"x": 281,
-						"y": 743,
+						"x": 383,
+						"y": 718,
 						"w": 90,
 						"h": 54
-					}
-				},
-				{
-					"filename": "yellow_circle_02.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 89,
-						"h": 65
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 89,
-						"h": 65
-					},
-					"frame": {
-						"x": 185,
-						"y": 786,
-						"w": 89,
-						"h": 65
 					}
 				},
 				{
@@ -1494,8 +1452,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 93,
-						"y": 832,
+						"x": 285,
+						"y": 750,
 						"w": 89,
 						"h": 65
 					}
@@ -1515,8 +1473,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 1,
-						"y": 863,
+						"x": 185,
+						"y": 772,
 						"w": 89,
 						"h": 64
 					}
@@ -1536,8 +1494,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 373,
-						"y": 753,
+						"x": 93,
+						"y": 817,
 						"w": 89,
 						"h": 64
 					}
@@ -1557,8 +1515,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 276,
-						"y": 799,
+						"x": 1,
+						"y": 858,
 						"w": 88,
 						"h": 64
 					}
@@ -1578,8 +1536,8 @@
 						"h": 59
 					},
 					"frame": {
-						"x": 184,
-						"y": 853,
+						"x": 376,
+						"y": 774,
 						"w": 88,
 						"h": 59
 					}
@@ -1599,8 +1557,8 @@
 						"h": 57
 					},
 					"frame": {
-						"x": 92,
-						"y": 899,
+						"x": 276,
+						"y": 817,
 						"w": 88,
 						"h": 57
 					}
@@ -1620,8 +1578,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 1,
-						"y": 929,
+						"x": 184,
+						"y": 838,
 						"w": 87,
 						"h": 65
 					}
@@ -1641,8 +1599,8 @@
 						"h": 61
 					},
 					"frame": {
-						"x": 366,
-						"y": 819,
+						"x": 91,
+						"y": 883,
 						"w": 87,
 						"h": 61
 					}
@@ -1662,8 +1620,8 @@
 						"h": 58
 					},
 					"frame": {
-						"x": 274,
-						"y": 865,
+						"x": 1,
+						"y": 924,
 						"w": 87,
 						"h": 58
 					}
@@ -1683,10 +1641,31 @@
 						"h": 58
 					},
 					"frame": {
-						"x": 182,
-						"y": 914,
+						"x": 366,
+						"y": 835,
 						"w": 87,
 						"h": 58
+					}
+				},
+				{
+					"filename": "bg_timer.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 51,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 51,
+						"h": 23
+					},
+					"frame": {
+						"x": 455,
+						"y": 835,
+						"w": 51,
+						"h": 23
 					}
 				},
 				{
@@ -1704,8 +1683,8 @@
 						"h": 57
 					},
 					"frame": {
-						"x": 90,
-						"y": 958,
+						"x": 273,
+						"y": 876,
 						"w": 87,
 						"h": 57
 					}
@@ -1725,8 +1704,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 1,
-						"y": 996,
+						"x": 180,
+						"y": 905,
 						"w": 86,
 						"h": 64
 					}
@@ -1746,31 +1725,10 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 363,
-						"y": 882,
+						"x": 90,
+						"y": 946,
 						"w": 86,
 						"h": 64
-					}
-				},
-				{
-					"filename": "bg_timer.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 51,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 51,
-						"h": 23
-					},
-					"frame": {
-						"x": 451,
-						"y": 882,
-						"w": 51,
-						"h": 23
 					}
 				},
 				{
@@ -1788,8 +1746,8 @@
 						"h": 57
 					},
 					"frame": {
-						"x": 271,
-						"y": 925,
+						"x": 1,
+						"y": 984,
 						"w": 86,
 						"h": 57
 					}
@@ -1809,8 +1767,8 @@
 						"h": 57
 					},
 					"frame": {
-						"x": 179,
-						"y": 974,
+						"x": 362,
+						"y": 895,
 						"w": 86,
 						"h": 57
 					}
@@ -1830,8 +1788,8 @@
 						"h": 57
 					},
 					"frame": {
-						"x": 89,
-						"y": 1017,
+						"x": 268,
+						"y": 935,
 						"w": 86,
 						"h": 57
 					}
@@ -1851,10 +1809,52 @@
 						"h": 57
 					},
 					"frame": {
-						"x": 1,
-						"y": 1062,
+						"x": 178,
+						"y": 971,
 						"w": 86,
 						"h": 57
+					}
+				},
+				{
+					"filename": "brown_heart_00.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 0,
+						"w": 85,
+						"h": 65
+					},
+					"frame": {
+						"x": 89,
+						"y": 1012,
+						"w": 85,
+						"h": 65
+					}
+				},
+				{
+					"filename": "brown_heart_05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 94,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 0,
+						"w": 85,
+						"h": 65
+					},
+					"frame": {
+						"x": 1,
+						"y": 1043,
+						"w": 85,
+						"h": 65
 					}
 				},
 				{
@@ -1872,8 +1872,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 359,
-						"y": 948,
+						"x": 356,
+						"y": 954,
 						"w": 85,
 						"h": 65
 					}
@@ -1893,8 +1893,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 267,
-						"y": 984,
+						"x": 266,
+						"y": 994,
 						"w": 85,
 						"h": 65
 					}
@@ -1914,8 +1914,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 177,
-						"y": 1033,
+						"x": 176,
+						"y": 1030,
 						"w": 85,
 						"h": 65
 					}
@@ -1935,8 +1935,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 89,
-						"y": 1076,
+						"x": 88,
+						"y": 1079,
 						"w": 85,
 						"h": 65
 					}
@@ -1957,7 +1957,7 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 1121,
+						"y": 1110,
 						"w": 85,
 						"h": 65
 					}
@@ -1977,10 +1977,52 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 354,
-						"y": 1015,
+						"x": 353,
+						"y": 1021,
 						"w": 85,
 						"h": 65
+					}
+				},
+				{
+					"filename": "right_normal.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 67,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 67,
+						"h": 36
+					},
+					"frame": {
+						"x": 440,
+						"y": 1021,
+						"w": 67,
+						"h": 36
+					}
+				},
+				{
+					"filename": "right_over.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 67,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 67,
+						"h": 36
+					},
+					"frame": {
+						"x": 440,
+						"y": 1059,
+						"w": 67,
+						"h": 36
 					}
 				},
 				{
@@ -1998,8 +2040,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 264,
-						"y": 1051,
+						"x": 263,
+						"y": 1061,
 						"w": 85,
 						"h": 65
 					}
@@ -2019,8 +2061,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 176,
-						"y": 1100,
+						"x": 175,
+						"y": 1097,
 						"w": 85,
 						"h": 64
 					}
@@ -2041,7 +2083,7 @@
 					},
 					"frame": {
 						"x": 88,
-						"y": 1143,
+						"y": 1146,
 						"w": 85,
 						"h": 64
 					}
@@ -2062,7 +2104,7 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 1188,
+						"y": 1177,
 						"w": 85,
 						"h": 64
 					}
@@ -2082,8 +2124,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 351,
-						"y": 1082,
+						"x": 350,
+						"y": 1088,
 						"w": 85,
 						"h": 64
 					}
@@ -2103,8 +2145,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 263,
-						"y": 1118,
+						"x": 262,
+						"y": 1128,
 						"w": 84,
 						"h": 65
 					}
@@ -2125,7 +2167,7 @@
 					},
 					"frame": {
 						"x": 175,
-						"y": 1166,
+						"y": 1163,
 						"w": 84,
 						"h": 65
 					}
@@ -2146,7 +2188,7 @@
 					},
 					"frame": {
 						"x": 88,
-						"y": 1209,
+						"y": 1212,
 						"w": 84,
 						"h": 65
 					}
@@ -2167,51 +2209,9 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 1254,
+						"y": 1243,
 						"w": 84,
 						"h": 64
-					}
-				},
-				{
-					"filename": "heart_03.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 87,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 1,
-						"y": 0,
-						"w": 84,
-						"h": 64
-					},
-					"frame": {
-						"x": 349,
-						"y": 1148,
-						"w": 84,
-						"h": 64
-					}
-				},
-				{
-					"filename": "right_over.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 67,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 67,
-						"h": 36
-					},
-					"frame": {
-						"x": 435,
-						"y": 1148,
-						"w": 67,
-						"h": 36
 					}
 				},
 				{
@@ -2229,10 +2229,52 @@
 						"h": 35
 					},
 					"frame": {
-						"x": 435,
-						"y": 1186,
+						"x": 437,
+						"y": 1097,
 						"w": 67,
 						"h": 35
+					}
+				},
+				{
+					"filename": "left_over.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 67,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 67,
+						"h": 35
+					},
+					"frame": {
+						"x": 437,
+						"y": 1134,
+						"w": 67,
+						"h": 35
+					}
+				},
+				{
+					"filename": "heart_03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 87,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 84,
+						"h": 64
+					},
+					"frame": {
+						"x": 348,
+						"y": 1154,
+						"w": 84,
+						"h": 64
 					}
 				},
 				{
@@ -2251,7 +2293,7 @@
 					},
 					"frame": {
 						"x": 261,
-						"y": 1185,
+						"y": 1195,
 						"w": 84,
 						"h": 52
 					}
@@ -2272,7 +2314,7 @@
 					},
 					"frame": {
 						"x": 174,
-						"y": 1233,
+						"y": 1230,
 						"w": 83,
 						"h": 67
 					}
@@ -2293,7 +2335,7 @@
 					},
 					"frame": {
 						"x": 87,
-						"y": 1276,
+						"y": 1279,
 						"w": 83,
 						"h": 66
 					}
@@ -2314,9 +2356,51 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 1320,
+						"y": 1309,
 						"w": 83,
 						"h": 65
+					}
+				},
+				{
+					"filename": "right_down.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 66,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 66,
+						"h": 36
+					},
+					"frame": {
+						"x": 434,
+						"y": 1171,
+						"w": 66,
+						"h": 36
+					}
+				},
+				{
+					"filename": "left_down.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 66,
+						"h": 35
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 66,
+						"h": 35
+					},
+					"frame": {
+						"x": 434,
+						"y": 1209,
+						"w": 66,
+						"h": 35
 					}
 				},
 				{
@@ -2335,7 +2419,7 @@
 					},
 					"frame": {
 						"x": 347,
-						"y": 1214,
+						"y": 1220,
 						"w": 83,
 						"h": 65
 					}
@@ -2356,7 +2440,7 @@
 					},
 					"frame": {
 						"x": 259,
-						"y": 1239,
+						"y": 1249,
 						"w": 83,
 						"h": 65
 					}
@@ -2377,7 +2461,7 @@
 					},
 					"frame": {
 						"x": 172,
-						"y": 1302,
+						"y": 1299,
 						"w": 83,
 						"h": 65
 					}
@@ -2398,7 +2482,7 @@
 					},
 					"frame": {
 						"x": 86,
-						"y": 1344,
+						"y": 1347,
 						"w": 83,
 						"h": 64
 					}
@@ -2419,112 +2503,7 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 1387,
-						"w": 83,
-						"h": 64
-					}
-				},
-				{
-					"filename": "brown_burn_circle.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 82,
-						"h": 52
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 82,
-						"h": 52
-					},
-					"frame": {
-						"x": 1,
-						"y": 1453,
-						"w": 82,
-						"h": 52
-					}
-				},
-				{
-					"filename": "brown_cream_circle.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 81,
-						"h": 52
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 81,
-						"h": 52
-					},
-					"frame": {
-						"x": 85,
-						"y": 1453,
-						"w": 81,
-						"h": 52
-					}
-				},
-				{
-					"filename": "left_over.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 67,
-						"h": 35
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 67,
-						"h": 35
-					},
-					"frame": {
-						"x": 432,
-						"y": 1223,
-						"w": 67,
-						"h": 35
-					}
-				},
-				{
-					"filename": "right_down.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 66,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 66,
-						"h": 36
-					},
-					"frame": {
-						"x": 432,
-						"y": 1260,
-						"w": 66,
-						"h": 36
-					}
-				},
-				{
-					"filename": "pink_circle_06.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 90,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 0,
-						"w": 83,
-						"h": 64
-					},
-					"frame": {
-						"x": 344,
-						"y": 1281,
+						"y": 1376,
 						"w": 83,
 						"h": 64
 					}
@@ -2544,52 +2523,10 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 257,
-						"y": 1306,
+						"x": 1,
+						"y": 1442,
 						"w": 82,
 						"h": 65
-					}
-				},
-				{
-					"filename": "pink_circle_01.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 90,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 4,
-						"y": 0,
-						"w": 82,
-						"h": 64
-					},
-					"frame": {
-						"x": 171,
-						"y": 1369,
-						"w": 82,
-						"h": 64
-					}
-				},
-				{
-					"filename": "spice_square.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 81,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 81,
-						"h": 28
-					},
-					"frame": {
-						"x": 86,
-						"y": 1410,
-						"w": 81,
-						"h": 28
 					}
 				},
 				{
@@ -2607,8 +2544,8 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 168,
-						"y": 1440,
+						"x": 85,
+						"y": 1442,
 						"w": 81,
 						"h": 65
 					}
@@ -2628,52 +2565,31 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 251,
-						"y": 1435,
+						"x": 168,
+						"y": 1413,
 						"w": 81,
 						"h": 65
 					}
 				},
 				{
-					"filename": "yellow_burn_circle.png",
+					"filename": "spice_square.png",
 					"rotated": false,
-					"trimmed": false,
+					"trimmed": true,
 					"sourceSize": {
 						"w": 81,
-						"h": 53
+						"h": 31
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
 						"w": 81,
-						"h": 53
+						"h": 28
 					},
 					"frame": {
-						"x": 255,
-						"y": 1373,
+						"x": 168,
+						"y": 1480,
 						"w": 81,
-						"h": 53
-					}
-				},
-				{
-					"filename": "left_down.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 66,
-						"h": 35
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 66,
-						"h": 35
-					},
-					"frame": {
-						"x": 429,
-						"y": 1298,
-						"w": 66,
-						"h": 35
+						"h": 28
 					}
 				},
 				{
@@ -2691,10 +2607,136 @@
 						"h": 65
 					},
 					"frame": {
-						"x": 334,
-						"y": 1428,
+						"x": 251,
+						"y": 1366,
 						"w": 81,
 						"h": 65
+					}
+				},
+				{
+					"filename": "pink_circle_06.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 90,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 83,
+						"h": 64
+					},
+					"frame": {
+						"x": 251,
+						"y": 1433,
+						"w": 83,
+						"h": 64
+					}
+				},
+				{
+					"filename": "pink_circle_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 90,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 0,
+						"w": 82,
+						"h": 64
+					},
+					"frame": {
+						"x": 334,
+						"y": 1316,
+						"w": 82,
+						"h": 64
+					}
+				},
+				{
+					"filename": "brown_burn_circle.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 82,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 82,
+						"h": 52
+					},
+					"frame": {
+						"x": 418,
+						"y": 1287,
+						"w": 82,
+						"h": 52
+					}
+				},
+				{
+					"filename": "yellow_burn_circle.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 81,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 81,
+						"h": 53
+					},
+					"frame": {
+						"x": 418,
+						"y": 1341,
+						"w": 81,
+						"h": 53
+					}
+				},
+				{
+					"filename": "brown_circle_01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 80,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 80,
+						"h": 64
+					},
+					"frame": {
+						"x": 336,
+						"y": 1382,
+						"w": 80,
+						"h": 64
+					}
+				},
+				{
+					"filename": "brown_cream_circle.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 81,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 81,
+						"h": 52
+					},
+					"frame": {
+						"x": 418,
+						"y": 1396,
+						"w": 81,
+						"h": 52
 					}
 				},
 				{
@@ -2712,8 +2754,8 @@
 						"h": 52
 					},
 					"frame": {
-						"x": 338,
-						"y": 1373,
+						"x": 336,
+						"y": 1450,
 						"w": 81,
 						"h": 52
 					}
@@ -2733,31 +2775,10 @@
 						"h": 52
 					},
 					"frame": {
-						"x": 421,
-						"y": 1347,
+						"x": 419,
+						"y": 1450,
 						"w": 81,
 						"h": 52
-					}
-				},
-				{
-					"filename": "brown_circle_01.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 80,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 80,
-						"h": 64
-					},
-					"frame": {
-						"x": 421,
-						"y": 1401,
-						"w": 80,
-						"h": 64
 					}
 				}
 			]
@@ -2766,6 +2787,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:635b7c259c605ac1faa133f3759fd789:8172620545c79aa0eb7090531152e632:9e9d1a1568a5e801edd56ca797cf8d58$"
+		"smartupdate": "$TexturePacker:SmartUpdate:807eb9526374b5e87208b068f5ffc7ad:d792921072512e757528dc1c2c1fda09:9e9d1a1568a5e801edd56ca797cf8d58$"
 	}
 }

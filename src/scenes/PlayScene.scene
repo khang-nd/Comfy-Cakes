@@ -42,6 +42,7 @@
                 "y"
             ],
             "label": "leftCarousel",
+            "scope": "CLASS",
             "components": [],
             "x": 0,
             "y": 25
@@ -139,7 +140,8 @@
             "ButtonComponent.normFrame": "{\"key\":\"cakes\",\"frame\":\"left_normal.png\"}",
             "ButtonComponent.overFrame": "{\"key\":\"cakes\",\"frame\":\"left_over.png\"}",
             "ButtonComponent.downFrame": "{\"key\":\"cakes\",\"frame\":\"left_down.png\"}",
-            "ButtonComponent.callback": "this.left",
+            "ButtonComponent.callback": "this.playPrev",
+            "ButtonComponent.context": "this",
             "texture": {
                 "key": "cakes",
                 "frame": "left_normal.png"
@@ -158,7 +160,8 @@
             "ButtonComponent.normFrame": "{\"key\":\"cakes\",\"frame\":\"right_normal.png\"}",
             "ButtonComponent.overFrame": "{\"key\":\"cakes\",\"frame\":\"right_over.png\"}",
             "ButtonComponent.downFrame": "{\"key\":\"cakes\",\"frame\":\"right_down.png\"}",
-            "ButtonComponent.callback": "this.right",
+            "ButtonComponent.callback": "this.playNext",
+            "ButtonComponent.context": "this",
             "texture": {
                 "key": "cakes",
                 "frame": "right_normal.png"
@@ -315,6 +318,7 @@
                 "y"
             ],
             "label": "centerLeftCarousel",
+            "scope": "CLASS",
             "components": [],
             "x": 0,
             "y": 220,

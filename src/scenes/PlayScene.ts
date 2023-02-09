@@ -262,14 +262,16 @@ export default class PlayScene extends Phaser.Scene {
 		leftBtnButtonComponent.normFrame = {"key":"cakes","frame":"left_normal.png"};
 		leftBtnButtonComponent.overFrame = {"key":"cakes","frame":"left_over.png"};
 		leftBtnButtonComponent.downFrame = {"key":"cakes","frame":"left_down.png"};
-		leftBtnButtonComponent.callback = this.left;
+		leftBtnButtonComponent.callback = this.playPrev;
+		leftBtnButtonComponent.context = this;
 
 		// rightBtn (components)
 		const rightBtnButtonComponent = new ButtonComponent(rightBtn);
 		rightBtnButtonComponent.normFrame = {"key":"cakes","frame":"right_normal.png"};
 		rightBtnButtonComponent.overFrame = {"key":"cakes","frame":"right_over.png"};
 		rightBtnButtonComponent.downFrame = {"key":"cakes","frame":"right_down.png"};
-		rightBtnButtonComponent.callback = this.right;
+		rightBtnButtonComponent.callback = this.playNext;
+		rightBtnButtonComponent.context = this;
 
 		// circleFrame (components)
 		const circleFrameButtonComponent = new ButtonComponent(circleFrame);
@@ -397,6 +399,7 @@ export default class PlayScene extends Phaser.Scene {
 		spiceButtonComponent.downFrame = {"key":"material","frame":"spice_down.png"};
 		spiceButtonComponent.callback = this.doSpice;
 
+		this.leftCarousel = leftCarousel;
 		this.targetScreen = targetScreen;
 		this.frameSpot = frameSpot;
 		this.flourSpot = flourSpot;
@@ -412,6 +415,7 @@ export default class PlayScene extends Phaser.Scene {
 		this.circleFrame = circleFrame;
 		this.squareFrame = squareFrame;
 		this.heartFrame = heartFrame;
+		this.centerLeftCarousel = centerLeftCarousel;
 		this.brownFlour = brownFlour;
 		this.pinkFlour = pinkFlour;
 		this.yellowFlour = yellowFlour;
@@ -450,6 +454,7 @@ export default class PlayScene extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
+	private leftCarousel!: LeftCarousel;
 	private targetScreen!: TargetScreen;
 	private frameSpot!: FrameSpot;
 	private flourSpot!: FlourSpot;
@@ -465,6 +470,7 @@ export default class PlayScene extends Phaser.Scene {
 	private circleFrame!: Phaser.GameObjects.Image;
 	private squareFrame!: Phaser.GameObjects.Image;
 	private heartFrame!: Phaser.GameObjects.Image;
+	private centerLeftCarousel!: CenterLeftCarousel;
 	private brownFlour!: Phaser.GameObjects.Image;
 	private pinkFlour!: Phaser.GameObjects.Image;
 	private yellowFlour!: Phaser.GameObjects.Image;
@@ -514,10 +520,14 @@ export default class PlayScene extends Phaser.Scene {
 		this.createControl();
 	}
 
-	left() {
+	playPrev() {
+		this.leftCarousel.play('left-prev',true);
+		this.centerLeftCarousel.playPrev();
 	}
 
-	right() {
+	playNext() {
+		this.leftCarousel.play('left-next',true);
+		this.centerLeftCarousel.playNext();
 	}
 
 	createControl(){
@@ -554,7 +564,7 @@ export default class PlayScene extends Phaser.Scene {
 			}
 			if(this.model.features[i].flour){
 				//console.log('create flour...');
-				
+
 			}
 			if(this.model.features[i].ribbon){
 				console.log('create ribbon...');

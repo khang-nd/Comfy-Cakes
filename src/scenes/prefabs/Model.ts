@@ -6,8 +6,9 @@ export default class Model {
         let frame, flour, ribbon, cream, decorate, taste, feature;
         switch (level) {
             case LEVEL.EASY:
+                frame = this.getRandom(FRAME);
                 for (let i = 0; i < level; i++) {
-                    frame = this.getRandom(FRAME);
+                    
                     flour = this.getRandom(FLOUR);
                     cream = this.getRandom(CREAM);
                     decorate = this.getRandom(DECORATE);
@@ -17,24 +18,35 @@ export default class Model {
 
                 break;
             case LEVEL.INTERMEDIATE:
+                frame = this.getRandom(FRAME);
+                
                 for (let i = 0; i < level; i++) {
-                    frame = this.getRandom(FRAME);
+                    
                     flour = this.getRandom(FLOUR);
-                    ribbon = this.getRandom(RIBBON);
-                    cream = this.getRandom(CREAM);
-                    decorate = this.getRandom(DECORATE);
+                    ribbon = null;
+                    if(i < level - 1) ribbon = this.getRandom(RIBBON);
+                    if(i == level - 1){
+                        cream = this.getRandom(CREAM);
+                        decorate = this.getRandom(DECORATE);
+                    }
                     feature = new Feature(frame, flour, ribbon, cream, decorate, taste);
                     this.features.push(feature);
                 }
                 break;
             case LEVEL.ADVANCED:
+                frame = this.getRandom(FRAME);
+                ribbon = null;
                 for (let i = 0; i < level; i++) {
-                    frame = this.getRandom(FRAME);
+                    
                     flour = this.getRandom(FLOUR);
-                    ribbon = this.getRandom(RIBBON);
-                    cream = this.getRandom(CREAM);
-                    decorate = this.getRandom(DECORATE);
-                    taste = this.getRandom(TASTE);
+                    if(i < level - 1) ribbon = this.getRandom(RIBBON);
+                    
+                    
+                    if(i == level - 1){
+                        cream = this.getRandom(CREAM);
+                        decorate = this.getRandom(DECORATE);
+                        taste = this.getRandom(TASTE);
+                    }
                     feature = new Feature(frame, flour, ribbon, cream, decorate, taste);
                     this.features.push(feature);
                 }

@@ -20,7 +20,8 @@
                 {
                     "type": "Sprite",
                     "id": "1673bd10-9c00-4e45-8e7c-b98108a4e255",
-                    "label": "sprite_1",
+                    "label": "carouselOne",
+                    "scope": "CLASS",
                     "components": [],
                     "texture": {
                         "key": "machine",
@@ -32,76 +33,98 @@
                 {
                     "type": "Sprite",
                     "id": "0b3f728c-54fb-497e-bb62-5d516864254c",
-                    "label": "sprite_2",
+                    "label": "carouselTwo",
+                    "scope": "CLASS",
                     "components": [],
                     "texture": {
                         "key": "machine",
                         "frame": "center_l_carousel_02.png"
                     },
-                    "x": 104,
+                    "x": 98,
                     "originX": 0,
                     "originY": 0
                 },
                 {
                     "type": "Sprite",
                     "id": "5f0f84af-1872-4445-ba17-bd6f5f192e51",
-                    "label": "sprite_3",
+                    "label": "carouselThree",
+                    "scope": "CLASS",
                     "components": [],
                     "texture": {
                         "key": "machine",
                         "frame": "center_l_carousel_02.png"
                     },
-                    "x": 101,
+                    "x": 196,
                     "originX": 0,
                     "originY": 0
                 },
                 {
                     "type": "Sprite",
                     "id": "e430f5df-4a5e-4621-8d4d-2c71072635be",
-                    "label": "sprite_4",
+                    "label": "carouselFour",
+                    "scope": "CLASS",
                     "components": [],
                     "texture": {
                         "key": "machine",
                         "frame": "center_l_carousel_02.png"
                     },
-                    "x": 304,
+                    "x": 294,
+                    "originX": 0,
                     "originY": 0
                 },
                 {
                     "type": "Sprite",
                     "id": "fdb6f046-fff5-4d5a-8efc-445195aa517b",
-                    "label": "sprite_5",
+                    "label": "carouselFive",
+                    "scope": "CLASS",
                     "components": [],
                     "texture": {
                         "key": "machine",
                         "frame": "center_l_carousel_02.png"
                     },
-                    "x": 403,
+                    "x": 392,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "fa727239-2964-47de-90fa-523304a719ca",
+                    "label": "carouselSix",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "machine",
+                        "frame": "center_l_carousel_02.png"
+                    },
+                    "x": 396,
+                    "originX": 0,
                     "originY": 0
                 },
                 {
                     "type": "Sprite",
                     "id": "4f325305-f302-4386-b88d-014e38bea7ed",
-                    "label": "sprite_6",
+                    "label": "carouselCenterRight",
+                    "scope": "CLASS",
                     "components": [],
                     "texture": {
                         "key": "machine",
-                        "frame": "center_r_carousel_00.png"
+                        "frame": "center_r_carousel_01.png"
                     },
-                    "x": 636,
+                    "x": 600,
+                    "originX": 0,
                     "originY": 0
                 },
                 {
-                    "type": "Sprite",
-                    "id": "c0deb8eb-2ac2-4c35-abf2-0320b729f707",
-                    "label": "sprite_7",
+                    "type": "Image",
+                    "id": "a0caad77-5247-49f6-9c8d-8cc51e53d306",
+                    "label": "image_1",
                     "components": [],
                     "texture": {
-                        "key": "machine",
-                        "frame": "center_l_carousel_02.png"
+                        "key": "cakes",
+                        "frame": "tableCloths.png"
                     },
-                    "x": 503,
-                    "originY": 0
+                    "x": 631,
+                    "y": 26
                 }
             ]
         }

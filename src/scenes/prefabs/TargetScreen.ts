@@ -158,9 +158,9 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 	/* START-USER-CODE */
 
 	// Write your code here.
-	private modelCurrent:any;
-	public createImage(model: Model):void{
-		let flour, cream, decorate, ribbon;
+	private modelCurrent: any;
+	public createImage(model: Model): void {
+		let flour, cream, decorate, ribbon, taste;
 
 		/*switch(GameVars.level){
 			case LEVEL.EASY:
@@ -176,212 +176,190 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 				this.modelCurrent = this.modelAdvanced;
 				break;
 		}*/
+		let paddingY = -32;
 
-		for(let i = 0; i < model.features.length; i++){
+		for (let i = 0; i < model.features.length; i++) {
 
-			if(model.features[i].frame != null){
+			if (model.features[i].frame != null) {
 
-				if(model.features[i].frame == FRAME.CIRCLE){
+				if (model.features[i].frame == FRAME.CIRCLE) {
 
-					if(model.features[i].flour == FLOUR.BROWN){
-						flour = this.scene.add.image(0,-5,'cakes','brown_circle_06.png');
+					if (model.features[i].flour == FLOUR.BROWN) {
+						flour = this.scene.add.image(0, -5 + i * paddingY, 'cakes', 'brown_circle_06.png');
 						//this.modelCurrent
 						this.modelContainer.add(flour);
-					}else if(model.features[i].flour == FLOUR.PINK){
-						flour = this.scene.add.image(0,-5,'cakes','pink_circle_06.png');
+					} else if (model.features[i].flour == FLOUR.PINK) {
+						flour = this.scene.add.image(0, -5 + i * paddingY, 'cakes', 'pink_circle_06.png');
 						this.modelContainer.add(flour);
-					}else if(model.features[i].flour == FLOUR.YELLOW){
-						flour = this.scene.add.image(0,-5,'cakes','yellow_circle_06.png');
-						this.modelContainer.add(flour);
-					}
-				}else if(model.features[i].frame == FRAME.HEART){
-					if(model.features[i].flour == FLOUR.BROWN){
-						flour = this.scene.add.image(0,-5,'cakes','brown_heart_06.png');
-						this.modelContainer.add(flour);
-					}else if(model.features[i].flour == FLOUR.PINK){
-						flour = this.scene.add.image(0,-5,'cakes','pink_heart_06.png');
-						this.modelContainer.add(flour);
-					}else if(model.features[i].flour == FLOUR.YELLOW){
-						flour = this.scene.add.image(0,-5,'cakes','yellow_heart_06.png');
+					} else if (model.features[i].flour == FLOUR.YELLOW) {
+						flour = this.scene.add.image(0, -5 + i * paddingY, 'cakes', 'yellow_circle_06.png');
 						this.modelContainer.add(flour);
 					}
-				}else if(model.features[i].frame == FRAME.SQUARE){
-					if(model.features[i].flour == FLOUR.BROWN){
-						flour = this.scene.add.image(0,-5,'cakes','brown_square_06.png');
+				} else if (model.features[i].frame == FRAME.HEART) {
+					if (model.features[i].flour == FLOUR.BROWN) {
+						flour = this.scene.add.image(0, -5 + i * paddingY, 'cakes', 'brown_heart_06.png');
 						this.modelContainer.add(flour);
-					}else if(model.features[i].flour == FLOUR.PINK){
-						flour = this.scene.add.image(0,-5,'cakes','pink_square_06.png');
+					} else if (model.features[i].flour == FLOUR.PINK) {
+						flour = this.scene.add.image(0, -5 + i * paddingY, 'cakes', 'pink_heart_06.png');
 						this.modelContainer.add(flour);
-					}else if(model.features[i].flour == FLOUR.YELLOW){
-						flour = this.scene.add.image(0,-5,'cakes','yellow_square_06.png');
+					} else if (model.features[i].flour == FLOUR.YELLOW) {
+						flour = this.scene.add.image(0, -5 + i * paddingY, 'cakes', 'yellow_heart_06.png');
+						this.modelContainer.add(flour);
+					}
+				} else if (model.features[i].frame == FRAME.SQUARE) {
+					if (model.features[i].flour == FLOUR.BROWN) {
+						flour = this.scene.add.image(0, -5 + i * paddingY, 'cakes', 'brown_square_06.png');
+						this.modelContainer.add(flour);
+					} else if (model.features[i].flour == FLOUR.PINK) {
+						flour = this.scene.add.image(0, -5 + i * paddingY, 'cakes', 'pink_square_06.png');
+						this.modelContainer.add(flour);
+					} else if (model.features[i].flour == FLOUR.YELLOW) {
+						flour = this.scene.add.image(0, -5 + i * paddingY, 'cakes', 'yellow_square_06.png');
 						this.modelContainer.add(flour);
 					}
 				}
 
 			}
-			if(model.features[i].ribbon != null){
+			if (model.features[i].ribbon != null) {
 				//console.log('create ribbon...');
-				if(model.features[i].frame == FRAME.CIRCLE){
+				if (model.features[i].frame == FRAME.CIRCLE) {
 
-					if(model.features[i].ribbon == RIBBON.BROWN){
-						ribbon = this.scene.add.image(0,-15,'cakes','brown_ribbon_circle.png');
+					if (model.features[i].ribbon == RIBBON.PINK) {
+						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'pink_ribbon_circle.png');
 						this.modelContainer.add(ribbon);
-					}else if(model.features[i].ribbon == RIBBON.GREEN){
-						ribbon = this.scene.add.image(0,-15,'cakes','green_ribbon_circle.png');
+					} else if (model.features[i].ribbon == RIBBON.GREEN) {
+						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'green_ribbon_circle.png');
 						this.modelContainer.add(ribbon);
-					}else if(model.features[i].ribbon == RIBBON.WHITE){
-						ribbon = this.scene.add.image(0,-15,'cakes','white_ribbon_circle.png');
-						this.modelContainer.add(ribbon);
-					}
-				}else if(model.features[i].frame == FRAME.HEART){
-					if(model.features[i].ribbon == RIBBON.BROWN){
-						ribbon = this.scene.add.image(0,-15,'cakes','brown_ribbon_heart.png');
-						this.modelContainer.add(ribbon);
-					}else if(model.features[i].ribbon == RIBBON.GREEN){
-						ribbon = this.scene.add.image(0,-15,'cakes','green_ribbon_heart.png');
-						this.modelContainer.add(ribbon);
-					}else if(model.features[i].ribbon == RIBBON.WHITE){
-						ribbon = this.scene.add.image(0,-15,'cakes','white_ribbon_heart.png');
+					} else if (model.features[i].ribbon == RIBBON.WHITE) {
+						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'white_ribbon_circle.png');
 						this.modelContainer.add(ribbon);
 					}
-				}else if(model.features[i].frame == FRAME.SQUARE){
-					if(model.features[i].ribbon == RIBBON.BROWN){
-						ribbon = this.scene.add.image(0,-15,'cakes','brown_ribbon_square.png');
+				} else if (model.features[i].frame == FRAME.HEART) {
+					if (model.features[i].ribbon == RIBBON.PINK) {
+						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'pink_ribbon_heart.png');
 						this.modelContainer.add(ribbon);
-					}else if(model.features[i].ribbon == RIBBON.GREEN){
-						ribbon = this.scene.add.image(0,-15,'cakes','green_ribbon_square.png');
+					} else if (model.features[i].ribbon == RIBBON.GREEN) {
+						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'green_ribbon_heart.png');
 						this.modelContainer.add(ribbon);
-					}else if(model.features[i].ribbon == RIBBON.WHITE){
-						ribbon = this.scene.add.image(0,-15,'cakes','white_ribbon_square.png');
+					} else if (model.features[i].ribbon == RIBBON.WHITE) {
+						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'white_ribbon_heart.png');
+						this.modelContainer.add(ribbon);
+					}
+				} else if (model.features[i].frame == FRAME.SQUARE) {
+					if (model.features[i].ribbon == RIBBON.PINK) {
+						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'pink_ribbon_square.png');
+						this.modelContainer.add(ribbon);
+					} else if (model.features[i].ribbon == RIBBON.GREEN) {
+						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'green_ribbon_square.png');
+						this.modelContainer.add(ribbon);
+					} else if (model.features[i].ribbon == RIBBON.WHITE) {
+						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'white_ribbon_square.png');
 						this.modelContainer.add(ribbon);
 					}
 				}
 			}
-			if(model.features[i].cream != null){
-				if(model.features[i].frame == FRAME.CIRCLE){
+			if (model.features[i].cream != null) {
+				if (model.features[i].frame == FRAME.CIRCLE) {
 
-					if(model.features[i].cream == CREAM.BROWN){
-						cream = this.scene.add.image(0,-15,'cakes','brown_cream_circle.png');
+					if (model.features[i].cream == CREAM.BROWN) {
+						cream = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'brown_cream_circle.png');
 						this.modelContainer.add(cream);
-					}else if(model.features[i].cream == CREAM.PINK){
-						cream = this.scene.add.image(0,-15,'cakes','pink_cream_circle.png');
+					} else if (model.features[i].cream == CREAM.PINK) {
+						cream = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'pink_cream_circle.png');
 						this.modelContainer.add(cream);
-					}else if(model.features[i].cream == CREAM.YELLOW){
-						cream = this.scene.add.image(0,-15,'cakes','yellow_cream_circle.png');
-						this.modelContainer.add(cream);
-					}
-				}else if(model.features[i].frame == FRAME.HEART){
-					if(model.features[i].cream == CREAM.BROWN){
-						cream = this.scene.add.image(0,-15,'cakes','brown_cream_heart.png');
-						this.modelContainer.add(cream);
-					}else if(model.features[i].cream == CREAM.PINK){
-						cream = this.scene.add.image(0,-15,'cakes','pink_cream_heart.png');
-						this.modelContainer.add(cream);
-					}else if(model.features[i].cream == CREAM.YELLOW){
-						cream = this.scene.add.image(0,-15,'cakes','yellow_cream_heart.png');
+					} else if (model.features[i].cream == CREAM.YELLOW) {
+						cream = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'yellow_cream_circle.png');
 						this.modelContainer.add(cream);
 					}
-				}else if(model.features[i].frame == FRAME.SQUARE){
-					if(model.features[i].cream == CREAM.BROWN){
-						cream = this.scene.add.image(0,-15,'cakes','brown_cream_square.png');
+				} else if (model.features[i].frame == FRAME.HEART) {
+					if (model.features[i].cream == CREAM.BROWN) {
+						cream = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'brown_cream_heart.png');
 						this.modelContainer.add(cream);
-					}else if(model.features[i].cream == CREAM.PINK){
-						cream = this.scene.add.image(0,-15,'cakes','pink_cream_square.png');
+					} else if (model.features[i].cream == CREAM.PINK) {
+						cream = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'pink_cream_heart.png');
 						this.modelContainer.add(cream);
-					}else if(model.features[i].cream == CREAM.YELLOW){
-						cream = this.scene.add.image(0,-15,'cakes','yellow_cream_square.png');
+					} else if (model.features[i].cream == CREAM.YELLOW) {
+						cream = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'yellow_cream_heart.png');
+						this.modelContainer.add(cream);
+					}
+				} else if (model.features[i].frame == FRAME.SQUARE) {
+					if (model.features[i].cream == CREAM.BROWN) {
+						cream = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'brown_cream_square.png');
+						this.modelContainer.add(cream);
+					} else if (model.features[i].cream == CREAM.PINK) {
+						cream = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'pink_cream_square.png');
+						this.modelContainer.add(cream);
+					} else if (model.features[i].cream == CREAM.YELLOW) {
+						cream = this.scene.add.image(0, -15 + i * paddingY, 'cakes', 'yellow_cream_square.png');
 						this.modelContainer.add(cream);
 					}
 				}
 			}
-			if(model.features[i].decorate != null){
+			if (model.features[i].decorate != null) {
 				//console.log('create decorate...');
-				if(model.features[i].decorate == DECORATE.BUTTONS){
-					decorate = this.scene.add.image(0,-20,'material','three_icon.png');
+				if (model.features[i].decorate == DECORATE.BUTTONS) {
+					decorate = this.scene.add.image(0, -20 + i * paddingY, 'material', 'three_icon.png');
 					this.modelContainer.add(decorate);
-				}else if(model.features[i].decorate == DECORATE.EMOTICON){
-					decorate = this.scene.add.image(0,-20,'material','emoticon_icon.png');
+				} else if (model.features[i].decorate == DECORATE.EMOTICON) {
+					decorate = this.scene.add.image(0, -20 + i * paddingY, 'material', 'emoticon_icon.png');
 					this.modelContainer.add(decorate);
-				}else if(model.features[i].decorate == DECORATE.HEART){
-					decorate = this.scene.add.image(0,-20,'material','heart_icon.png');
+				} else if (model.features[i].decorate == DECORATE.HEART) {
+					decorate = this.scene.add.image(0, -20 + i * paddingY, 'material', 'heart_icon.png');
 					this.modelContainer.add(decorate);
-				}else if(model.features[i].decorate == DECORATE.LEAF){
-					decorate = this.scene.add.image(0,-20,'material','leaf_icon.png');
+				} else if (model.features[i].decorate == DECORATE.LEAF) {
+					decorate = this.scene.add.image(0, -20 + i * paddingY, 'material', 'leaf_icon.png');
 					this.modelContainer.add(decorate);
 				}
 
 			}
-			if(model.features[i].taste !== null){
+			if (model.features[i].taste !== null) {
 				//console.log('create taste...');
-				if(model.features[i].frame == FRAME.CIRCLE){
-					if(model.features[i].cream == CREAM.BROWN){
-						if(model.features[i].taste == TASTE.BURN){
-						
-							cream.setFrame('cakes');
-						}else{
-	
+				if (model.features[i].frame == FRAME.CIRCLE) {
+					if (model.features[i].taste == TASTE.BURN) {
+
+						if (model.features[i].cream == CREAM.BROWN) {
+							cream.setFrame('brown_burn_circle.png');
+						} else if (model.features[i].cream == CREAM.PINK) {
+							cream.setFrame('pink_burn_circle.png');
+						} else if (model.features[i].cream == CREAM.YELLOW) {
+							cream.setFrame('yellow_burn_circle.png');
 						}
-					}else if(model.features[i].cream == CREAM.PINK){
-						if(model.features[i].taste == TASTE.BURN){
-						
-							cream.setFrame('cakes');
-						}else{
-	
-						}
-					}else if(model.features[i].cream == CREAM.YELLOW){
-						if(model.features[i].taste == TASTE.BURN){
-						
-							cream.setFrame('cakes');
-						}else{
-	
-						}
+
+					} else {
+						taste = this.scene.add.image(0, -20 + i * paddingY, 'cakes', 'spice_circle.png');
+						this.modelContainer.add(taste);
 					}
-					
-				}else if(model.features[i].frame == FRAME.HEART){
-					if(model.features[i].cream == CREAM.BROWN){
-						if(model.features[i].taste == TASTE.BURN){
-						
-							cream.setFrame('cakes');
-						}else{
-	
+
+				} else if (model.features[i].frame == FRAME.HEART) {
+					if (model.features[i].taste == TASTE.BURN) {
+
+						if (model.features[i].cream == CREAM.BROWN) {
+							cream.setFrame('brown_burn_heart.png');
+						} else if (model.features[i].cream == CREAM.PINK) {
+							cream.setFrame('pink_burn_heart.png');
+						} else if (model.features[i].cream == CREAM.YELLOW) {
+							cream.setFrame('yellow_burn_heart.png');
 						}
-					}else if(model.features[i].cream == CREAM.PINK){
-						if(model.features[i].taste == TASTE.BURN){
-						
-							cream.setFrame('cakes');
-						}else{
-	
-						}
-					}else if(model.features[i].cream == CREAM.YELLOW){
-						if(model.features[i].taste == TASTE.BURN){
-						
-							cream.setFrame('cakes');
-						}else{
-	
-						}
+
+					} else {
+						taste = this.scene.add.image(0, -20 + i * paddingY, 'cakes', 'spice_heart.png');
+						this.modelContainer.add(taste);
 					}
-				}else if(model.features[i].frame == FRAME.SQUARE){
-					if(model.features[i].cream == CREAM.BROWN){
-						if(model.features[i].taste == TASTE.BURN){
-						
-							cream.setFrame('cakes');
-						}else{
-	
+
+				} else if (model.features[i].frame == FRAME.SQUARE) {
+					if (model.features[i].taste == TASTE.BURN) {
+
+						if (model.features[i].cream == CREAM.BROWN) {
+							cream.setFrame('brown_burn_square.png');
+						} else if (model.features[i].cream == CREAM.PINK) {
+							cream.setFrame('pink_burn_square.png');
+						} else if (model.features[i].cream == CREAM.YELLOW) {
+							cream.setFrame('yellow_burn_square.png');
 						}
-					}else if(model.features[i].cream == CREAM.PINK){
-						if(model.features[i].taste == TASTE.BURN){
-						
-							cream.setFrame('cakes');
-						}else{
-	
-						}
-					}else if(model.features[i].cream == CREAM.YELLOW){
-						if(model.features[i].taste == TASTE.BURN){
-						
-							cream.setFrame('cakes');
-						}else{
-	
-						}
+
+					} else {
+						taste = this.scene.add.image(0, -20 + i * paddingY, 'cakes', 'spice_square.png');
+						this.modelContainer.add(taste);
 					}
 				}
 			}

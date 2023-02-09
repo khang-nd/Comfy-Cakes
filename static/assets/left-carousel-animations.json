@@ -1,7 +1,7 @@
 {
     "anims": [
         {
-            "key": "run",
+            "key": "left-next",
             "type": "frame",
             "frames": [
                 {
@@ -49,6 +49,56 @@
                 {
                     "key": "machine",
                     "frame": "left_carousel_07.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 15,
+            "skipMissedFrames": true
+        },
+        {
+            "key": "left-prev",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "machine",
+                    "frame": "left-up_carousel_00.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "machine",
+                    "frame": "left-up_carousel_01.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "machine",
+                    "frame": "left-up_carousel_02.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "machine",
+                    "frame": "left-up_carousel_03.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "machine",
+                    "frame": "left-up_carousel_04.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "machine",
+                    "frame": "left-up_carousel_05.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "machine",
+                    "frame": "left-up_carousel_06.png",
                     "duration": 0,
                     "keyframe": false
                 }
