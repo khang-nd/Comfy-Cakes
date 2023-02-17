@@ -24,8 +24,8 @@
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "machine",
-                        "frame": "center_l_carousel_02.png"
+                        "key": "comfy-spritesheet",
+                        "frame": "center_l_carousel_03.png"
                     },
                     "originX": 0,
                     "originY": 0
@@ -37,10 +37,10 @@
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "machine",
-                        "frame": "center_l_carousel_02.png"
+                        "key": "comfy-spritesheet",
+                        "frame": "center_l_carousel_03.png"
                     },
-                    "x": 98,
+                    "x": 100,
                     "originX": 0,
                     "originY": 0
                 },
@@ -51,10 +51,10 @@
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "machine",
-                        "frame": "center_l_carousel_02.png"
+                        "key": "comfy-spritesheet",
+                        "frame": "center_l_carousel_03.png"
                     },
-                    "x": 196,
+                    "x": 200,
                     "originX": 0,
                     "originY": 0
                 },
@@ -65,10 +65,10 @@
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "machine",
-                        "frame": "center_l_carousel_02.png"
+                        "key": "comfy-spritesheet",
+                        "frame": "center_l_carousel_03.png"
                     },
-                    "x": 294,
+                    "x": 300,
                     "originX": 0,
                     "originY": 0
                 },
@@ -79,24 +79,10 @@
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "machine",
-                        "frame": "center_l_carousel_02.png"
+                        "key": "comfy-spritesheet",
+                        "frame": "center_l_carousel_03.png"
                     },
-                    "x": 392,
-                    "originX": 0,
-                    "originY": 0
-                },
-                {
-                    "type": "Sprite",
-                    "id": "fa727239-2964-47de-90fa-523304a719ca",
-                    "label": "carouselSix",
-                    "scope": "CLASS",
-                    "components": [],
-                    "texture": {
-                        "key": "machine",
-                        "frame": "center_l_carousel_02.png"
-                    },
-                    "x": 396,
+                    "x": 400,
                     "originX": 0,
                     "originY": 0
                 },
@@ -107,24 +93,12 @@
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "machine",
-                        "frame": "center_r_carousel_01.png"
+                        "key": "comfy-spritesheet",
+                        "frame": "center_r_carousel_06.png"
                     },
-                    "x": 600,
+                    "x": 606,
                     "originX": 0,
                     "originY": 0
-                },
-                {
-                    "type": "Image",
-                    "id": "a0caad77-5247-49f6-9c8d-8cc51e53d306",
-                    "label": "image_1",
-                    "components": [],
-                    "texture": {
-                        "key": "cakes",
-                        "frame": "tableCloths.png"
-                    },
-                    "x": 631,
-                    "y": 26
                 }
             ]
         }

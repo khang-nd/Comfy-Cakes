@@ -2,15 +2,14 @@
     "section1": {
         "files": [
             {
+                "url": "assets/alarm-light-animations.json",
+                "type": "animation",
+                "key": "alarm-light-animations"
+            },
+            {
                 "url": "assets/bg.png",
                 "type": "image",
                 "key": "bg"
-            },
-            {
-                "type": "multiatlas",
-                "url": "assets/cakes.json",
-                "path": "assets",
-                "key": "cakes"
             },
             {
                 "url": "assets/canvasIcon.png",
@@ -18,25 +17,35 @@
                 "key": "canvasIcon"
             },
             {
-                "url": "assets/center-left-carousel-animations.json",
+                "url": "assets/carousel-animations.json",
                 "type": "animation",
-                "key": "center-left-carousel-animations"
-            },
-            {
-                "url": "assets/center-right-carousel-animations.json",
-                "type": "animation",
-                "key": "center-right-carousel-animations"
-            },
-            {
-                "url": "assets/cream-spot-animations.json",
-                "type": "animation",
-                "key": "cream-spot-animations"
+                "key": "carousel-animations"
             },
             {
                 "type": "multiatlas",
-                "url": "assets/finalSpot.json",
+                "url": "assets/comfy-spritesheet.json",
                 "path": "assets",
-                "key": "finalSpot"
+                "key": "comfy-spritesheet"
+            },
+            {
+                "url": "assets/cream-animations.json",
+                "type": "animation",
+                "key": "cream-animations"
+            },
+            {
+                "url": "assets/decorate-animations.json",
+                "type": "animation",
+                "key": "decorate-animations"
+            },
+            {
+                "url": "assets/flour-animations.json",
+                "type": "animation",
+                "key": "flour-animations"
+            },
+            {
+                "url": "assets/frame-animations.json",
+                "type": "animation",
+                "key": "frame-animations"
             },
             {
                 "url": "assets/FufuSuperDino.png",
@@ -44,32 +53,14 @@
                 "key": "FufuSuperDino"
             },
             {
-                "url": "assets/left-carousel-animations.json",
+                "url": "assets/ribbon-animations.json",
                 "type": "animation",
-                "key": "left-carousel-animations"
+                "key": "ribbon-animations"
             },
             {
-                "type": "multiatlas",
-                "url": "assets/machine.json",
-                "path": "assets",
-                "key": "machine"
-            },
-            {
-                "type": "multiatlas",
-                "url": "assets/material.json",
-                "path": "assets",
-                "key": "material"
-            },
-            {
-                "url": "assets/right-carousel-animations.json",
+                "url": "assets/taste-animations.json",
                 "type": "animation",
-                "key": "right-carousel-animations"
-            },
-            {
-                "type": "multiatlas",
-                "url": "assets/trash.json",
-                "path": "assets",
-                "key": "trash"
+                "key": "taste-animations"
             },
             {
                 "url": "assets/trash-animations.json",

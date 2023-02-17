@@ -10,7 +10,7 @@ import Phaser from "phaser";
 export default class IconSpot extends Phaser.GameObjects.Image {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "material", frame ?? "icon_spot.png");
+		super(scene, x ?? 0, y ?? 0, texture || "comfy-spritesheet", frame ?? "icon_spot.png");
 
 		this.setOrigin(0.5, 0);
 

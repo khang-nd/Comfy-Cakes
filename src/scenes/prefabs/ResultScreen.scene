@@ -17,7 +17,7 @@
             "label": "image_1",
             "components": [],
             "texture": {
-                "key": "cakes",
+                "key": "comfy-spritesheet",
                 "frame": "result_tv.png"
             },
             "originX": 0,

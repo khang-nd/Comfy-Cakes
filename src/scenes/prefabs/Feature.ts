@@ -8,7 +8,7 @@ export default class Feature{
     public decorate: number;
     public taste: number;
 
-    constructor(frame: number, flour: number, ribbon: number = null, cream: number = null, decorate: number = null, taste: number = null){
+    constructor(frame: number = null, flour: number = null, ribbon: number = null, cream: number = null, decorate: number = null, taste: number = null){
         this.frame = frame;
         this.flour = flour;
         this.ribbon = ribbon;

@@ -23,7 +23,7 @@
                     "label": "bg",
                     "components": [],
                     "texture": {
-                        "key": "cakes",
+                        "key": "comfy-spritesheet",
                         "frame": "bg_timer.png"
                     },
                     "originX": 0,
@@ -36,7 +36,7 @@
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "cakes",
+                        "key": "comfy-spritesheet",
                         "frame": "seek.png"
                     },
                     "x": 10,

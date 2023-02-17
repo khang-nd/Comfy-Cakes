@@ -17,7 +17,7 @@
             "label": "sprite_1",
             "components": [],
             "texture": {
-                "key": "trash",
+                "key": "comfy-spritesheet",
                 "frame": "trash_09.png"
             },
             "originY": 0

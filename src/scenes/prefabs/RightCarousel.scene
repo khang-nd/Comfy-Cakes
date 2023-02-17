@@ -17,7 +17,7 @@
             "label": "sprite_1",
             "components": [],
             "texture": {
-                "key": "machine",
+                "key": "comfy-spritesheet",
                 "frame": "right_carousel_00.png"
             },
             "originX": 0,

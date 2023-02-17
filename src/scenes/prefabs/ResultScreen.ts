@@ -10,7 +10,7 @@ import Phaser from "phaser";
 export default class ResultScreen extends Phaser.GameObjects.Image {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "cakes", frame ?? "result_tv.png");
+		super(scene, x ?? 0, y ?? 0, texture || "comfy-spritesheet", frame ?? "result_tv.png");
 
 		this.setOrigin(0, 0);
 

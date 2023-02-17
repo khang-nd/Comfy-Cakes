@@ -10,7 +10,7 @@ import Phaser from "phaser";
 export default class AlarmLight extends Phaser.GameObjects.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "cakes", frame ?? "alarm_light.png");
+		super(scene, x ?? 0, y ?? 0, texture || "comfy-spritesheet", frame ?? "alarm_light.png");
 
 		this.setOrigin(0, 0);
 

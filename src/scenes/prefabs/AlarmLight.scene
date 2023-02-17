@@ -17,7 +17,7 @@
             "label": "sprite_1",
             "components": [],
             "texture": {
-                "key": "cakes",
+                "key": "comfy-spritesheet",
                 "frame": "alarm_light.png"
             },
             "originX": 0,

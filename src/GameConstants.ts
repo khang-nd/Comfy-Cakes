@@ -12,7 +12,7 @@ export enum CREAM {
 };
 
 export enum RIBBON {
-	PINK = 0,
+	RED = 0,
 	GREEN,
 	WHITE,
 };

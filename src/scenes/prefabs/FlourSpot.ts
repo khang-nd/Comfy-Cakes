@@ -10,7 +10,7 @@ import Phaser from "phaser";
 export default class FlourSpot extends Phaser.GameObjects.Image {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "material", frame ?? "flour_spot.png");
+		super(scene, x ?? 0, y ?? 0, texture || "comfy-spritesheet", frame ?? "flour_spot.png");
 
 		this.setOrigin(0.5, 0);
 

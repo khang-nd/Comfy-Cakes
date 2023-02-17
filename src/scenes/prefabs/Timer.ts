@@ -13,12 +13,12 @@ export default class Timer extends Phaser.GameObjects.Container {
 		super(scene, x ?? 0, y ?? 0);
 
 		// bg
-		const bg = scene.add.image(0, 0, "cakes", "bg_timer.png");
+		const bg = scene.add.image(0, 0, "comfy-spritesheet", "bg_timer.png");
 		bg.setOrigin(0, 0);
 		this.add(bg);
 
 		// seeker
-		const seeker = scene.add.image(10, 24, "cakes", "seek.png");
+		const seeker = scene.add.image(10, 24, "comfy-spritesheet", "seek.png");
 		seeker.setOrigin(0.5, 1);
 		this.add(seeker);
 

@@ -17,7 +17,7 @@
             "label": "image_1",
             "components": [],
             "texture": {
-                "key": "material",
+                "key": "comfy-spritesheet",
                 "frame": "frame_spot.png"
             },
             "y": 1,

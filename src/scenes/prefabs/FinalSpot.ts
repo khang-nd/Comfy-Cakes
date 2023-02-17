@@ -10,7 +10,7 @@ import Phaser from "phaser";
 export default class FinalSpot extends Phaser.GameObjects.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "finalSpot", frame ?? "burn_00.png");
+		super(scene, x ?? 0, y ?? 0, texture || "comfy-spritesheet", frame ?? "burn_00.png");
 
 		this.setOrigin(0.5, 0);
 
