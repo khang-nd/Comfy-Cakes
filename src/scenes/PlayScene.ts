@@ -4,7 +4,7 @@ import GameManager from "../GameManager";
 import GameVars from "../GameVars";
 import Model from "./prefabs/Model";
 import Feature from "./prefabs/Feature";
-import { CREAM, FEATURES, FLOUR, FRAME, LEVEL, RIBBON } from "../GameConstants";
+import { CREAM, DECORATE, FEATURES, FLOUR, FRAME, LEVEL, RIBBON } from "../GameConstants";
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -330,10 +330,10 @@ export default class PlayScene extends Phaser.Scene {
 
 		// leafIcon (components)
 		const leafIconButtonComponent = new ButtonComponent(leafIcon);
-		leafIconButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"emoticon_normal.png"};
-		leafIconButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"emoticon_up.png"};
-		leafIconButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"emoticon_down.png"};
-		leafIconButtonComponent.callback = this.doLeaf;
+		leafIconButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"leaf_normal.png"};
+		leafIconButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"leaf_up.png"};
+		leafIconButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"leaf_down.png"};
+		leafIconButtonComponent.callback = this.doLeafIcon;
 		leafIconButtonComponent.context = this;
 
 		// burn (components)
@@ -906,8 +906,8 @@ export default class PlayScene extends Phaser.Scene {
 				break;
 		}
 	}
-	doEmoticon() { }
-	doLeaf() { }
+
+
 	doBurn() { }
 	doSpice() { }
 	doRedRibbon() {
@@ -1031,9 +1031,90 @@ export default class PlayScene extends Phaser.Scene {
 		});
 
 	}
-	doButtonsIcon() { }
-	doHeartIcon() { }
-
+	doButtonsIcon() { 
+		this.useFeature.decorate = DECORATE.BUTTONS;
+		let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0, 0.5);
+		buttons.play('buttons-animation');
+		this.add.tween({
+			targets: buttons,
+			y: this.myCake.y,
+			duration: 200,
+			onComplete: () => {
+				
+			},
+			callbackScope: this
+		});
+		buttons.on('animationcomplete', () => {
+			buttons.removedFromScene();
+			buttons.destroy();
+			let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
+				this.myCake.add(buttonsSprite);
+				buttonsSprite.x = buttonsSprite.y = 0;
+		});
+	}
+	doHeartIcon() { 
+		this.useFeature.decorate = DECORATE.HEART;
+		let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
+		buttons.play('heart-animation');
+		this.add.tween({
+			targets: buttons,
+			y: this.myCake.y,
+			duration: 200,
+			onComplete: () => {
+				
+			},
+			callbackScope: this
+		});
+		buttons.on('animationcomplete', () => {
+			buttons.removedFromScene();
+			buttons.destroy();
+			let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
+				this.myCake.add(buttonsSprite);
+				buttonsSprite.x = buttonsSprite.y = 0;
+		});
+	}
+	doEmoticon() { 
+		this.useFeature.decorate = DECORATE.EMOTICON;
+		let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
+		buttons.play('emoticon-animation');
+		this.add.tween({
+			targets: buttons,
+			y: this.myCake.y,
+			duration: 200,
+			onComplete: () => {
+				
+			},
+			callbackScope: this
+		});
+		buttons.on('animationcomplete', () => {
+			buttons.removedFromScene();
+			buttons.destroy();
+			let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
+				this.myCake.add(buttonsSprite);
+				buttonsSprite.x = buttonsSprite.y = 0;
+		});
+	}
+	doLeafIcon() { 
+		this.useFeature.decorate = DECORATE.LEAF;
+		let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
+		buttons.play('leaf-animation');
+		this.add.tween({
+			targets: buttons,
+			y: this.myCake.y,
+			duration: 200,
+			onComplete: () => {
+				
+			},
+			callbackScope: this
+		});
+		buttons.on('animationcomplete', () => {
+			buttons.removedFromScene();
+			buttons.destroy();
+			let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
+				this.myCake.add(buttonsSprite);
+				buttonsSprite.x = buttonsSprite.y = 0;
+		});
+	}
 
 	/* END-USER-CODE */
 }

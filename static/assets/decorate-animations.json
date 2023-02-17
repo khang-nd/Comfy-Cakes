@@ -1,74 +1,6 @@
 {
     "anims": [
         {
-            "key": "heart-animation",
-            "type": "frame",
-            "frames": [
-                {
-                    "key": "comfy-spritesheet",
-                    "frame": "heart_00.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "comfy-spritesheet",
-                    "frame": "heart_01.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "comfy-spritesheet",
-                    "frame": "heart_02.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "comfy-spritesheet",
-                    "frame": "heart_03.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "comfy-spritesheet",
-                    "frame": "heart_04.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "comfy-spritesheet",
-                    "frame": "heart_05.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "comfy-spritesheet",
-                    "frame": "heart_06.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "comfy-spritesheet",
-                    "frame": "heart_07.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "comfy-spritesheet",
-                    "frame": "heart_08.png",
-                    "duration": 0,
-                    "keyframe": false
-                },
-                {
-                    "key": "comfy-spritesheet",
-                    "frame": "heart_09.png",
-                    "duration": 0,
-                    "keyframe": false
-                }
-            ],
-            "frameRate": 15,
-            "skipMissedFrames": true
-        },
-        {
             "key": "leaf-animation",
             "type": "frame",
             "frames": [
@@ -265,6 +197,74 @@
                 {
                     "key": "comfy-spritesheet",
                     "frame": "emoticon_09.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 15,
+            "skipMissedFrames": true
+        },
+        {
+            "key": "heart-animation",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "comfy-spritesheet",
+                    "frame": "heart_icon_00.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "comfy-spritesheet",
+                    "frame": "heart_icon_01.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "comfy-spritesheet",
+                    "frame": "heart_icon_02.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "comfy-spritesheet",
+                    "frame": "heart_icon_03.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "comfy-spritesheet",
+                    "frame": "heart_icon_04.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "comfy-spritesheet",
+                    "frame": "heart_icon_05.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "comfy-spritesheet",
+                    "frame": "heart_icon_06.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "comfy-spritesheet",
+                    "frame": "heart_icon_07.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "comfy-spritesheet",
+                    "frame": "heart_icon_08.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "comfy-spritesheet",
+                    "frame": "heart_icon_09.png",
                     "duration": 0,
                     "keyframe": false
                 }

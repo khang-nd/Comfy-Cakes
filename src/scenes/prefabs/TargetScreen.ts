@@ -182,7 +182,7 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 			if (model.features[i].decorate != null) {
 				//console.log('create decorate...');
 				if (model.features[i].decorate == DECORATE.BUTTONS) {
-					decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'three_icon.png');
+					decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'buttons_icon.png');
 					this.modelContainer.add(decorate);
 				} else if (model.features[i].decorate == DECORATE.EMOTICON) {
 					decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'emoticon_icon.png');

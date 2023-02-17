@@ -594,10 +594,10 @@
             "components": [
                 "ButtonComponent"
             ],
-            "ButtonComponent.normFrame": "{\"key\":\"comfy-spritesheet\",\"frame\":\"emoticon_normal.png\"}",
-            "ButtonComponent.overFrame": "{\"key\":\"comfy-spritesheet\",\"frame\":\"emoticon_up.png\"}",
-            "ButtonComponent.downFrame": "{\"key\":\"comfy-spritesheet\",\"frame\":\"emoticon_down.png\"}",
-            "ButtonComponent.callback": "this.doLeaf",
+            "ButtonComponent.normFrame": "{\"key\":\"comfy-spritesheet\",\"frame\":\"leaf_normal.png\"}",
+            "ButtonComponent.overFrame": "{\"key\":\"comfy-spritesheet\",\"frame\":\"leaf_up.png\"}",
+            "ButtonComponent.downFrame": "{\"key\":\"comfy-spritesheet\",\"frame\":\"leaf_down.png\"}",
+            "ButtonComponent.callback": "this.doLeafIcon",
             "ButtonComponent.context": "this",
             "texture": {
                 "key": "comfy-spritesheet",
