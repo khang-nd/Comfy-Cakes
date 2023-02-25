@@ -10,7 +10,7 @@ import Phaser from "phaser";
 export default class Bullet extends Phaser.GameObjects.Image {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "comfy-spritesheet", frame ?? "x_icon.png");
+		super(scene, x ?? 0, y ?? 0, texture || "comfy-spritesheet", frame ?? "bullet_icon.png");
 
 		this.setOrigin(0, 0);
 

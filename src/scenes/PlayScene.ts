@@ -12,20 +12,20 @@ import Phaser from "phaser";
 import AlignCanvas from "../components/AlignCanvas";
 import LeftCarousel from "./prefabs/LeftCarousel";
 import ButtonComponent from "../components/button/ButtonComponent";
-import Trash from "./prefabs/Trash";
 import RightCarousel from "./prefabs/RightCarousel";
 import Timer from "./prefabs/Timer";
 import AlarmLight from "./prefabs/AlarmLight";
-import ResultScreen from "./prefabs/ResultScreen";
 import CenterLeftCarousel from "./prefabs/CenterLeftCarousel";
 import Desk from "./prefabs/Desk";
-import FinalSpot from "./prefabs/FinalSpot";
+import Trash from "./prefabs/Trash";
 import TargetScreen from "./prefabs/TargetScreen";
-import FrameSpot from "./prefabs/FrameSpot";
+import FinalSpot from "./prefabs/FinalSpot";
 import FlourSpot from "./prefabs/FlourSpot";
 import RibbonSpot from "./prefabs/RibbonSpot";
 import CreamSpot from "./prefabs/CreamSpot";
 import IconSpot from "./prefabs/IconSpot";
+import FrameSpot from "./prefabs/FrameSpot";
+import ResultScreen from "./prefabs/ResultScreen";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -59,10 +59,6 @@ export default class PlayScene extends Phaser.Scene {
 		// rightBtn
 		const rightBtn = this.add.image(278, 433, "comfy-spritesheet", "right_normal.png");
 
-		// trash
-		const trash = new Trash(this, 728, 161);
-		this.add.existing(trash);
-
 		// rightCarousel
 		const rightCarousel = new RightCarousel(this, 698, 30);
 		this.add.existing(rightCarousel);
@@ -74,10 +70,6 @@ export default class PlayScene extends Phaser.Scene {
 		// alarmLight
 		const alarmLight = new AlarmLight(this, 17, 304);
 		this.add.existing(alarmLight);
-
-		// resultScreen
-		const resultScreen = new ResultScreen(this, 685, 6);
-		this.add.existing(resultScreen);
 
 		// circleFrame
 		const circleFrame = this.add.image(89, 333, "comfy-spritesheet", "cirle_frame_normal.png");
@@ -107,6 +99,10 @@ export default class PlayScene extends Phaser.Scene {
 		const desk = new Desk(this, 677, 222);
 		this.add.existing(desk);
 		desk.visible = false;
+
+		// trash
+		const trash = new Trash(this, 738, 161);
+		this.add.existing(trash);
 
 		// yellowFlour
 		const yellowFlour = this.add.image(188, 371, "comfy-spritesheet", "yellow_bin_normal.png");
@@ -154,18 +150,21 @@ export default class PlayScene extends Phaser.Scene {
 		// spice
 		const spice = this.add.image(614, 380, "comfy-spritesheet", "spice_normal.png");
 
-		// tasteSpot
-		const tasteSpot = new FinalSpot(this, 625, 0);
-		this.add.existing(tasteSpot);
+		// box
+		const box = this.add.sprite(729, 215, "comfy-spritesheet", "box_moving_00.png");
+		box.visible = false;
+
+		// hand
+		const hand = this.add.sprite(737, 138, "comfy-spritesheet", "hand_in_15.png");
+		hand.visible = false;
 
 		// targetScreen
 		const targetScreen = new TargetScreen(this, 0, 0);
 		this.add.existing(targetScreen);
 
-		// frameSpot
-		const frameSpot = new FrameSpot(this, 125, 0);
-		this.add.existing(frameSpot);
-		frameSpot.visible = true;
+		// tasteSpot
+		const tasteSpot = new FinalSpot(this, 625, 0);
+		this.add.existing(tasteSpot);
 
 		// flourSpot
 		const flourSpot = new FlourSpot(this, 225, 0);
@@ -183,13 +182,14 @@ export default class PlayScene extends Phaser.Scene {
 		const decorateSpot = new IconSpot(this, 525, 0);
 		this.add.existing(decorateSpot);
 
-		// box
-		const box = this.add.sprite(729, 215, "comfy-spritesheet", "box_moving_00.png");
-		box.visible = false;
+		// frameSpot
+		const frameSpot = new FrameSpot(this, 125, 0);
+		this.add.existing(frameSpot);
+		frameSpot.visible = true;
 
-		// hand
-		const hand = this.add.sprite(737, 138, "comfy-spritesheet", "hand_in_15.png");
-		hand.visible = false;
+		// resultScreen
+		const resultScreen = new ResultScreen(this, 685, 6);
+		this.add.existing(resultScreen);
 
 		// canvasRef (components)
 		new AlignCanvas(canvasRef);
@@ -357,17 +357,16 @@ export default class PlayScene extends Phaser.Scene {
 		this.leftCarousel = leftCarousel;
 		this.leftBtn = leftBtn;
 		this.rightBtn = rightBtn;
-		this.trash = trash;
 		this.rightCarousel = rightCarousel;
 		this.timer = timer;
 		this.alarmLight = alarmLight;
-		this.resultScreen = resultScreen;
 		this.circleFrame = circleFrame;
 		this.squareFrame = squareFrame;
 		this.heartFrame = heartFrame;
 		this.centerLeftCarousel = centerLeftCarousel;
 		this.brownFlour = brownFlour;
 		this.pinkFlour = pinkFlour;
+		this.trash = trash;
 		this.yellowFlour = yellowFlour;
 		this.redRibbon = redRibbon;
 		this.greenRibbon = greenRibbon;
@@ -381,15 +380,16 @@ export default class PlayScene extends Phaser.Scene {
 		this.leafIcon = leafIcon;
 		this.burn = burn;
 		this.spice = spice;
-		this.tasteSpot = tasteSpot;
+		this.box = box;
+		this.hand = hand;
 		this.targetScreen = targetScreen;
-		this.frameSpot = frameSpot;
+		this.tasteSpot = tasteSpot;
 		this.flourSpot = flourSpot;
 		this.ribbonSpot = ribbonSpot;
 		this.creamSpot = creamSpot;
 		this.decorateSpot = decorateSpot;
-		this.box = box;
-		this.hand = hand;
+		this.frameSpot = frameSpot;
+		this.resultScreen = resultScreen;
 
 		this.events.emit("scene-awake");
 	}
@@ -397,17 +397,16 @@ export default class PlayScene extends Phaser.Scene {
 	private leftCarousel!: LeftCarousel;
 	private leftBtn!: Phaser.GameObjects.Image;
 	private rightBtn!: Phaser.GameObjects.Image;
-	private trash!: Trash;
 	private rightCarousel!: RightCarousel;
 	private timer!: Timer;
 	private alarmLight!: AlarmLight;
-	private resultScreen!: ResultScreen;
 	private circleFrame!: Phaser.GameObjects.Image;
 	private squareFrame!: Phaser.GameObjects.Image;
 	private heartFrame!: Phaser.GameObjects.Image;
 	private centerLeftCarousel!: CenterLeftCarousel;
 	private brownFlour!: Phaser.GameObjects.Image;
 	private pinkFlour!: Phaser.GameObjects.Image;
+	private trash!: Trash;
 	private yellowFlour!: Phaser.GameObjects.Image;
 	private redRibbon!: Phaser.GameObjects.Image;
 	private greenRibbon!: Phaser.GameObjects.Image;
@@ -421,170 +420,225 @@ export default class PlayScene extends Phaser.Scene {
 	private leafIcon!: Phaser.GameObjects.Image;
 	private burn!: Phaser.GameObjects.Image;
 	private spice!: Phaser.GameObjects.Image;
-	private tasteSpot!: FinalSpot;
+	private box!: Phaser.GameObjects.Sprite;
+	private hand!: Phaser.GameObjects.Sprite;
 	private targetScreen!: TargetScreen;
-	private frameSpot!: FrameSpot;
+	private tasteSpot!: FinalSpot;
 	private flourSpot!: FlourSpot;
 	private ribbonSpot!: RibbonSpot;
 	private creamSpot!: CreamSpot;
 	private decorateSpot!: IconSpot;
-	private box!: Phaser.GameObjects.Sprite;
-	private hand!: Phaser.GameObjects.Sprite;
+	private frameSpot!: FrameSpot;
+	private resultScreen!: ResultScreen;
 
 	/* START-USER-CODE */
 
 	// Write your code here
 	private model: Model;
-	private userFeatures:Array<string> = [];
-	private step: number;
+	private userFeatures: Array<string> = [];
+	private cakeNum: number;
 	private initX: number;
 	private initY: number;
-	private cakes:Array<Cake> = [];
+	private cakes: Array<Cake> = [];
+	private isFirst: boolean = false;
 	//private frameSprite:Phaser.GameObjects.Sprite;
 	//private ribbonSprite: Phaser.GameObjects.Image;
 	create() {
 
 		this.editorCreate();
 		GameManager.setCurrentScene(this);
-
+		this.cakeNum = 0;
+		this.createControl();
 		this.createCake();
 
 	}
 
 	playPrev() {
-		let cake = (this.cakes[0] as Cake);
-		if(this.step == 0) return;
-		else if(this.step == 1 && !cake.features[0] ) return;
-		else if(this.step == 2 && !cake.features[0]) return;
-		this.leftCarousel.playReverse('left-animation', true);
-		this.centerLeftCarousel.playPrev();
+		//let cake = (this.cakes[0] as Cake);
+		//if(this.step == 0) return;
+		//else if(this.step == 1 && !cake.features[0] ) return;
+		//else if(this.step == 2 && !cake.features[0]) return;
 
-		for(let i = 0; i < this.cakes.length; i++){
+
+		for (let i = 0; i < this.cakes.length; i++) {
 			this.movePrev(this.cakes[i]);
 		}
-		
-		this.step--;
+
 	}
 
-	moveNext(cake: Cake){
-		this.add.tween({
-			targets: cake,
-			x: "+=100",
-			duration: 200,
-		});
+	moveNext(cake: Cake) {
+		if (cake.y == 178 && cake.x == 60) {
+			this.add.tween({
+				targets: cake,
+				x: "-=35",
+				y: "+=70",
+				duration: 200,
+			});
+			this.leftCarousel.play('left-animation', true);
+			this.centerLeftCarousel.playNext();
+
+		} else {
+			this.add.tween({
+				targets: cake,
+				x: "+=100",
+
+				duration: 200,
+			});
+			this.leftCarousel.play('left-animation', true);
+			this.centerLeftCarousel.playNext();
+
+		}
+
 	}
 
-	movePrev(cake: Cake){
-		this.add.tween({
-			targets: cake,
-			x: "-=100",
-			duration: 200,
-		});
+	movePrev(cake: Cake) {
+		if (cake.x > 25 && cake.y > 178) {
+			this.add.tween({
+				targets: cake,
+				x: "-=100",
+				duration: 200,
+			});
+			this.leftCarousel.playReverse('left-animation', true);
+			this.centerLeftCarousel.playPrev();
+		} else if (cake.y > 148 && cake.x == 25) {
+			this.add.tween({
+				targets: cake,
+				x: "+=35",
+				y: "-=70",
+				duration: 200,
+			});
+			this.leftCarousel.playReverse('left-animation', true);
+			this.centerLeftCarousel.playPrev();
+		}
 	}
 
 	playNext() {
-		let cake = (this.cakes[0] as Cake);
-		if(this.step >= 6) {
-			
-			if(this.checkResult(cake)){
-				for(let i = 1; i < this.cakes.length; i++){
-					this.moveNext(this.cakes[i]);
-				}
+		for (let i = 0; i < this.cakes.length; i++) {
+			if (this.cakes[i].x > this.decorateSpot.x) {
+				this.isFirst = true;
+				if (this.checkResult(this.cakes[i])) {
+					this.resultScreen.setStatusAt(this.cakeNum, true);
+					this.add.tween({
+						targets: this.cakes[i],
+						x: "+=110",
+						duration: 200,
+						onComplete: () => {
 
-				this.add.tween({
-					targets: cake,
-					x: "+=110",
-					duration: 200,
-					onComplete: ()=>{
+							this.hand.visible = true;
+							this.hand.play('hand-in-animation');
+							setTimeout(() => {
+								this.cakes[i].destroy();
+								this.cakes.splice(i, 1);
+							}, 500);
+							this.hand.on('animationcomplete', () => {
 
-						this.hand.visible = true;
-						this.hand.play('hand-in-animation');
-
-						this.hand.on('animationcomplete', () => {
-							
-							cake.destroy();
-							this.cakes.shift();
-
-							//this.leftCarousel.play('left-animation');
-							this.rightCarousel.play('right-animation');
-							//create new image model
-							if(GameVars.level == LEVEL.EASY){
-								this.createCake();
-								cake = this.cakes[0];
-								cake.x = 86;
-								cake.y = 130;
-								cake.visible = false;
-							}
-
-
-							this.box.visible = true;
-							this.add.tween({
-								targets: this.box,
-								x: "+=150",
-								y: "-=250",
-								duration: 3000,
-								onComplete: ()=>{
-									this.box.visible = false;
-									this.box.x =this.initX;
-									this.box.y = this.initY;
-									cake.visible = true;
+								//this.leftCarousel.play('left-animation');
+								this.rightCarousel.play('right-animation');
+								//create new image model
+								if (GameVars.level == LEVEL.EASY) {
+									let cake = this.createCake();
+									cake.visible = false;
+									this.box.visible = true;
 									this.add.tween({
-										targets: cake,
-										x: 29,
-										y: 246,
-										duration: 200,
-										onComplete: ()=>{
-											this.centerLeftCarousel.playNext();
+										targets: this.box,
+										x: "+=150",
+										y: "-=250",
+										duration: 3000,
+										onComplete: () => {
+											this.box.visible = false;
+											this.box.x = this.initX;
+											this.box.y = this.initY;
+											cake.visible = true;
 											this.add.tween({
 												targets: cake,
-												x: '+=200',
-												duration:800,
-												onComplete: ()=>{
-
+												x: 25,
+												y: 246,
+												duration: 200,
+												onComplete: () => {
+													this.centerLeftCarousel.playNext();
+													this.add.tween({
+														targets: cake,
+														x: '+=200',
+														duration: 800,
+														onComplete: () => {
+															this.cakeNum++;
+														}
+													});
 												}
 											});
 										}
 									});
 								}
+
 							});
+						}
+					});
+				} else {
+					this.resultScreen.setStatusAt(this.cakeNum, false);
+					this.add.tween({
+						targets: this.cakes[i],
+						x: "+=110",
+						duration: 200,
+						onComplete: () => {
 
+							this.centerLeftCarousel.openDesk();
+							this.trash.play('open-animation');
+							this.add.tween({
+								targets: this.cakes[i],
+								y: "+=100",
+								duration: 200,
+								onComplete: () => {
 
-							//this.hand.on('animationcomplete', () => {
-								//this.hand.visible = false;
-								//this.hand.stop();
-							//});
-						});
-					}
-				});
-			}else{
-				this.centerLeftCarousel.openDesk();
+									this.cakes[i].destroy();
+									this.cakes.splice(i, 1);
+
+									if (GameVars.level == LEVEL.EASY) {
+										let cake = this.createCake();
+										cake.visible = true;
+										this.add.tween({
+											targets: cake,
+											x: 25,
+											y: 246,
+											duration: 200,
+											onComplete: () => {
+												this.centerLeftCarousel.playNext();
+												this.add.tween({
+													targets: cake,
+													x: '+=200',
+													duration: 800,
+													onComplete: () => {
+
+													}
+												});
+											}
+										});
+									}
+								}
+							});
+						}
+					});
+				}
+			} else {
+				this.moveNext(this.cakes[i]);
 			}
-			return;
-		}
-		else if(this.step == 1 && !cake.features[0] ) return;
-		else if(this.step == 2 && !cake.features[0]) return;
-		this.leftCarousel.play('left-animation', true);
-		this.centerLeftCarousel.playNext();
 
-		for(let i = 0; i < this.cakes.length; i++){
-			this.moveNext(this.cakes[i]);
 		}
 
-		this.step++;
+
 	}
 
-	checkResult(cake: Cake){
+	checkResult(cake: Cake) {
 		let result = false;
-		result = this.userFeatures.length == this.model.features.length && this.userFeatures.every((el, ix)=> el === this.model.features[ix]);
+		result = cake.features.length == this.model.features.length && cake.features.every((el, ix) => el === this.model.features[ix]);
 		return result;
 	}
 
 	createControl() {
-		let ribbon, taste, cake;
-		cake = (this.cakes[0] as Cake);
+		//let ribbon, taste, cake;
+		//cake = this.getCakeByPos(this.frameSpot);
 		switch (GameVars.level) {
 			case LEVEL.EASY:
-				this.step = 2;
+
 				this.frameSpot.x = this.flourSpot.x;
 				this.heartFrame.x = this.brownFlour.x;
 				this.circleFrame.x = this.pinkFlour.x;
@@ -598,19 +652,17 @@ export default class PlayScene extends Phaser.Scene {
 				this.hideRibbonControl();
 				this.hideTasteControl();
 				this.hideTimerControl();
-				cake.x = this.frameSpot.x;
-
-				this.userFeatures[2] = ribbon;
-				this.userFeatures[5] = taste;
+				this.resultScreen.cakeNum(5);
 
 				break;
 			case LEVEL.INTERMEDIATE:
-				this.step = 1;
+
 				this.hideTasteControl();
-				this.userFeatures[5] = taste;
+				this.resultScreen.cakeNum(5);
+
 				break;
 			case LEVEL.ADVANCED:
-				this.step = 1;
+				this.resultScreen.cakeNum(6);
 				break;
 		}
 	}
@@ -618,16 +670,25 @@ export default class PlayScene extends Phaser.Scene {
 	createCake() {
 
 
-		let cake = new Cake(this);
-		cake.features = [];
+		let cake = new Cake(this, this.frameSpot.x, this.frameSpot.y);
+
+		if (!this.isFirst) {
+			cake.x = this.frameSpot.x;
+			cake.y = 248;
+		} else {
+			cake.x = 84;
+			cake.y = 121;
+		}
+
+		//cake.features = [];
 		this.cakes.push(cake);
 		this.model = new Model(GameVars.level);
 		this.targetScreen.clearChild();
 		this.targetScreen.createImage(this.model);
 
-		this.createControl();
 		this.initX = this.box.x;
 		this.initY = this.box.y;
+		return cake;
 	}
 
 	showTimerControl() {
@@ -931,9 +992,9 @@ export default class PlayScene extends Phaser.Scene {
 
 
 	doBrownFlour() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(cake.features[2] || cake.features[3] || !cake.features[0]) return;
+		let cake = this.getCakeByPos(this.flourSpot);
+		if (!cake) return;
+		if (cake.features[2] || cake.features[3] || !cake.features[0]) return;
 		let flour = this.add.sprite(this.flourSpot.x, this.flourSpot.y + this.flourSpot.displayHeight, 'comfy-spritesheet', 'brown_flour_00.png').setOrigin(0.5, 0);
 		flour.play('brown-flour-animation', true);
 		flour.on('animationcomplete', () => {
@@ -941,7 +1002,7 @@ export default class PlayScene extends Phaser.Scene {
 			flour.destroy();
 		});
 		let frame = (cake.last as Phaser.GameObjects.Sprite);
-		switch (this.userFeatures[0]) {
+		switch (cake.features[0]) {
 			case FRAME.CIRCLE:
 				frame.play('brown-circle-animation', true);
 				break;
@@ -953,12 +1014,12 @@ export default class PlayScene extends Phaser.Scene {
 				break;
 		}
 
-		cake.features[1]=FLOUR.BROWN;
+		cake.features[1] = FLOUR.BROWN;
 	}
 	doPinkFlour() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(cake.features[2] || cake.features[3] || !cake.features[0]) return;
+		let cake = this.getCakeByPos(this.flourSpot);
+		if (!cake) return;
+		if (cake.features[2] || cake.features[3] || !cake.features[0]) return;
 		let flour = this.add.sprite(this.flourSpot.x, this.flourSpot.y + this.flourSpot.displayHeight, 'comfy-spritesheet', 'pink_flour_00.png').setOrigin(0.5, 0);
 		flour.play('pink-flour-animation', true);
 		flour.on('animationcomplete', () => {
@@ -968,7 +1029,7 @@ export default class PlayScene extends Phaser.Scene {
 
 		});
 		let frame = (cake.last as Phaser.GameObjects.Sprite);
-		switch (cake.features[1]) {
+		switch (cake.features[0]) {
 			case FRAME.CIRCLE:
 				frame.play('pink-circle-animation');
 				break;
@@ -980,12 +1041,12 @@ export default class PlayScene extends Phaser.Scene {
 				break;
 		}
 
-		cake.features[1]=FLOUR.PINK;
+		cake.features[1] = FLOUR.PINK;
 	}
 	doYellowFlour() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(cake.features[2] || cake.features[3] || !cake.features[0]) return;
+		let cake = this.getCakeByPos(this.flourSpot);
+		if (!cake) return;
+		if (cake.features[2] || cake.features[3] || !cake.features[0]) return;
 		let flour = this.add.sprite(this.flourSpot.x, this.flourSpot.y + this.flourSpot.displayHeight, 'comfy-spritesheet', 'yellow_flour_00.png').setOrigin(0.5, 0);
 		flour.play('yellow-flour-animation', true);
 		flour.on('animationcomplete', () => {
@@ -995,7 +1056,7 @@ export default class PlayScene extends Phaser.Scene {
 
 		});
 		let frame = (cake.last as Phaser.GameObjects.Sprite);
-		switch (this.userFeatures[0]) {
+		switch (cake.features[0]) {
 			case FRAME.CIRCLE:
 				frame.play('yellow-circle-animation');
 				break;
@@ -1007,63 +1068,104 @@ export default class PlayScene extends Phaser.Scene {
 				break;
 		}
 
-		cake.features[1]=FLOUR.YELLOW;
+		cake.features[1] = FLOUR.YELLOW;
 	}
 
 
 	doBurn() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
-	 }
-	doSpice() { 
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
+		let cake = this.getCakeByPos(this.decorateSpot);
+		if (!cake) return;
+		if (!cake.features[1]) return;
+	}
+	doSpice() {
+		let cake = this.getCakeByPos(this.decorateSpot);
+		if (!cake) return;
+		if (!cake.features[1]) return;
 	}
 	doRedRibbon() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
-		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'red_ribbon_00.png').setOrigin(0.5);
+		let cake = this.getCakeByPos(this.ribbonSpot);
+		if (!cake && !cake.features[1]) return;
+		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'red_ribbon_00.png').setOrigin(0.5,0);
 		ribbon.play('red-ribbon-animation');
 		ribbon.on('animationcomplete', () => {
 			ribbon.removedFromScene();
 			ribbon.destroy();
 
-
+			let ribbonSprite;
+			
+			switch (cake.features[0]) {
+				case FRAME.CIRCLE:
+					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'red_ribbon_circle.png');
+					break;
+				case FRAME.HEART:
+					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'red_ribbon_heart.png');
+					break;
+				case FRAME.SQUARE:
+					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'red_ribbon_square.png');
+					break;
+			}
+			cake.add(ribbonSprite);
+			ribbonSprite.x = -1;
+			ribbonSprite.y = -10;
 		});
 	}
 	doWhiteRibbon() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
-		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'white_ribbon_00.png').setOrigin(0.5);
+		let cake = this.getCakeByPos(this.ribbonSpot);
+		if (!cake && !cake.features[1]) return;
+		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'white_ribbon_00.png').setOrigin(0.5,0);
 		ribbon.play('white-ribbon-animation');
 		ribbon.on('animationcomplete', () => {
 			ribbon.removedFromScene();
 			ribbon.destroy();
 
-
+			let ribbonSprite;
+			
+			switch (cake.features[0]) {
+				case FRAME.CIRCLE:
+					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_circle.png');
+					break;
+				case FRAME.HEART:
+					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_heart.png');
+					break;
+				case FRAME.SQUARE:
+					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_square.png');
+					break;
+			}
+			cake.add(ribbonSprite);
+			ribbonSprite.x = -1;
+			ribbonSprite.y = -10;
 		});
 	}
 	doGreenRibbon() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
-		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'green_ribbon_00.png').setOrigin(0.5);
+		let cake = this.getCakeByPos(this.ribbonSpot);
+		if (!cake && !cake.features[1]) return;
+		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'green_ribbon_00.png').setOrigin(0.5,0);
 		ribbon.play('green-ribbon-animation');
 		ribbon.on('animationcomplete', () => {
 			ribbon.removedFromScene();
 			ribbon.destroy();
 
-
+			let ribbonSprite;
+			
+			switch (cake.features[0]) {
+				case FRAME.CIRCLE:
+					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_circle.png');
+					break;
+				case FRAME.HEART:
+					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_heart.png');
+					break;
+				case FRAME.SQUARE:
+					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_square.png');
+					break;
+			}
+			cake.add(ribbonSprite);
+			ribbonSprite.x = -1;
+			ribbonSprite.y = -10;
 		});
 	}
 	doBrownCream() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
+		let cake = this.getCakeByPos(this.creamSpot);
+		if (!cake || !cake.features[1]) return;
 		this.creamSpot.play('brown-spot-animation');
 		this.creamSpot.on('animationcomplete', () => {
 			let cream = this.add.sprite(this.creamSpot.x, this.creamSpot.y + this.creamSpot.displayHeight + 50, 'comfy-spritesheet', 'brown_line_00.png').setOrigin(0.5);
@@ -1074,15 +1176,15 @@ export default class PlayScene extends Phaser.Scene {
 			});
 			let last = (cake.last as Phaser.GameObjects.Sprite);
 			let creamSprite;
-			switch(cake.features[0]){
+			switch (cake.features[0]) {
 				case FRAME.CIRCLE:
-					creamSprite = this.add.sprite(0, -5 + cake.length-1 * -45, 'comfy-spritesheet',  'brown_cream_circle.png');
+					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_circle.png');
 					break;
 				case FRAME.HEART:
-					creamSprite = this.add.sprite(0, -5 + cake.length-1 * -45, 'comfy-spritesheet',  'brown_cream_heart.png');
+					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_heart.png');
 					break;
 				case FRAME.SQUARE:
-					creamSprite = this.add.sprite(0, -5 + cake.length-1 * -45, 'comfy-spritesheet',  'brown_cream_square.png');
+					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_square.png');
 					break;
 			}
 			cake.add(creamSprite);
@@ -1094,9 +1196,8 @@ export default class PlayScene extends Phaser.Scene {
 
 	}
 	doPinkCream() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
+		let cake = this.getCakeByPos(this.creamSpot);
+		if (!cake || !cake.features[1]) return;
 		this.creamSpot.play('pink-spot-animation');
 		this.creamSpot.on('animationcomplete', () => {
 			let cream = this.add.sprite(this.creamSpot.x, this.creamSpot.y + this.creamSpot.displayHeight + 50, 'comfy-spritesheet', 'pink_line_00.png').setOrigin(0.5);
@@ -1105,17 +1206,17 @@ export default class PlayScene extends Phaser.Scene {
 				cream.removedFromScene();
 				cream.destroy();
 			});
-			let last = (cake.last as Phaser.GameObjects.Sprite);
+			//let last = (cake.last as Phaser.GameObjects.Sprite);
 			let creamSprite;
-			switch(cake.features[0]){
+			switch (cake.features[0]) {
 				case FRAME.CIRCLE:
-					creamSprite = this.add.sprite(last.x, -5 + cake.length-1 * -45, 'comfy-spritesheet',  'pink_cream_circle.png');
+					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_circle.png');
 					break;
 				case FRAME.HEART:
-					creamSprite = this.add.sprite(last.x, -5 + cake.length-1 * -45, 'comfy-spritesheet',  'pink_cream_heart.png');
+					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_heart.png');
 					break;
 				case FRAME.SQUARE:
-					creamSprite = this.add.sprite(last.x, -5 + cake.length-1 * -45, 'comfy-spritesheet',  'pink_cream_square.png');
+					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_square.png');
 					break;
 			}
 			cake.add(creamSprite);
@@ -1125,9 +1226,8 @@ export default class PlayScene extends Phaser.Scene {
 		cake.features[3] = CREAM.PINK;
 	}
 	doYellowCream() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
+		let cake = this.getCakeByPos(this.creamSpot);
+		if (!cake || !cake.features[1]) return;
 		this.creamSpot.play('yellow-spot-animation');
 		this.creamSpot.on('animationcomplete', () => {
 			let cream = this.add.sprite(this.creamSpot.x, this.creamSpot.y + this.creamSpot.displayHeight + 50, 'comfy-spritesheet', 'yellow_line_00.png').setOrigin(0.5);
@@ -1136,33 +1236,32 @@ export default class PlayScene extends Phaser.Scene {
 				cream.removedFromScene();
 				cream.destroy();
 			});
-			let last = (cake.last as Phaser.GameObjects.Sprite);
+			//let last = (cake.last as Phaser.GameObjects.Sprite);
 			let creamSprite;
-			switch(cake.features[0]){
+			switch (cake.features[0]) {
 				case FRAME.CIRCLE:
-					creamSprite = this.add.sprite(last.x, -5 + cake.length-1 * -45, 'comfy-spritesheet',  'yellow_cream_circle.png');
+					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_circle.png');
 					break;
 				case FRAME.HEART:
-					creamSprite = this.add.sprite(last.x, -5 + cake.length-1 * -45, 'comfy-spritesheet',  'yellow_cream_heart.png');
+					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_heart.png');
 					break;
 				case FRAME.SQUARE:
-					creamSprite = this.add.sprite(last.x, -5 + cake.length-1 * -45, 'comfy-spritesheet',  'yellow_cream_square.png');
+					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_square.png');
 					break;
 			}
 			cake.add(creamSprite);
 			creamSprite.x = -1;
 			creamSprite.y = -10;
 		});
-		cake.features[1] = CREAM.YELLOW;
+		cake.features[3] = CREAM.YELLOW;
 
 	}
-	doButtonsIcon() { 
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
-		if(!cake.features[4]){
+	doButtonsIcon() {
+		let cake = this.getCakeByPos(this.decorateSpot);
+		if (!cake || !cake.features[1]) return;
+		if (!cake.features[4]) {
 			cake.features[4] = DECORATE.BUTTONS;
-			let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight , 'comfy-spritesheet', 'buttons_00.png').setOrigin(0.5);
+			let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0.5);
 			buttons.play('buttons-animation');
 			this.add.tween({
 				targets: buttons,
@@ -1177,11 +1276,11 @@ export default class PlayScene extends Phaser.Scene {
 				buttons.removedFromScene();
 				buttons.destroy();
 				let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
-					cake.add(buttonsSprite);
-					buttonsSprite.x = 0;
-					buttonsSprite.y = -15;
+				cake.add(buttonsSprite);
+				buttonsSprite.x = 0;
+				buttonsSprite.y = -15;
 			});
-		}else{
+		} else {
 			let last = (cake.last as Phaser.GameObjects.Sprite);
 			cake.remove(last);
 			last.removedFromScene();
@@ -1192,7 +1291,7 @@ export default class PlayScene extends Phaser.Scene {
 			buttons.play('buttons-animation');
 			this.add.tween({
 				targets: buttons,
-				y: cake.y -20,
+				y: cake.y - 20,
 				duration: 200,
 				onComplete: () => {
 
@@ -1203,19 +1302,18 @@ export default class PlayScene extends Phaser.Scene {
 				buttons.removedFromScene();
 				buttons.destroy();
 				let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
-					cake.add(buttonsSprite);
-					buttonsSprite.x = 0;
-					buttonsSprite.y = -15;
+				cake.add(buttonsSprite);
+				buttonsSprite.x = 0;
+				buttonsSprite.y = -15;
 			});
 
 		}
 
 	}
-	doHeartIcon() { 
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
-		if(!cake.features[4]){
+	doHeartIcon() {
+		let cake = this.getCakeByPos(this.decorateSpot);
+		if (!cake || !cake.features[1]) return;
+		if (!cake.features[4]) {
 			cake.features[4] = DECORATE.HEART;
 			let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
 			heart.play('heart-animation');
@@ -1232,11 +1330,11 @@ export default class PlayScene extends Phaser.Scene {
 				heart.removedFromScene();
 				heart.destroy();
 				let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
-					cake.add(heartSprite);
-					heartSprite.x = 0;
-					heartSprite.y = -15;
+				cake.add(heartSprite);
+				heartSprite.x = 0;
+				heartSprite.y = -15;
 			});
-		}else{
+		} else {
 			let last = (cake.last as Phaser.GameObjects.Sprite);
 			cake.remove(last);
 			last.removedFromScene();
@@ -1258,24 +1356,23 @@ export default class PlayScene extends Phaser.Scene {
 				heart.removedFromScene();
 				heart.destroy();
 				let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
-					cake.add(heartSprite);
-					heartSprite.x = 0;
-					heartSprite.y = -15;
+				cake.add(heartSprite);
+				heartSprite.x = 0;
+				heartSprite.y = -15;
 			});
 		}
 
 	}
 	doEmoticon() {
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
-		if(!cake.features[4]){
+		let cake = this.getCakeByPos(this.decorateSpot);
+		if (!cake || !cake.features[1]) return;
+		if (!cake.features[4]) {
 			cake.features[4] = DECORATE.EMOTICON;
 			let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
 			emoticon.play('emoticon-animation');
 			this.add.tween({
 				targets: emoticon,
-				y: cake.y-20,
+				y: cake.y - 20,
 				duration: 200,
 				onComplete: () => {
 
@@ -1287,10 +1384,10 @@ export default class PlayScene extends Phaser.Scene {
 				emoticon.destroy();
 				let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
 				cake.add(emoticonSprite);
-					emoticonSprite.x = 0;
-					emoticonSprite.y = -15;
+				emoticonSprite.x = 0;
+				emoticonSprite.y = -15;
 			});
-		}else{
+		} else {
 			let last = (cake.last as Phaser.GameObjects.Sprite);
 			cake.remove(last);
 			last.removedFromScene();
@@ -1301,7 +1398,7 @@ export default class PlayScene extends Phaser.Scene {
 			emoticon.play('emoticon-animation');
 			this.add.tween({
 				targets: emoticon,
-				y: cake.y -20,
+				y: cake.y - 20,
 				duration: 200,
 				onComplete: () => {
 
@@ -1313,49 +1410,22 @@ export default class PlayScene extends Phaser.Scene {
 				emoticon.destroy();
 				let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
 				cake.add(emoticonSprite);
-					emoticonSprite.x = 0;
-					emoticonSprite.y = -15;
+				emoticonSprite.x = 0;
+				emoticonSprite.y = -15;
 			});
 		}
 
 	}
-	doLeafIcon() { 
-		let cake = this.getCakeByX(this.decorateSpot);
-		if(!cake) return;
-		if(!cake.features[1]) return;
-		if(!cake.features[4]){
+	doLeafIcon() {
+		let cake = this.getCakeByPos(this.decorateSpot);
+		if (!cake || !cake.features[1]) return;
+		if (!cake.features[4]) {
 			cake.features[4] = DECORATE.LEAF;
-		let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
-		leaf.play('leaf-animation');
-		this.add.tween({
-			targets: leaf,
-			y: cake.y - 20,
-			duration: 200,
-			onComplete: () => {
-
-			},
-			callbackScope: this
-		});
-		leaf.on('animationcomplete', () => {
-			leaf.removedFromScene();
-			leaf.destroy();
-			let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
-				cake.add(leafSprite);
-				leafSprite.x = 0;
-				leafSprite.y = -15;
-		});
-		}else{
-			let last = (cake.last as Phaser.GameObjects.Sprite);
-			cake.remove(last);
-			last.removedFromScene();
-			last.destroy();
-
-
 			let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
 			leaf.play('leaf-animation');
 			this.add.tween({
 				targets: leaf,
-				y: cake.y -20,
+				y: cake.y - 20,
 				duration: 200,
 				onComplete: () => {
 
@@ -1367,17 +1437,43 @@ export default class PlayScene extends Phaser.Scene {
 				leaf.destroy();
 				let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
 				cake.add(leafSprite);
-					leafSprite.x = 0;
-					leafSprite.y = -15;
+				leafSprite.x = 0;
+				leafSprite.y = -15;
+			});
+		} else {
+			let last = (cake.last as Phaser.GameObjects.Sprite);
+			cake.remove(last);
+			last.removedFromScene();
+			last.destroy();
+
+
+			let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
+			leaf.play('leaf-animation');
+			this.add.tween({
+				targets: leaf,
+				y: cake.y - 20,
+				duration: 200,
+				onComplete: () => {
+
+				},
+				callbackScope: this
+			});
+			leaf.on('animationcomplete', () => {
+				leaf.removedFromScene();
+				leaf.destroy();
+				let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
+				cake.add(leafSprite);
+				leafSprite.x = 0;
+				leafSprite.y = -15;
 			});
 		}
 
 	}
 
-	getCakeByX(target: any){
+	getCakeByPos(target: any) {
 		let cake = null;
-		for(let i = 0; i < this.cakes.length; i++){
-			if(this.cakes[i].x ==target.x){
+		for (let i = 0; i < this.cakes.length; i++) {
+			if (this.cakes[i].x == target.x) {
 				cake = this.cakes[i];
 				return cake;
 			}
@@ -1385,7 +1481,7 @@ export default class PlayScene extends Phaser.Scene {
 		return cake;
 	}
 
-	
+
 
 	/* END-USER-CODE */
 }

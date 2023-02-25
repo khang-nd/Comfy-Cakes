@@ -17,6 +17,10 @@ export default class Cake extends Phaser.GameObjects.Container {
 		this.add(tableCloth);
 
 		/* START-USER-CTR-CODE */
+		scene.add.existing(this);
+		for(let i = 0; i < 6 ; i++){
+			this.features[i] = undefined;
+		}
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}

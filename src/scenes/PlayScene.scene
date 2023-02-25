@@ -88,19 +88,6 @@
             "y": 433
         },
         {
-            "prefabId": "51345886-6d76-4269-9c54-957c042406cb",
-            "id": "ebca3222-073d-473d-94fd-c3b744afb3dd",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "trash",
-            "scope": "CLASS",
-            "components": [],
-            "x": 728,
-            "y": 161
-        },
-        {
             "prefabId": "e23363e6-8d98-4091-b8b1-46fe8121d909",
             "id": "cbca3b34-eb1f-4319-a33f-2942414650b0",
             "unlock": [
@@ -140,21 +127,6 @@
             "components": [],
             "x": 17,
             "y": 304
-        },
-        {
-            "prefabId": "5cc0bb62-e582-4a50-9119-513dfd5a2f46",
-            "id": "fe34a0a3-9e79-459e-a41b-5798278e8fcc",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "resultScreen",
-            "scope": "CLASS",
-            "components": [],
-            "x": 685,
-            "y": 6,
-            "nestedPrefabs": [],
-            "list": []
         },
         {
             "type": "Image",
@@ -294,6 +266,19 @@
             "x": 677,
             "y": 222,
             "visible": false
+        },
+        {
+            "prefabId": "51345886-6d76-4269-9c54-957c042406cb",
+            "id": "ebca3222-073d-473d-94fd-c3b744afb3dd",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "trash",
+            "scope": "CLASS",
+            "components": [],
+            "x": 738,
+            "y": 161
         },
         {
             "type": "Image",
@@ -570,17 +555,32 @@
             "y": 380
         },
         {
-            "prefabId": "2b98621a-0b96-4dde-a65a-a030b474cc47",
-            "id": "b137d361-6849-4024-a4f9-5b956530ff56",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "tasteSpot",
+            "type": "Sprite",
+            "id": "f71c2b9f-1b54-407f-b613-4e8f98049317",
+            "label": "box",
             "scope": "CLASS",
             "components": [],
-            "x": 625,
-            "y": 0
+            "texture": {
+                "key": "comfy-spritesheet",
+                "frame": "box_moving_00.png"
+            },
+            "x": 729,
+            "y": 215,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "5d06e087-1b95-4bf9-9019-6640563b1d2f",
+            "label": "hand",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "comfy-spritesheet",
+                "frame": "hand_in_15.png"
+            },
+            "x": 737,
+            "y": 138,
+            "visible": false
         },
         {
             "prefabId": "a331293a-7d8d-42f5-ae89-2af39ffeb242",
@@ -598,19 +598,17 @@
             "list": []
         },
         {
-            "prefabId": "5ae46468-ab1a-493d-9dc6-dbac29c783d0",
-            "id": "3a1aad72-3173-419e-862e-e61feffc7e61",
+            "prefabId": "2b98621a-0b96-4dde-a65a-a030b474cc47",
+            "id": "b137d361-6849-4024-a4f9-5b956530ff56",
             "unlock": [
                 "x",
-                "y",
-                "visible"
+                "y"
             ],
-            "label": "frameSpot",
+            "label": "tasteSpot",
             "scope": "CLASS",
             "components": [],
-            "x": 125,
-            "y": 0,
-            "visible": true
+            "x": 625,
+            "y": 0
         },
         {
             "prefabId": "d8d4230f-3ab7-4797-acb7-583b684882d6",
@@ -665,32 +663,34 @@
             "y": 0
         },
         {
-            "type": "Sprite",
-            "id": "f71c2b9f-1b54-407f-b613-4e8f98049317",
-            "label": "box",
+            "prefabId": "5ae46468-ab1a-493d-9dc6-dbac29c783d0",
+            "id": "3a1aad72-3173-419e-862e-e61feffc7e61",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "frameSpot",
             "scope": "CLASS",
             "components": [],
-            "texture": {
-                "key": "comfy-spritesheet",
-                "frame": "box_moving_00.png"
-            },
-            "x": 729,
-            "y": 215,
-            "visible": false
+            "x": 125,
+            "y": 0,
+            "visible": true
         },
         {
-            "type": "Sprite",
-            "id": "5d06e087-1b95-4bf9-9019-6640563b1d2f",
-            "label": "hand",
+            "prefabId": "5cc0bb62-e582-4a50-9119-513dfd5a2f46",
+            "id": "fe34a0a3-9e79-459e-a41b-5798278e8fcc",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "resultScreen",
             "scope": "CLASS",
             "components": [],
-            "texture": {
-                "key": "comfy-spritesheet",
-                "frame": "hand_in_15.png"
-            },
-            "x": 737,
-            "y": 138,
-            "visible": false
+            "x": 685,
+            "y": 6,
+            "nestedPrefabs": [],
+            "list": []
         }
     ],
     "plainObjects": [],

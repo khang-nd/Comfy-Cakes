@@ -64,9 +64,10 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
 		this.bullets.push(this.bulletThree);
 		this.bullets.push(this.bulletFour);
 		this.bullets.push(this.bulletFive);
-		if(GameVars.level == LEVEL.INTERMEDIATE || GameVars.level == LEVEL.ADVANCED) this.bullets.push(this.bulletSix);
-		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this);
-		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
+		this.bullets.push(this.bulletSix);
+		//if(GameVars.level == LEVEL.INTERMEDIATE || GameVars.level == LEVEL.ADVANCED) this.bullets.push(this.bulletSix);
+		//this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this);
+		//this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 		/* END-USER-CTR-CODE */
 	}
 
@@ -80,13 +81,42 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
 	/* START-USER-CODE */
 
 	// Write your code here.
+	private current: number = 0;
 	private bullets:Array<Bullet> = [];
 	start() {
 		for(let i = 0; i < this.bullets.length; i++){
-			this.bullets[i].visible = true;
+			this.bullets[i].visible = false;
 			this.bullets[i].setFrame('bullet_icon.png');
 		}
 	}
+
+	cakeNum(value: number){
+		if(value > this.bullets.length) return;
+		for(let i = 0; i < value; i++){
+			this.bullets[i].visible = true;
+		}
+	}
+
+	setStatusAt(id: number, status:boolean){
+		let string = status ? "pass_icon.png" : "x_icon.png";
+		this.bullets[id].setFrame(string);
+		
+		if(!status){
+			this.bullets[id].alpha = 0;
+			this.scene.add.tween({
+				targets: this.bullets[id],
+				alpha: 1,
+				repeat: 2,
+				duration: 200,
+				onComplete: ()=>{
+					this.bullets[id].setFrame('bullet_icon.png');
+				}
+			});
+		}
+		
+	}
+
+	
 
 	update(time: number, delta: number) {
 	}
