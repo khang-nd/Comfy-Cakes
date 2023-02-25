@@ -1,14 +1,14 @@
 import {DECORATE, FRAME, TASTE} from 'GameConstants';
 
 export default class Feature{
-    public frame: number;
-    public flour: number;
-    public ribbon: number;
-    public cream: number;
-    public decorate: number;
-    public taste: number;
+    public frame: string;
+    public flour: string;
+    public ribbon: string;
+    public cream: string;
+    public decorate: string;
+    public taste: string;
 
-    constructor(frame: number = null, flour: number = null, ribbon: number = null, cream: number = null, decorate: number = null, taste: number = null){
+    constructor(frame: string = null, flour: string = null, ribbon: string = null, cream: string = null, decorate: string = null, taste: string = null){
         this.frame = frame;
         this.flour = flour;
         this.ribbon = ribbon;

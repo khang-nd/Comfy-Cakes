@@ -12,16 +12,114 @@
     },
     "displayList": [
         {
-            "type": "Image",
-            "id": "bd6a0d0c-6c51-4684-9c94-334afc4b8190",
-            "label": "image_1",
+            "type": "Container",
+            "id": "c756182a-d453-499a-8b9a-76fb401f8520",
+            "label": "container_1",
             "components": [],
-            "texture": {
-                "key": "comfy-spritesheet",
-                "frame": "result_tv.png"
-            },
-            "originX": 0,
-            "originY": 0
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "bd6a0d0c-6c51-4684-9c94-334afc4b8190",
+                    "label": "resutlFrame",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "result_tv.png"
+                    },
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "ec70352b-6164-4944-bdeb-7706df84f9fd",
+                    "id": "73da6ade-a8a9-45c9-b777-af0fa92186b6",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "bulletOne",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 14,
+                    "y": 22,
+                    "visible": false
+                },
+                {
+                    "prefabId": "ec70352b-6164-4944-bdeb-7706df84f9fd",
+                    "id": "2f1390d7-195e-40ac-900e-07e20f082958",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "bulletTwo",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 35,
+                    "y": 22,
+                    "visible": false
+                },
+                {
+                    "prefabId": "ec70352b-6164-4944-bdeb-7706df84f9fd",
+                    "id": "85b35fa2-3ec9-4991-9a5f-04f69c008e72",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "bulletThree",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 56,
+                    "y": 22,
+                    "visible": false
+                },
+                {
+                    "prefabId": "ec70352b-6164-4944-bdeb-7706df84f9fd",
+                    "id": "065bcebd-c7f4-4d0b-ae06-0a4e12cf5adf",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "bulletFour",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 77,
+                    "y": 22,
+                    "visible": false
+                },
+                {
+                    "prefabId": "ec70352b-6164-4944-bdeb-7706df84f9fd",
+                    "id": "ae8bd166-2ba1-4b51-acff-928009419e0f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "bulletFive",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 14,
+                    "y": 42.5,
+                    "visible": false
+                },
+                {
+                    "prefabId": "ec70352b-6164-4944-bdeb-7706df84f9fd",
+                    "id": "a5cdf015-7ca0-4723-b371-2cb78e1d53ef",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "bulletSix",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 35,
+                    "y": 42.5,
+                    "visible": false
+                }
+            ]
         }
     ],
     "plainObjects": [],

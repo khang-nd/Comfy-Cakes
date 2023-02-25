@@ -53,6 +53,11 @@
                 "key": "FufuSuperDino"
             },
             {
+                "url": "assets/hand-animations.json",
+                "type": "animation",
+                "key": "hand-animations"
+            },
+            {
                 "url": "assets/ribbon-animations.json",
                 "type": "animation",
                 "key": "ribbon-animations"
