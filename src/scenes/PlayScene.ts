@@ -196,161 +196,161 @@ export default class PlayScene extends Phaser.Scene {
 
 		// leftBtn (components)
 		const leftBtnButtonComponent = new ButtonComponent(leftBtn);
-		leftBtnButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"left_normal.png"};
-		leftBtnButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"left_over.png"};
-		leftBtnButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"left_down.png"};
+		leftBtnButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "left_normal.png" };
+		leftBtnButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "left_over.png" };
+		leftBtnButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "left_down.png" };
 		leftBtnButtonComponent.callback = this.playPrev;
 		leftBtnButtonComponent.context = this;
 
 		// rightBtn (components)
 		const rightBtnButtonComponent = new ButtonComponent(rightBtn);
-		rightBtnButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"right_normal.png"};
-		rightBtnButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"right_over.png"};
-		rightBtnButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"right_down.png"};
+		rightBtnButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "right_normal.png" };
+		rightBtnButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "right_over.png" };
+		rightBtnButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "right_down.png" };
 		rightBtnButtonComponent.callback = this.playNext;
 		rightBtnButtonComponent.context = this;
 
 		// circleFrame (components)
 		const circleFrameButtonComponent = new ButtonComponent(circleFrame);
-		circleFrameButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"cirle_frame_normal.png"};
-		circleFrameButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"cirle_frame_up.png"};
-		circleFrameButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"cirle_frame_down.png"};
+		circleFrameButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "cirle_frame_normal.png" };
+		circleFrameButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "cirle_frame_up.png" };
+		circleFrameButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "cirle_frame_down.png" };
 		circleFrameButtonComponent.callback = this.circle;
 		circleFrameButtonComponent.context = this;
 
 		// squareFrame (components)
 		const squareFrameButtonComponent = new ButtonComponent(squareFrame);
-		squareFrameButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"square_frame_normal.png"};
-		squareFrameButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"square_frame_up.png"};
-		squareFrameButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"square_frame_down.png"};
+		squareFrameButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "square_frame_normal.png" };
+		squareFrameButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "square_frame_up.png" };
+		squareFrameButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "square_frame_down.png" };
 		squareFrameButtonComponent.callback = this.square;
 		squareFrameButtonComponent.context = this;
 
 		// heartFrame (components)
 		const heartFrameButtonComponent = new ButtonComponent(heartFrame);
-		heartFrameButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"heart_frame_normal.png"};
-		heartFrameButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"heart_frame_up.png"};
-		heartFrameButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"heart_frame_down.png"};
+		heartFrameButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "heart_frame_normal.png" };
+		heartFrameButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "heart_frame_up.png" };
+		heartFrameButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "heart_frame_down.png" };
 		heartFrameButtonComponent.callback = this.heart;
 		heartFrameButtonComponent.context = this;
 
 		// brownFlour (components)
 		const brownFlourButtonComponent = new ButtonComponent(brownFlour);
-		brownFlourButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"brown_bin_normal.png"};
-		brownFlourButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"brown_bin_up.png"};
-		brownFlourButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"brown_bin_down.png"};
+		brownFlourButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "brown_bin_normal.png" };
+		brownFlourButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "brown_bin_up.png" };
+		brownFlourButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "brown_bin_down.png" };
 		brownFlourButtonComponent.callback = this.doBrownFlour;
 		brownFlourButtonComponent.context = this;
 
 		// pinkFlour (components)
 		const pinkFlourButtonComponent = new ButtonComponent(pinkFlour);
-		pinkFlourButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"pink_bin_normal.png"};
-		pinkFlourButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"pink_bin_up.png"};
-		pinkFlourButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"pink_bin_down.png"};
+		pinkFlourButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "pink_bin_normal.png" };
+		pinkFlourButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "pink_bin_up.png" };
+		pinkFlourButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "pink_bin_down.png" };
 		pinkFlourButtonComponent.callback = this.doPinkFlour;
 		pinkFlourButtonComponent.context = this;
 
 		// yellowFlour (components)
 		const yellowFlourButtonComponent = new ButtonComponent(yellowFlour);
-		yellowFlourButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"yellow_bin_normal.png"};
-		yellowFlourButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"yellow_bin_up.png"};
-		yellowFlourButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"yellow_bin_down.png"};
+		yellowFlourButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "yellow_bin_normal.png" };
+		yellowFlourButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "yellow_bin_up.png" };
+		yellowFlourButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "yellow_bin_down.png" };
 		yellowFlourButtonComponent.callback = this.doYellowFlour;
 		yellowFlourButtonComponent.context = this;
 
 		// redRibbon (components)
 		const redRibbonButtonComponent = new ButtonComponent(redRibbon);
-		redRibbonButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"red_ribbon_normal.png"};
-		redRibbonButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"red_ribbon_up.png"};
-		redRibbonButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"red_ribbon_down.png"};
+		redRibbonButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "red_ribbon_normal.png" };
+		redRibbonButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "red_ribbon_up.png" };
+		redRibbonButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "red_ribbon_down.png" };
 		redRibbonButtonComponent.callback = this.doRedRibbon;
 		redRibbonButtonComponent.context = this;
 
 		// greenRibbon (components)
 		const greenRibbonButtonComponent = new ButtonComponent(greenRibbon);
-		greenRibbonButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"green_ribbon_normal.png"};
-		greenRibbonButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"green_ribbon_over.png"};
-		greenRibbonButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"green_ribbon_down.png"};
+		greenRibbonButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "green_ribbon_normal.png" };
+		greenRibbonButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "green_ribbon_over.png" };
+		greenRibbonButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "green_ribbon_down.png" };
 		greenRibbonButtonComponent.callback = this.doGreenRibbon;
 		greenRibbonButtonComponent.context = this;
 
 		// whiteRibbon (components)
 		const whiteRibbonButtonComponent = new ButtonComponent(whiteRibbon);
-		whiteRibbonButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"white_ribbon_noraml.png"};
-		whiteRibbonButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"white_ribbon_up.png"};
-		whiteRibbonButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"white_ribbon_down.png"};
+		whiteRibbonButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "white_ribbon_noraml.png" };
+		whiteRibbonButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "white_ribbon_up.png" };
+		whiteRibbonButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "white_ribbon_down.png" };
 		whiteRibbonButtonComponent.callback = this.doWhiteRibbon;
 		whiteRibbonButtonComponent.context = this;
 
 		// brownCream (components)
 		const brownCreamButtonComponent = new ButtonComponent(brownCream);
-		brownCreamButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"brown_cream_normal.png"};
-		brownCreamButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"brown_cream_up.png"};
-		brownCreamButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"brown_cream_down.png"};
+		brownCreamButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "brown_cream_normal.png" };
+		brownCreamButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "brown_cream_up.png" };
+		brownCreamButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "brown_cream_down.png" };
 		brownCreamButtonComponent.callback = this.doBrownCream;
 		brownCreamButtonComponent.context = this;
 
 		// pinkCream (components)
 		const pinkCreamButtonComponent = new ButtonComponent(pinkCream);
-		pinkCreamButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"pink_frame_normal.png"};
-		pinkCreamButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"pink_frame_up.png"};
-		pinkCreamButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"pink_frame_down.png"};
+		pinkCreamButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "pink_frame_normal.png" };
+		pinkCreamButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "pink_frame_up.png" };
+		pinkCreamButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "pink_frame_down.png" };
 		pinkCreamButtonComponent.callback = this.doPinkCream;
 		pinkCreamButtonComponent.context = this;
 
 		// yellowCream (components)
 		const yellowCreamButtonComponent = new ButtonComponent(yellowCream);
-		yellowCreamButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"yellow_cream_normal.png"};
-		yellowCreamButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"yellow_cream_up.png"};
-		yellowCreamButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"yellow_cream_down.png"};
+		yellowCreamButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "yellow_cream_normal.png" };
+		yellowCreamButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "yellow_cream_up.png" };
+		yellowCreamButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "yellow_cream_down.png" };
 		yellowCreamButtonComponent.callback = this.doYellowCream;
 		yellowCreamButtonComponent.context = this;
 
 		// buttonsIcon (components)
 		const buttonsIconButtonComponent = new ButtonComponent(buttonsIcon);
-		buttonsIconButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"three_icons_normal.png"};
-		buttonsIconButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"three_icons_up.png"};
-		buttonsIconButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"three_icons_down.png"};
+		buttonsIconButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "three_icons_normal.png" };
+		buttonsIconButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "three_icons_up.png" };
+		buttonsIconButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "three_icons_down.png" };
 		buttonsIconButtonComponent.callback = this.doButtonsIcon;
 		buttonsIconButtonComponent.context = this;
 
 		// heartIcon (components)
 		const heartIconButtonComponent = new ButtonComponent(heartIcon);
-		heartIconButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"heart_icon_normal.png"};
-		heartIconButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"heart_icon_up.png"};
-		heartIconButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"heart_icon_down.png"};
+		heartIconButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "heart_icon_normal.png" };
+		heartIconButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "heart_icon_up.png" };
+		heartIconButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "heart_icon_down.png" };
 		heartIconButtonComponent.callback = this.doHeartIcon;
 		heartIconButtonComponent.context = this;
 
 		// emoticon (components)
 		const emoticonButtonComponent = new ButtonComponent(emoticon);
-		emoticonButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"emoticon_normal.png"};
-		emoticonButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"emoticon_up.png"};
-		emoticonButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"emoticon_down.png"};
+		emoticonButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "emoticon_normal.png" };
+		emoticonButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "emoticon_up.png" };
+		emoticonButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "emoticon_down.png" };
 		emoticonButtonComponent.callback = this.doEmoticon;
 		emoticonButtonComponent.context = this;
 
 		// leafIcon (components)
 		const leafIconButtonComponent = new ButtonComponent(leafIcon);
-		leafIconButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"leaf_normal.png"};
-		leafIconButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"leaf_up.png"};
-		leafIconButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"leaf_down.png"};
+		leafIconButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "leaf_normal.png" };
+		leafIconButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "leaf_up.png" };
+		leafIconButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "leaf_down.png" };
 		leafIconButtonComponent.callback = this.doLeafIcon;
 		leafIconButtonComponent.context = this;
 
 		// burn (components)
 		const burnButtonComponent = new ButtonComponent(burn);
-		burnButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"burn_normal.png"};
-		burnButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"burn_up.png"};
-		burnButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"burn_down.png"};
+		burnButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "burn_normal.png" };
+		burnButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "burn_up.png" };
+		burnButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "burn_down.png" };
 		burnButtonComponent.callback = this.doBurn;
 		burnButtonComponent.context = this;
 
 		// spice (components)
 		const spiceButtonComponent = new ButtonComponent(spice);
-		spiceButtonComponent.normFrame = {"key":"comfy-spritesheet","frame":"spice_normal.png"};
-		spiceButtonComponent.overFrame = {"key":"comfy-spritesheet","frame":"spice_up.png"};
-		spiceButtonComponent.downFrame = {"key":"comfy-spritesheet","frame":"spice_down.png"};
+		spiceButtonComponent.normFrame = { "key": "comfy-spritesheet", "frame": "spice_normal.png" };
+		spiceButtonComponent.overFrame = { "key": "comfy-spritesheet", "frame": "spice_up.png" };
+		spiceButtonComponent.downFrame = { "key": "comfy-spritesheet", "frame": "spice_down.png" };
 		spiceButtonComponent.callback = this.doSpice;
 		spiceButtonComponent.context = this;
 
@@ -441,6 +441,7 @@ export default class PlayScene extends Phaser.Scene {
 	private initY: number;
 	private cakes: Array<Cake> = [];
 	private isFirst: boolean = false;
+	private paddingY: number = -32;
 	//private frameSprite:Phaser.GameObjects.Sprite;
 	//private ribbonSprite: Phaser.GameObjects.Image;
 	create() {
@@ -787,31 +788,11 @@ export default class PlayScene extends Phaser.Scene {
 
 
 	circle() {
-		let cake = (this.cakes[0] as Cake);
-		cake.features[0] = FRAME.CIRCLE;
-		if (cake.length == 1) {
-			let frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'circle_00.png');
-			frame.scaleX = frame.scaleY = 0.4;
+		let cake = this.getCakeByPos(this.frameSpot);
+		if (!cake) return;
 
-			this.add.tween({
-				targets: frame,
-				y: cake.y,
-				scaleX: 1,
-				scaleY: 1,
-				duration: 200,
-				onComplete: () => {
-					frame.play('circle-frame-animation', true);
-					frame.on('animationcomplete', () => {
-						cake.add(frame);
-						frame.x = 0;
-						frame.y = 0;
 
-					});
-				},
-				callbackScope: this
-			});
-
-		} else {
+		if (GameVars.level == LEVEL.EASY) {
 			let frame = (cake.last as Phaser.GameObjects.Sprite);
 			this.add.tween({
 				targets: frame,
@@ -851,35 +832,41 @@ export default class PlayScene extends Phaser.Scene {
 				}
 			});
 
+		} else {
+			let frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'circle_00.png').setOrigin(0.5);
+			frame.scaleX = frame.scaleY = 0.3;
+			let padding = this.getPadding(this.getLast(cake.features));
+			this.add.tween({
+				targets: frame,
+				y: cake.y - 10 + (cake.length - 2) * padding,
+				scaleX: 0.9,
+				scaleY: 0.9,
+				duration: 200,
+				onComplete: () => {
+					frame.play('circle-frame-animation', true);
+					frame.on('animationcomplete', () => {
+
+						frame.x = 0;
+						frame.y = cake.last.y - 10;
+						cake.add(frame);
+
+					});
+					cake.features.push(FRAME.CIRCLE);
+
+				},
+				callbackScope: this
+			});
+
 		}
 
 	}
 
 	square() {
-		let cake = (this.cakes[0] as Cake);
-		cake.features[0] = FRAME.SQUARE;
-		if (cake.length == 1) {
-			let frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'square_00.png');
-			frame.scaleX = frame.scaleY = 0.4;
+		let cake = this.getCakeByPos(this.frameSpot);
+		if (!cake) return;
 
-			this.add.tween({
-				targets: frame,
-				y: cake.y,
-				scaleX: 1,
-				scaleY: 1,
-				duration: 200,
-				onComplete: () => {
-					frame.play('square-frame-animation', true);
-					frame.on('animationcomplete', () => {
-						cake.add(frame);
-						frame.x = 0;
-						frame.y = 0;
-					});
-				},
-				callbackScope: this
-			});
 
-		} else {
+		if (GameVars.level == LEVEL.EASY) {
 			let frame = (cake.last as Phaser.GameObjects.Sprite);
 			this.add.tween({
 				targets: frame,
@@ -917,38 +904,40 @@ export default class PlayScene extends Phaser.Scene {
 				}
 			});
 
+		} else {
+
+			let frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'square_00.png').setOrigin(0.5);
+			frame.scaleX = frame.scaleY = 0.3;
+			let padding = this.getPadding(this.getLast(cake.features));
+			this.add.tween({
+				targets: frame,
+				y: cake.y - 10 + (cake.length - 2) * padding,
+				scaleX: 0.9,
+				scaleY: 0.9,
+				duration: 200,
+				onComplete: () => {
+					frame.play('square-frame-animation', true);
+					frame.on('animationcomplete', () => {
+						frame.x = 0;
+						frame.y = cake.last.y - 10;
+						cake.add(frame);
+
+					});
+					cake.features.push(FRAME.SQUARE);
+				},
+				callbackScope: this
+			});
+
 		}
 
 
 	}
 	heart() {
-		let cake = (this.cakes[0] as Cake);
-		cake.features[0] = FRAME.HEART;
-		if (cake.length == 1) {
-
-			let frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'heart_00.png');
-			frame.scaleX = frame.scaleY = 0.4;
-			this.add.tween({
-				targets: frame,
-				y: cake.y,
-				scaleX: 1,
-				scaleY: 1,
-				duration: 200,
-				onComplete: () => {
-					frame.play('heart-frame-animation', true);
-
-					frame.on('animationcomplete', () => {
-						cake.add(frame);
-						frame.x = 0;
-						frame.y = 0;
-					});
+		let cake = this.getCakeByPos(this.frameSpot);
+		if (!cake) return;
 
 
-				},
-				callbackScope: this
-			});
-
-		} else {
+		if (GameVars.level == LEVEL.EASY) {
 			let frame = (cake.last as Phaser.GameObjects.Sprite);
 			this.add.tween({
 				targets: frame,
@@ -986,6 +975,31 @@ export default class PlayScene extends Phaser.Scene {
 				}
 			});
 
+		} else {
+			let frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'heart_00.png').setOrigin(0.5);
+			frame.scaleX = frame.scaleY = 0.3;
+			let padding = this.getPadding(this.getLast(cake.features));
+			this.add.tween({
+				targets: frame,
+				y: cake.y - 10 + (cake.length - 2) * padding,
+				scaleX: 0.9,
+				scaleY: 0.9,
+				duration: 200,
+				onComplete: () => {
+					frame.play('heart-frame-animation', true);
+
+					frame.on('animationcomplete', () => {
+						frame.x = 0;
+						frame.y = cake.last.y - 10;
+						cake.add(frame);
+
+					});
+
+					cake.features.push(FRAME.HEART);
+				},
+				callbackScope: this
+			});
+
 		}
 
 	}
@@ -994,81 +1008,112 @@ export default class PlayScene extends Phaser.Scene {
 	doBrownFlour() {
 		let cake = this.getCakeByPos(this.flourSpot);
 		if (!cake) return;
-		if (cake.features[2] || cake.features[3] || !cake.features[0]) return;
-		let flour = this.add.sprite(this.flourSpot.x, this.flourSpot.y + this.flourSpot.displayHeight, 'comfy-spritesheet', 'brown_flour_00.png').setOrigin(0.5, 0);
-		flour.play('brown-flour-animation', true);
-		flour.on('animationcomplete', () => {
-			flour.removedFromScene();
-			flour.destroy();
-		});
-		let frame = (cake.last as Phaser.GameObjects.Sprite);
-		switch (cake.features[0]) {
-			case FRAME.CIRCLE:
-				frame.play('brown-circle-animation', true);
-				break;
-			case FRAME.HEART:
-				frame.play('brown-heart-animation', true);
-				break;
-			case FRAME.SQUARE:
-				frame.play('brown-square-animation', true);
-				break;
-		}
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE || last == FLOUR.BROWN || last == FLOUR.PINK || last == FLOUR.YELLOW) {
+			let flour = this.add.sprite(this.flourSpot.x, this.flourSpot.y + this.flourSpot.displayHeight, 'comfy-spritesheet', 'brown_flour_00.png').setOrigin(0.5, 0);
+			flour.play('brown-flour-animation', true);
+			flour.on('animationcomplete', () => {
+				flour.removedFromScene();
+				flour.destroy();
+			});
+			let frame = (cake.last as Phaser.GameObjects.Sprite);
+			let initX = frame.x;
+			let initY = frame.y;
+			switch (last) {
+				case FRAME.CIRCLE:
+					frame.play('brown-circle-animation', true);
 
-		cake.features[1] = FLOUR.BROWN;
+					break;
+				case FRAME.HEART:
+					frame.play('brown-heart-animation', true);
+
+					break;
+				case FRAME.SQUARE:
+					frame.play('brown-square-animation', true);
+
+					break;
+			}
+			frame.on('animationcomplete', () => {
+				frame.x = initX;
+				frame.y = initY;
+				cake.features.push(FLOUR.BROWN);
+			});
+		} else
+			return;
+
 	}
 	doPinkFlour() {
 		let cake = this.getCakeByPos(this.flourSpot);
 		if (!cake) return;
-		if (cake.features[2] || cake.features[3] || !cake.features[0]) return;
-		let flour = this.add.sprite(this.flourSpot.x, this.flourSpot.y + this.flourSpot.displayHeight, 'comfy-spritesheet', 'pink_flour_00.png').setOrigin(0.5, 0);
-		flour.play('pink-flour-animation', true);
-		flour.on('animationcomplete', () => {
-			flour.removedFromScene();
-			flour.destroy();
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE || last == FLOUR.BROWN || last == FLOUR.PINK || last == FLOUR.YELLOW) {
+			let flour = this.add.sprite(this.flourSpot.x, this.flourSpot.y + this.flourSpot.displayHeight, 'comfy-spritesheet', 'pink_flour_00.png').setOrigin(0.5, 0);
+			flour.play('pink-flour-animation', true);
+			flour.on('animationcomplete', () => {
+				flour.removedFromScene();
+				flour.destroy();
 
 
-		});
-		let frame = (cake.last as Phaser.GameObjects.Sprite);
-		switch (cake.features[0]) {
-			case FRAME.CIRCLE:
-				frame.play('pink-circle-animation');
-				break;
-			case FRAME.HEART:
-				frame.play('pink-heart-animation');
-				break;
-			case FRAME.SQUARE:
-				frame.play('pink-square-animation');
-				break;
-		}
+			});
+			let frame = (cake.last as Phaser.GameObjects.Sprite);
+			let initX = frame.x;
+			let initY = frame.y;
+			switch (last) {
+				case FRAME.CIRCLE:
+					frame.play('pink-circle-animation');
+					break;
+				case FRAME.HEART:
+					frame.play('pink-heart-animation');
+					break;
+				case FRAME.SQUARE:
+					frame.play('pink-square-animation');
+					break;
+			}
+			frame.on('animationcomplete', () => {
+				frame.x = initX;
+				frame.y = initY;
+				cake.features.push(FLOUR.PINK);
+			});
+		} else
+			return;
 
-		cake.features[1] = FLOUR.PINK;
 	}
 	doYellowFlour() {
 		let cake = this.getCakeByPos(this.flourSpot);
 		if (!cake) return;
-		if (cake.features[2] || cake.features[3] || !cake.features[0]) return;
-		let flour = this.add.sprite(this.flourSpot.x, this.flourSpot.y + this.flourSpot.displayHeight, 'comfy-spritesheet', 'yellow_flour_00.png').setOrigin(0.5, 0);
-		flour.play('yellow-flour-animation', true);
-		flour.on('animationcomplete', () => {
-			flour.removedFromScene();
-			flour.destroy();
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE || last == FLOUR.BROWN || last == FLOUR.PINK || last == FLOUR.YELLOW) {
+			let flour = this.add.sprite(this.flourSpot.x, this.flourSpot.y + this.flourSpot.displayHeight, 'comfy-spritesheet', 'yellow_flour_00.png').setOrigin(0.5, 0);
+			flour.play('yellow-flour-animation', true);
+			flour.on('animationcomplete', () => {
+				flour.removedFromScene();
+				flour.destroy();
 
 
-		});
-		let frame = (cake.last as Phaser.GameObjects.Sprite);
-		switch (cake.features[0]) {
-			case FRAME.CIRCLE:
-				frame.play('yellow-circle-animation');
-				break;
-			case FRAME.HEART:
-				frame.play('yellow-heart-animation');
-				break;
-			case FRAME.SQUARE:
-				frame.play('yellow-square-animation');
-				break;
-		}
+			});
+			let frame = (cake.last as Phaser.GameObjects.Sprite);
+			let initX = frame.x;
+			let initY = frame.y;
+			switch (last) {
+				case FRAME.CIRCLE:
+					frame.play('yellow-circle-animation');
+					break;
+				case FRAME.HEART:
+					frame.play('yellow-heart-animation');
+					break;
+				case FRAME.SQUARE:
+					frame.play('yellow-square-animation');
+					break;
+			}
+			frame.on('animationcomplete', () => {
+				frame.x = initX;
+				frame.y = initY;
+				cake.features.push(FLOUR.YELLOW);
+			});
 
-		cake.features[1] = FLOUR.YELLOW;
+		} else
+			return;
+
 	}
 
 
@@ -1084,42 +1129,53 @@ export default class PlayScene extends Phaser.Scene {
 	}
 	doRedRibbon() {
 		let cake = this.getCakeByPos(this.ribbonSpot);
-		if (!cake && !cake.features[1]) return;
-		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'red_ribbon_00.png').setOrigin(0.5,0);
-		ribbon.play('red-ribbon-animation');
-		ribbon.on('animationcomplete', () => {
-			ribbon.removedFromScene();
-			ribbon.destroy();
+		if (!cake) return;
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
+			return;
+		} else {
+			let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'red_ribbon_00.png').setOrigin(0.5, 0);
+			ribbon.play('red-ribbon-animation');
+			ribbon.on('animationcomplete', () => {
+				ribbon.removedFromScene();
+				ribbon.destroy();
 
-			let ribbonSprite;
-			
-			switch (cake.features[0]) {
-				case FRAME.CIRCLE:
-					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'red_ribbon_circle.png');
-					break;
-				case FRAME.HEART:
-					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'red_ribbon_heart.png');
-					break;
-				case FRAME.SQUARE:
-					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'red_ribbon_square.png');
-					break;
-			}
-			cake.add(ribbonSprite);
-			ribbonSprite.x = -1;
-			ribbonSprite.y = -10;
-		});
+				let ribbonSprite;
+				switch (cake.features[0]) {
+					case FRAME.CIRCLE:
+						ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'red_ribbon_circle.png');
+						break;
+					case FRAME.HEART:
+						ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'red_ribbon_heart.png');
+						break;
+					case FRAME.SQUARE:
+						ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'red_ribbon_square.png');
+						break;
+				}
+
+				ribbonSprite.x = -1;
+				ribbonSprite.y = cake.last.y - 10;
+				cake.add(ribbonSprite);
+			});
+			cake.features.push(RIBBON.RED);
+		}
+
 	}
 	doWhiteRibbon() {
 		let cake = this.getCakeByPos(this.ribbonSpot);
-		if (!cake && !cake.features[1]) return;
-		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'white_ribbon_00.png').setOrigin(0.5,0);
+		if (!cake) return;
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
+			return;
+		} else {
+		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'white_ribbon_00.png').setOrigin(0.5, 0);
 		ribbon.play('white-ribbon-animation');
 		ribbon.on('animationcomplete', () => {
 			ribbon.removedFromScene();
 			ribbon.destroy();
 
 			let ribbonSprite;
-			
+
 			switch (cake.features[0]) {
 				case FRAME.CIRCLE:
 					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_circle.png');
@@ -1131,22 +1187,28 @@ export default class PlayScene extends Phaser.Scene {
 					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_square.png');
 					break;
 			}
-			cake.add(ribbonSprite);
 			ribbonSprite.x = -1;
-			ribbonSprite.y = -10;
+			ribbonSprite.y = cake.last.y - 10;
+			cake.add(ribbonSprite);
 		});
+		cake.features.push(RIBBON.WHITE);
+	}
 	}
 	doGreenRibbon() {
 		let cake = this.getCakeByPos(this.ribbonSpot);
-		if (!cake && !cake.features[1]) return;
-		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'green_ribbon_00.png').setOrigin(0.5,0);
+		if (!cake) return;
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
+			return;
+		} else {
+		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'green_ribbon_00.png').setOrigin(0.5, 0);
 		ribbon.play('green-ribbon-animation');
 		ribbon.on('animationcomplete', () => {
 			ribbon.removedFromScene();
 			ribbon.destroy();
 
 			let ribbonSprite;
-			
+
 			switch (cake.features[0]) {
 				case FRAME.CIRCLE:
 					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_circle.png');
@@ -1158,10 +1220,12 @@ export default class PlayScene extends Phaser.Scene {
 					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_square.png');
 					break;
 			}
-			cake.add(ribbonSprite);
 			ribbonSprite.x = -1;
-			ribbonSprite.y = -10;
+			ribbonSprite.y = cake.last.y - 10;
+			cake.add(ribbonSprite);
 		});
+		cake.features.push(RIBBON.GREEN);
+	}
 	}
 	doBrownCream() {
 		let cake = this.getCakeByPos(this.creamSpot);
@@ -1187,12 +1251,13 @@ export default class PlayScene extends Phaser.Scene {
 					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_square.png');
 					break;
 			}
-			cake.add(creamSprite);
+
 			creamSprite.x = -1;
-			creamSprite.y = -10;
+			creamSprite.y = cake.last.y - 10;
+			cake.add(creamSprite);
 
 		});
-		cake.features[3] = CREAM.BROWN;
+		cake.features.push(CREAM.BROWN);
 
 	}
 	doPinkCream() {
@@ -1219,11 +1284,11 @@ export default class PlayScene extends Phaser.Scene {
 					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_square.png');
 					break;
 			}
-			cake.add(creamSprite);
 			creamSprite.x = -1;
-			creamSprite.y = -10;
+			creamSprite.y = cake.last.y - 10;
+			cake.add(creamSprite);
 		});
-		cake.features[3] = CREAM.PINK;
+		cake.features.push(CREAM.PINK);
 	}
 	doYellowCream() {
 		let cake = this.getCakeByPos(this.creamSpot);
@@ -1249,11 +1314,11 @@ export default class PlayScene extends Phaser.Scene {
 					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_square.png');
 					break;
 			}
-			cake.add(creamSprite);
 			creamSprite.x = -1;
-			creamSprite.y = -10;
+			creamSprite.y = cake.last.y - 10;
+			cake.add(creamSprite);
 		});
-		cake.features[3] = CREAM.YELLOW;
+		cake.features.push(CREAM.YELLOW);
 
 	}
 	doButtonsIcon() {
@@ -1481,7 +1546,33 @@ export default class PlayScene extends Phaser.Scene {
 		return cake;
 	}
 
+	getLast(array: any) {
+		return array[array.length - 1];
+	}
 
+	getPadding(feature: any) {
+		let paddingY = 0;
+		switch (feature) {
+			case FLOUR.BROWN:
+			case FLOUR.PINK:
+			case FLOUR.YELLOW:
+			case FRAME.CIRCLE:
+			case FRAME.HEART:
+			case FRAME.SQUARE:
+				paddingY = -32;
+				break;
+			case RIBBON.GREEN:
+			case RIBBON.RED:
+			case RIBBON.WHITE:
+			case CREAM.BROWN:
+			case CREAM.PINK:
+			case CREAM.YELLOW:
+				paddingY = -20;
+				break;
+		}
+		return paddingY;
+
+	}
 
 	/* END-USER-CODE */
 }
