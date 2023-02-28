@@ -1168,31 +1168,31 @@ export default class PlayScene extends Phaser.Scene {
 		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
 			return;
 		} else {
-		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'white_ribbon_00.png').setOrigin(0.5, 0);
-		ribbon.play('white-ribbon-animation');
-		ribbon.on('animationcomplete', () => {
-			ribbon.removedFromScene();
-			ribbon.destroy();
+			let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'white_ribbon_00.png').setOrigin(0.5, 0);
+			ribbon.play('white-ribbon-animation');
+			ribbon.on('animationcomplete', () => {
+				ribbon.removedFromScene();
+				ribbon.destroy();
 
-			let ribbonSprite;
+				let ribbonSprite;
 
-			switch (cake.features[0]) {
-				case FRAME.CIRCLE:
-					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_circle.png');
-					break;
-				case FRAME.HEART:
-					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_heart.png');
-					break;
-				case FRAME.SQUARE:
-					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_square.png');
-					break;
-			}
-			ribbonSprite.x = -1;
-			ribbonSprite.y = cake.last.y - 10;
-			cake.add(ribbonSprite);
-		});
-		cake.features.push(RIBBON.WHITE);
-	}
+				switch (cake.features[0]) {
+					case FRAME.CIRCLE:
+						ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_circle.png');
+						break;
+					case FRAME.HEART:
+						ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_heart.png');
+						break;
+					case FRAME.SQUARE:
+						ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'white_ribbon_square.png');
+						break;
+				}
+				ribbonSprite.x = -1;
+				ribbonSprite.y = cake.last.y - 10;
+				cake.add(ribbonSprite);
+			});
+			cake.features.push(RIBBON.WHITE);
+		}
 	}
 	doGreenRibbon() {
 		let cake = this.getCakeByPos(this.ribbonSpot);
@@ -1201,336 +1201,390 @@ export default class PlayScene extends Phaser.Scene {
 		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
 			return;
 		} else {
-		let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'green_ribbon_00.png').setOrigin(0.5, 0);
-		ribbon.play('green-ribbon-animation');
-		ribbon.on('animationcomplete', () => {
-			ribbon.removedFromScene();
-			ribbon.destroy();
+			let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'green_ribbon_00.png').setOrigin(0.5, 0);
+			ribbon.play('green-ribbon-animation');
+			ribbon.on('animationcomplete', () => {
+				ribbon.removedFromScene();
+				ribbon.destroy();
 
-			let ribbonSprite;
+				let ribbonSprite;
 
-			switch (cake.features[0]) {
-				case FRAME.CIRCLE:
-					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_circle.png');
-					break;
-				case FRAME.HEART:
-					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_heart.png');
-					break;
-				case FRAME.SQUARE:
-					ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_square.png');
-					break;
-			}
-			ribbonSprite.x = -1;
-			ribbonSprite.y = cake.last.y - 10;
-			cake.add(ribbonSprite);
-		});
-		cake.features.push(RIBBON.GREEN);
-	}
+				switch (cake.features[0]) {
+					case FRAME.CIRCLE:
+						ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_circle.png');
+						break;
+					case FRAME.HEART:
+						ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_heart.png');
+						break;
+					case FRAME.SQUARE:
+						ribbonSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'green_ribbon_square.png');
+						break;
+				}
+				ribbonSprite.x = -1;
+				ribbonSprite.y = cake.last.y - 10;
+				cake.add(ribbonSprite);
+			});
+			cake.features.push(RIBBON.GREEN);
+		}
 	}
 	doBrownCream() {
 		let cake = this.getCakeByPos(this.creamSpot);
-		if (!cake || !cake.features[1]) return;
-		this.creamSpot.play('brown-spot-animation');
-		this.creamSpot.on('animationcomplete', () => {
-			let cream = this.add.sprite(this.creamSpot.x, this.creamSpot.y + this.creamSpot.displayHeight + 50, 'comfy-spritesheet', 'brown_line_00.png').setOrigin(0.5);
-			cream.play('brown-cream-animation');
-			cream.on('animationcomplete', () => {
-				cream.removedFromScene();
-				cream.destroy();
+		if (!cake) return;
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
+			return;
+		} else {
+			this.creamSpot.play('brown-spot-animation');
+			this.creamSpot.on('animationcomplete', () => {
+				let cream = this.add.sprite(this.creamSpot.x, this.creamSpot.y + this.creamSpot.displayHeight + 50, 'comfy-spritesheet', 'brown_line_00.png').setOrigin(0.5);
+				cream.play('brown-cream-animation');
+				cream.on('animationcomplete', () => {
+					cream.removedFromScene();
+					cream.destroy();
+				});
+				let last = (cake.last as Phaser.GameObjects.Sprite);
+				let creamSprite;
+				switch (cake.features[0]) {
+					case FRAME.CIRCLE:
+						creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_circle.png');
+						break;
+					case FRAME.HEART:
+						creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_heart.png');
+						break;
+					case FRAME.SQUARE:
+						creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_square.png');
+						break;
+				}
+
+				creamSprite.x = -1;
+				creamSprite.y = cake.last.y - 10;
+				cake.add(creamSprite);
+
 			});
-			let last = (cake.last as Phaser.GameObjects.Sprite);
-			let creamSprite;
-			switch (cake.features[0]) {
-				case FRAME.CIRCLE:
-					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_circle.png');
-					break;
-				case FRAME.HEART:
-					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_heart.png');
-					break;
-				case FRAME.SQUARE:
-					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_square.png');
-					break;
-			}
+			cake.features.push(CREAM.BROWN);
+		}
 
-			creamSprite.x = -1;
-			creamSprite.y = cake.last.y - 10;
-			cake.add(creamSprite);
-
-		});
-		cake.features.push(CREAM.BROWN);
 
 	}
 	doPinkCream() {
 		let cake = this.getCakeByPos(this.creamSpot);
-		if (!cake || !cake.features[1]) return;
-		this.creamSpot.play('pink-spot-animation');
-		this.creamSpot.on('animationcomplete', () => {
-			let cream = this.add.sprite(this.creamSpot.x, this.creamSpot.y + this.creamSpot.displayHeight + 50, 'comfy-spritesheet', 'pink_line_00.png').setOrigin(0.5);
-			cream.play('pink-cream-animation');
-			cream.on('animationcomplete', () => {
-				cream.removedFromScene();
-				cream.destroy();
+		if (!cake) return;
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
+			return;
+		} else {
+			this.creamSpot.play('pink-spot-animation');
+			this.creamSpot.on('animationcomplete', () => {
+				let cream = this.add.sprite(this.creamSpot.x, this.creamSpot.y + this.creamSpot.displayHeight + 50, 'comfy-spritesheet', 'pink_line_00.png').setOrigin(0.5);
+				cream.play('pink-cream-animation');
+				cream.on('animationcomplete', () => {
+					cream.removedFromScene();
+					cream.destroy();
+				});
+				//let last = (cake.last as Phaser.GameObjects.Sprite);
+				let creamSprite;
+				switch (cake.features[0]) {
+					case FRAME.CIRCLE:
+						creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_circle.png');
+						break;
+					case FRAME.HEART:
+						creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_heart.png');
+						break;
+					case FRAME.SQUARE:
+						creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_square.png');
+						break;
+				}
+				creamSprite.x = -1;
+				creamSprite.y = cake.last.y - 10;
+				cake.add(creamSprite);
 			});
-			//let last = (cake.last as Phaser.GameObjects.Sprite);
-			let creamSprite;
-			switch (cake.features[0]) {
-				case FRAME.CIRCLE:
-					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_circle.png');
-					break;
-				case FRAME.HEART:
-					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_heart.png');
-					break;
-				case FRAME.SQUARE:
-					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_square.png');
-					break;
-			}
-			creamSprite.x = -1;
-			creamSprite.y = cake.last.y - 10;
-			cake.add(creamSprite);
-		});
-		cake.features.push(CREAM.PINK);
+			cake.features.push(CREAM.PINK);
+		}
 	}
 	doYellowCream() {
 		let cake = this.getCakeByPos(this.creamSpot);
-		if (!cake || !cake.features[1]) return;
-		this.creamSpot.play('yellow-spot-animation');
-		this.creamSpot.on('animationcomplete', () => {
-			let cream = this.add.sprite(this.creamSpot.x, this.creamSpot.y + this.creamSpot.displayHeight + 50, 'comfy-spritesheet', 'yellow_line_00.png').setOrigin(0.5);
-			cream.play('yellow-cream-animation');
-			cream.on('animationcomplete', () => {
-				cream.removedFromScene();
-				cream.destroy();
+		if (!cake) return;
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
+			return;
+		} else {
+			this.creamSpot.play('yellow-spot-animation');
+			this.creamSpot.on('animationcomplete', () => {
+				let cream = this.add.sprite(this.creamSpot.x, this.creamSpot.y + this.creamSpot.displayHeight + 50, 'comfy-spritesheet', 'yellow_line_00.png').setOrigin(0.5);
+				cream.play('yellow-cream-animation');
+				cream.on('animationcomplete', () => {
+					cream.removedFromScene();
+					cream.destroy();
+				});
+				//let last = (cake.last as Phaser.GameObjects.Sprite);
+				let creamSprite;
+				switch (cake.features[0]) {
+					case FRAME.CIRCLE:
+						creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_circle.png');
+						break;
+					case FRAME.HEART:
+						creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_heart.png');
+						break;
+					case FRAME.SQUARE:
+						creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_square.png');
+						break;
+				}
+				creamSprite.x = -1;
+				creamSprite.y = cake.last.y - 10;
+				cake.add(creamSprite);
 			});
-			//let last = (cake.last as Phaser.GameObjects.Sprite);
-			let creamSprite;
-			switch (cake.features[0]) {
-				case FRAME.CIRCLE:
-					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_circle.png');
-					break;
-				case FRAME.HEART:
-					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_heart.png');
-					break;
-				case FRAME.SQUARE:
-					creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_square.png');
-					break;
-			}
-			creamSprite.x = -1;
-			creamSprite.y = cake.last.y - 10;
-			cake.add(creamSprite);
-		});
-		cake.features.push(CREAM.YELLOW);
+			cake.features.push(CREAM.YELLOW);
+		}
 
 	}
 	doButtonsIcon() {
 		let cake = this.getCakeByPos(this.decorateSpot);
-		if (!cake || !cake.features[1]) return;
-		if (!cake.features[4]) {
-			cake.features[4] = DECORATE.BUTTONS;
-			let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0.5);
-			buttons.play('buttons-animation');
-			this.add.tween({
-				targets: buttons,
-				y: cake.y - 20,
-				duration: 200,
-				onComplete: () => {
-
-				},
-				callbackScope: this
-			});
-			buttons.on('animationcomplete', () => {
-				buttons.removedFromScene();
-				buttons.destroy();
-				let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
-				cake.add(buttonsSprite);
-				buttonsSprite.x = 0;
-				buttonsSprite.y = -15;
-			});
+		if (!cake) return;
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
+			return;
 		} else {
-			let last = (cake.last as Phaser.GameObjects.Sprite);
-			cake.remove(last);
-			last.removedFromScene();
-			last.destroy();
+			let padding = this.calPaddingY(cake.features);
+			if (last !== DECORATE.BUTTONS && last !== DECORATE.EMOTICON && last !== DECORATE.HEART && last !== DECORATE.LEAF) {
+				
+				let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0.5);
+				buttons.play('buttons-animation');
+				
+				this.add.tween({
+					targets: buttons,
+					y:cake.y  + padding -20,
+					duration: 200,
+					onComplete: () => {
+
+					},
+					callbackScope: this
+				});
+				buttons.on('animationcomplete', () => {
+					buttons.removedFromScene();
+					buttons.destroy();
+					let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
+					
+					buttonsSprite.x = 0;
+					buttonsSprite.y = cake.last.y - 10;
+					cake.add(buttonsSprite);
+				});
+
+			} else {
+				let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
+				cake.remove(lastSprite);
+				lastSprite.removedFromScene();
+				lastSprite.destroy();
 
 
-			let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0, 0.5);
-			buttons.play('buttons-animation');
-			this.add.tween({
-				targets: buttons,
-				y: cake.y - 20,
-				duration: 200,
-				onComplete: () => {
+				let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0, 0.5);
+				buttons.play('buttons-animation');
+				
+				this.add.tween({
+					targets: buttons,
+					y: cake.y  +  padding -20,
+					duration: 200,
+					onComplete: () => {
 
-				},
-				callbackScope: this
-			});
-			buttons.on('animationcomplete', () => {
-				buttons.removedFromScene();
-				buttons.destroy();
-				let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
-				cake.add(buttonsSprite);
-				buttonsSprite.x = 0;
-				buttonsSprite.y = -15;
-			});
+					},
+					callbackScope: this
+				});
+				buttons.on('animationcomplete', () => {
+					buttons.removedFromScene();
+					buttons.destroy();
+					let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
+					
+					buttonsSprite.x = 0;
+					buttonsSprite.y = cake.last.y - 10;
+					cake.add(buttonsSprite);
+				});
 
+			}
+			cake.features.push(DECORATE.BUTTONS);
 		}
+
 
 	}
 	doHeartIcon() {
 		let cake = this.getCakeByPos(this.decorateSpot);
-		if (!cake || !cake.features[1]) return;
-		if (!cake.features[4]) {
-			cake.features[4] = DECORATE.HEART;
-			let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
-			heart.play('heart-animation');
-			this.add.tween({
-				targets: heart,
-				y: cake.y - 20,
-				duration: 200,
-				onComplete: () => {
-
-				},
-				callbackScope: this
-			});
-			heart.on('animationcomplete', () => {
-				heart.removedFromScene();
-				heart.destroy();
-				let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
-				cake.add(heartSprite);
-				heartSprite.x = 0;
-				heartSprite.y = -15;
-			});
+		if (!cake) return;
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
+			return;
 		} else {
-			let last = (cake.last as Phaser.GameObjects.Sprite);
-			cake.remove(last);
-			last.removedFromScene();
-			last.destroy();
+			let padding = this.calPaddingY(cake.features);
+			if (last !== DECORATE.BUTTONS && last !== DECORATE.EMOTICON && last !== DECORATE.HEART && last !== DECORATE.LEAF) {
+
+				let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
+				heart.play('heart-animation');
+				this.add.tween({
+					targets: heart,
+					y:cake.y  + padding -20,
+					duration: 200,
+					onComplete: () => {
+
+					},
+					callbackScope: this
+				});
+				heart.on('animationcomplete', () => {
+					heart.removedFromScene();
+					heart.destroy();
+					let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
+					cake.add(heartSprite);
+					heartSprite.x = 0;
+					heartSprite.y = cake.last.y - 10;
+				});
+			} else {
+				let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
+				cake.remove(lastSprite);
+				lastSprite.removedFromScene();
+				lastSprite.destroy();
 
 
-			let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
-			heart.play('heart-animation');
-			this.add.tween({
-				targets: heart,
-				y: cake.y - 20,
-				duration: 200,
-				onComplete: () => {
+				let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
+				heart.play('heart-animation');
+				this.add.tween({
+					targets: heart,
+					y:cake.y  + padding -20,
+					duration: 200,
+					onComplete: () => {
 
-				},
-				callbackScope: this
-			});
-			heart.on('animationcomplete', () => {
-				heart.removedFromScene();
-				heart.destroy();
-				let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
-				cake.add(heartSprite);
-				heartSprite.x = 0;
-				heartSprite.y = -15;
-			});
+					},
+					callbackScope: this
+				});
+				heart.on('animationcomplete', () => {
+					heart.removedFromScene();
+					heart.destroy();
+					let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
+					
+					heartSprite.x = 0;
+					heartSprite.y = cake.last.y - 10;
+					cake.add(heartSprite);
+				});
+			}
+			cake.features.push(DECORATE.HEART);
 		}
 
 	}
 	doEmoticon() {
 		let cake = this.getCakeByPos(this.decorateSpot);
-		if (!cake || !cake.features[1]) return;
-		if (!cake.features[4]) {
-			cake.features[4] = DECORATE.EMOTICON;
-			let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
-			emoticon.play('emoticon-animation');
-			this.add.tween({
-				targets: emoticon,
-				y: cake.y - 20,
-				duration: 200,
-				onComplete: () => {
-
-				},
-				callbackScope: this
-			});
-			emoticon.on('animationcomplete', () => {
-				emoticon.removedFromScene();
-				emoticon.destroy();
-				let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
-				cake.add(emoticonSprite);
-				emoticonSprite.x = 0;
-				emoticonSprite.y = -15;
-			});
+		if (!cake) return;
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
+			return;
 		} else {
-			let last = (cake.last as Phaser.GameObjects.Sprite);
-			cake.remove(last);
-			last.removedFromScene();
-			last.destroy();
+			let padding = this.calPaddingY(cake.features);
+			if (last !== DECORATE.BUTTONS && last !== DECORATE.EMOTICON && last !== DECORATE.HEART && last !== DECORATE.LEAF) {
+
+				let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
+				emoticon.play('emoticon-animation');
+				this.add.tween({
+					targets: emoticon,
+					y:cake.y  + padding -20,
+					duration: 200,
+					onComplete: () => {
+
+					},
+					callbackScope: this
+				});
+				emoticon.on('animationcomplete', () => {
+					emoticon.removedFromScene();
+					emoticon.destroy();
+					let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
+					
+					emoticonSprite.x = 0;
+					emoticonSprite.y = cake.last.y - 10;
+					cake.add(emoticonSprite);
+				});
+			} else {
+				let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
+				cake.remove(lastSprite);
+				lastSprite.removedFromScene();
+				lastSprite.destroy();
 
 
-			let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
-			emoticon.play('emoticon-animation');
-			this.add.tween({
-				targets: emoticon,
-				y: cake.y - 20,
-				duration: 200,
-				onComplete: () => {
+				let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
+				emoticon.play('emoticon-animation');
+				this.add.tween({
+					targets: emoticon,
+					y:cake.y  + padding -20,
+					duration: 200,
+					onComplete: () => {
 
-				},
-				callbackScope: this
-			});
-			emoticon.on('animationcomplete', () => {
-				emoticon.removedFromScene();
-				emoticon.destroy();
-				let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
-				cake.add(emoticonSprite);
-				emoticonSprite.x = 0;
-				emoticonSprite.y = -15;
-			});
+					},
+					callbackScope: this
+				});
+				emoticon.on('animationcomplete', () => {
+					emoticon.removedFromScene();
+					emoticon.destroy();
+					let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
+					
+					emoticonSprite.x = 0;
+					emoticonSprite.y = cake.last.y - 10;
+					cake.add(emoticonSprite);
+				});
+			}
+			cake.features.push(DECORATE.EMOTICON);
 		}
-
 	}
 	doLeafIcon() {
 		let cake = this.getCakeByPos(this.decorateSpot);
-		if (!cake || !cake.features[1]) return;
-		if (!cake.features[4]) {
-			cake.features[4] = DECORATE.LEAF;
-			let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
-			leaf.play('leaf-animation');
-			this.add.tween({
-				targets: leaf,
-				y: cake.y - 20,
-				duration: 200,
-				onComplete: () => {
-
-				},
-				callbackScope: this
-			});
-			leaf.on('animationcomplete', () => {
-				leaf.removedFromScene();
-				leaf.destroy();
-				let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
-				cake.add(leafSprite);
-				leafSprite.x = 0;
-				leafSprite.y = -15;
-			});
+		if (!cake) return;
+		let last = this.getLast(cake.features);
+		if (last == FRAME.CIRCLE || last == FRAME.HEART || last == FRAME.SQUARE) {
+			return;
 		} else {
-			let last = (cake.last as Phaser.GameObjects.Sprite);
-			cake.remove(last);
-			last.removedFromScene();
-			last.destroy();
+			let padding = this.calPaddingY(cake.features);
+			if (last !== DECORATE.BUTTONS && last !== DECORATE.EMOTICON && last !== DECORATE.HEART && last !== DECORATE.LEAF) {
+
+				let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
+				leaf.play('leaf-animation');
+				this.add.tween({
+					targets: leaf,
+					y:cake.y  + padding -20,
+					duration: 200,
+					onComplete: () => {
+
+					},
+					callbackScope: this
+				});
+				leaf.on('animationcomplete', () => {
+					leaf.removedFromScene();
+					leaf.destroy();
+					let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
+					
+					leafSprite.x = 0;
+					leafSprite.y = cake.last.y - 10;
+					cake.add(leafSprite);
+				});
+			} else {
+				let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
+				cake.remove(lastSprite);
+				lastSprite.removedFromScene();
+				lastSprite.destroy();
 
 
-			let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
-			leaf.play('leaf-animation');
-			this.add.tween({
-				targets: leaf,
-				y: cake.y - 20,
-				duration: 200,
-				onComplete: () => {
+				let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
+				leaf.play('leaf-animation');
+				this.add.tween({
+					targets: leaf,
+					y:cake.y  + padding -20,
+					duration: 200,
+					onComplete: () => {
 
-				},
-				callbackScope: this
-			});
-			leaf.on('animationcomplete', () => {
-				leaf.removedFromScene();
-				leaf.destroy();
-				let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
-				cake.add(leafSprite);
-				leafSprite.x = 0;
-				leafSprite.y = -15;
-			});
+					},
+					callbackScope: this
+				});
+				leaf.on('animationcomplete', () => {
+					leaf.removedFromScene();
+					leaf.destroy();
+					let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
+					
+					leafSprite.x = 0;
+					leafSprite.y = cake.last.y - 10;
+					cake.add(leafSprite);
+				});
+			}
+			cake.features.push(DECORATE.LEAF);
 		}
 
 	}
@@ -1559,7 +1613,7 @@ export default class PlayScene extends Phaser.Scene {
 			case FRAME.CIRCLE:
 			case FRAME.HEART:
 			case FRAME.SQUARE:
-				paddingY = -32;
+				paddingY = -10;
 				break;
 			case RIBBON.GREEN:
 			case RIBBON.RED:
@@ -1567,11 +1621,20 @@ export default class PlayScene extends Phaser.Scene {
 			case CREAM.BROWN:
 			case CREAM.PINK:
 			case CREAM.YELLOW:
-				paddingY = -20;
+				paddingY = -10;
 				break;
 		}
 		return paddingY;
 
+	}
+
+	calPaddingY(features:any){
+		let paddingY = 0;
+		for(let i = 0; i < features.length; i++){
+			if(features[i] != FLOUR.BROWN && features[i] != FLOUR.PINK && features[i] != FLOUR.YELLOW)
+				paddingY += this.getPadding(features[i]);
+		}
+		return paddingY;
 	}
 
 	/* END-USER-CODE */
