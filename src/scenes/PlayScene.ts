@@ -26,6 +26,7 @@ import CreamSpot from "./prefabs/CreamSpot";
 import IconSpot from "./prefabs/IconSpot";
 import FrameSpot from "./prefabs/FrameSpot";
 import ResultScreen from "./prefabs/ResultScreen";
+import Character from "./prefabs/Character";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -190,6 +191,10 @@ export default class PlayScene extends Phaser.Scene {
 		// resultScreen
 		const resultScreen = new ResultScreen(this, 685, 6);
 		this.add.existing(resultScreen);
+
+		// character
+		const character = new Character(this, 1086, 378);
+		this.add.existing(character);
 
 		// canvasRef (components)
 		new AlignCanvas(canvasRef);
@@ -390,6 +395,7 @@ export default class PlayScene extends Phaser.Scene {
 		this.decorateSpot = decorateSpot;
 		this.frameSpot = frameSpot;
 		this.resultScreen = resultScreen;
+		this.character = character;
 
 		this.events.emit("scene-awake");
 	}
@@ -430,6 +436,7 @@ export default class PlayScene extends Phaser.Scene {
 	private decorateSpot!: IconSpot;
 	private frameSpot!: FrameSpot;
 	private resultScreen!: ResultScreen;
+	private character!: Character;
 
 	/* START-USER-CODE */
 
@@ -451,7 +458,16 @@ export default class PlayScene extends Phaser.Scene {
 		this.cakeNum = 0;
 		this.createControl();
 		this.createCake();
-
+		this.add.tween({
+			targets: this.character,
+			x: 700,
+			duration: 200,
+			ease: Phaser.Math.Easing.Elastic.InOut,
+			onComplete: ()=>{
+				this.character.talk(5);
+				this.character.blink(3);
+			}
+		});
 	}
 
 	playPrev() {

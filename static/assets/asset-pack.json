@@ -22,6 +22,11 @@
                 "key": "carousel-animations"
             },
             {
+                "url": "assets/char-animations.json",
+                "type": "animation",
+                "key": "char-animations"
+            },
+            {
                 "type": "multiatlas",
                 "url": "assets/comfy-spritesheet.json",
                 "path": "assets",

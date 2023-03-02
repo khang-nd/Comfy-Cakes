@@ -1,0 +1,215 @@
+{
+    "id": "80a07c8f-f47a-45ea-9497-31950f401a4a",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderHeight": 496
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "cdd499af-9369-4dfd-b570-c8b251f1fcfc",
+            "label": "container_1",
+            "components": [],
+            "x": -12,
+            "y": -96,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "030fec57-50b3-42dd-9cee-d23e0027627e",
+                    "label": "legLeft",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "leg_left.png"
+                    },
+                    "x": -11,
+                    "y": 79
+                },
+                {
+                    "type": "Sprite",
+                    "id": "e4800487-16f0-4bf9-8471-c8c332e7b0b3",
+                    "label": "face",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "face.png"
+                    },
+                    "x": 16,
+                    "y": -6
+                },
+                {
+                    "type": "Sprite",
+                    "id": "2a73448a-f791-43ad-8854-c77adfe67466",
+                    "label": "hat",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "head.png"
+                    },
+                    "x": 16,
+                    "y": -75
+                },
+                {
+                    "type": "Sprite",
+                    "id": "da82e0fc-643e-43e2-b836-18a8a21d7da2",
+                    "label": "eyeLeft",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "eye_left_03.png"
+                    },
+                    "x": -18,
+                    "y": -9
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b4b27f38-e096-4da9-9154-b76c05ec572c",
+                    "label": "eyeRight",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "eye_right_00.png"
+                    },
+                    "x": 42,
+                    "y": -9
+                },
+                {
+                    "type": "Sprite",
+                    "id": "1480c1b8-bfba-4ae2-b324-ebcd42951f26",
+                    "label": "body",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "body.png"
+                    },
+                    "x": 19,
+                    "y": 58
+                },
+                {
+                    "type": "Sprite",
+                    "id": "a1ed1a97-0097-492e-9eb7-d62de58436eb",
+                    "label": "legRight",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "leg_right.png"
+                    },
+                    "x": 41,
+                    "y": 79
+                },
+                {
+                    "type": "Sprite",
+                    "id": "129e8212-6871-475f-b94c-29f44dfbeb1a",
+                    "label": "handRight",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "hand_right.png"
+                    },
+                    "x": 48,
+                    "y": 55
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c7f3638e-7659-43be-8d1d-48433ecfcbb3",
+                    "label": "handLeft",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "hand_left.png"
+                    },
+                    "x": -17,
+                    "y": 44
+                },
+                {
+                    "type": "Sprite",
+                    "id": "8f78f2a9-f0ff-47e9-9e55-b92d95fc08f1",
+                    "label": "mouth",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "mouth_00.png"
+                    },
+                    "x": 15,
+                    "y": 25
+                },
+                {
+                    "type": "Sprite",
+                    "id": "3dce8bdf-e7aa-4b72-a1f1-e4c183513539",
+                    "label": "noice",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "noice.png"
+                    },
+                    "x": 12,
+                    "y": -1
+                },
+                {
+                    "type": "Sprite",
+                    "id": "551f3154-7cb8-41e4-8e95-9dfff8835467",
+                    "label": "eyerushLeft",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "eyesbrown_left.png"
+                    },
+                    "x": -13,
+                    "y": -28
+                },
+                {
+                    "type": "Sprite",
+                    "id": "cfe7cc9b-cae4-4675-83fe-9431e2840364",
+                    "label": "eyerushRight",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "eyesbrown_right.png"
+                    },
+                    "x": 45,
+                    "y": -25
+                },
+                {
+                    "type": "Sprite",
+                    "id": "d41142be-fd5c-4f22-a269-0b2d458ee723",
+                    "label": "mustacheLeft",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "mustache_left.png"
+                    },
+                    "x": -12,
+                    "y": 12
+                },
+                {
+                    "type": "Sprite",
+                    "id": "72add0bf-8839-453e-8d36-06762e584aba",
+                    "label": "mustacheRight",
+                    "components": [],
+                    "texture": {
+                        "key": "comfy-spritesheet",
+                        "frame": "mustache_right.png"
+                    },
+                    "x": 44,
+                    "y": 13
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

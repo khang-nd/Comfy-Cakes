@@ -691,6 +691,21 @@
             "y": 6,
             "nestedPrefabs": [],
             "list": []
+        },
+        {
+            "prefabId": "80a07c8f-f47a-45ea-9497-31950f401a4a",
+            "id": "26af010e-981f-49e0-8faf-4be005abc0e5",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "character",
+            "scope": "CLASS",
+            "components": [],
+            "x": 1086,
+            "y": 378,
+            "nestedPrefabs": [],
+            "list": []
         }
     ],
     "plainObjects": [],
