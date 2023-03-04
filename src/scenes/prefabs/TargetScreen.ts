@@ -222,7 +222,7 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 	}
 	clearChild(){
 		this.modelContainer.removeAll(true);
-		
+
 	}
 	/* END-USER-CODE */
 }

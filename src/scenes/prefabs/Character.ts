@@ -78,6 +78,9 @@ export default class Character extends Phaser.GameObjects.Container {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		setInterval(()=>{
+			this.blink(1);
+		},3000)
 		/* END-USER-CTR-CODE */
 	}
 
@@ -90,14 +93,14 @@ export default class Character extends Phaser.GameObjects.Container {
 	// Write your code here.
 	talk(repeat: number){
 
-		this.mouth.play('talk-animation');
+		this.mouth.play({key: 'talk-animation', repeat: repeat});
 		
 	}
 
 	blink(repeat: number){
-		this.eyeLeft.play('eyeleft-animation');
+		this.eyeLeft.play({key:'eyeleft-animation' , repeat: repeat});
 		
-		this.eyeRight.play('eyeright-animation');
+		this.eyeRight.play({key:'eyeright-animation', repeat: repeat});
 		
 
 	}

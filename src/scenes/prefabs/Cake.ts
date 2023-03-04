@@ -16,6 +16,8 @@ export default class Cake extends Phaser.GameObjects.Container {
 		const tableCloth = scene.add.image(0, 0, "comfy-spritesheet", "tableCloths.png");
 		this.add(tableCloth);
 
+		this.tableCloth = tableCloth;
+
 		/* START-USER-CTR-CODE */
 		scene.add.existing(this);
 		/*for(let i = 0; i < 6 ; i++){
@@ -25,6 +27,8 @@ export default class Cake extends Phaser.GameObjects.Container {
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
+
+	private tableCloth: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 

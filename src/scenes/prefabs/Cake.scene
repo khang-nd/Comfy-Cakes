@@ -21,6 +21,7 @@
                     "type": "Image",
                     "id": "d2c52899-5d17-4c22-a697-58ed5339b947",
                     "label": "tableCloth",
+                    "scope": "CLASS",
                     "components": [],
                     "texture": {
                         "key": "comfy-spritesheet",

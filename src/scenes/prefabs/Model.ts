@@ -16,10 +16,10 @@ export default class Model {
                     //feature = new Feature(frame, flour, ribbon, cream, decorate, taste);
                    
                     this.features.push(flour);
-                    this.features.push(ribbon);
+                    //this.features.push(ribbon);
                     this.features.push(cream);
                     this.features.push(decorate);
-                    this.features.push(taste);
+                    //this.features.push(taste);
                 }
 
                 break;
@@ -41,7 +41,7 @@ export default class Model {
                     this.features.push(ribbon);
                     this.features.push(cream);
                     this.features.push(decorate);
-                    this.features.push(taste);
+                    //this.features.push(taste);
                 }
                 break;
             case LEVEL.ADVANCED:

@@ -277,8 +277,8 @@
             "label": "trash",
             "scope": "CLASS",
             "components": [],
-            "x": 738,
-            "y": 161
+            "x": 726,
+            "y": 164
         },
         {
             "type": "Image",
@@ -706,6 +706,76 @@
             "y": 378,
             "nestedPrefabs": [],
             "list": []
+        },
+        {
+            "type": "Image",
+            "id": "6c36b5f6-c031-4ef0-ab7b-8e17aa22c950",
+            "label": "frameHightlight",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "comfy-spritesheet",
+                "frame": "rectangle_blur.png"
+            },
+            "x": 113,
+            "y": 349,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "601cb3ca-dd16-4e9e-84ee-3a957fa51417",
+            "label": "flourHightlight",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "comfy-spritesheet",
+                "frame": "rectangle_blur.png"
+            },
+            "x": 213,
+            "y": 348,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "65cb7f22-d468-4808-b79f-03270ade5fe0",
+            "label": "ribbonHightlight",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "comfy-spritesheet",
+                "frame": "rectangle_blur.png"
+            },
+            "x": 315,
+            "y": 348,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "8cfb6519-09e8-4117-8910-eaa98dd2b471",
+            "label": "creamHightlight",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "comfy-spritesheet",
+                "frame": "rectangle_blur.png"
+            },
+            "x": 414,
+            "y": 349,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "847c001b-6fdc-43d7-9c54-13ce734359e5",
+            "label": "targetHightlight",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "comfy-spritesheet",
+                "frame": "square_blur.png"
+            },
+            "x": 63,
+            "y": 85,
+            "visible": false
         }
     ],
     "plainObjects": [],
