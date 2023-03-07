@@ -1,25 +1,25 @@
 {
     "anims": [
         {
-            "key": "run",
+            "key": "alarm-animation",
             "type": "frame",
             "frames": [
                 {
-                    "key": "cakes",
+                    "key": "comfy-spritesheet",
                     "frame": "alarm_light.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
-                    "key": "cakes",
+                    "key": "comfy-spritesheet",
                     "frame": "alarm_normal.png",
                     "duration": 0,
                     "keyframe": false
                 }
             ],
-            "frameRate": 15,
+            "frameRate": 8,
             "skipMissedFrames": true,
-            "repeat": -1
+            "repeat": 2
         }
     ],
     "globalTimeScale": 1,

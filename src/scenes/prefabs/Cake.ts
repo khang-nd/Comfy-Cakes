@@ -34,6 +34,7 @@ export default class Cake extends Phaser.GameObjects.Container {
 
 	// Write your code here.
 	public features:Array<string> = [];
+	public canMove: boolean = true;
 	/* END-USER-CODE */
 }
 

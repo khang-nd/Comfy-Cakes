@@ -25,22 +25,23 @@ export default class Model {
                 break;
             case LEVEL.INTERMEDIATE:
                 frame = this.getRandom(FRAME);
-                this.features.push(frame);
+                
                 for (let i = 0; i < level; i++) {
-                    
+                    this.features.push(frame);
                     flour = this.getRandom(FLOUR);
-                    ribbon = null;
-                    if(i < level - 1) ribbon = this.getRandom(RIBBON);
-                    if(i == level - 1){
-                        cream = this.getRandom(CREAM);
-                        decorate = this.getRandom(DECORATE);
-                    }
+                    ribbon = this.getRandom(RIBBON);
+                    
                     //feature = new Feature(frame, flour, ribbon, cream, decorate, taste);
                     //this.features.push(feature);
                     this.features.push(flour);
-                    this.features.push(ribbon);
-                    this.features.push(cream);
+                    if(i < level - 1) this.features.push(ribbon);
+                    if(i == level - 1){
+                        cream = this.getRandom(CREAM);
+                        decorate = this.getRandom(DECORATE);
+                        this.features.push(cream);
                     this.features.push(decorate);
+                    }
+                    
                     //this.features.push(taste);
                 }
                 break;

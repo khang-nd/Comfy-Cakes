@@ -26,15 +26,50 @@ export default class Timer extends Phaser.GameObjects.Container {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		
 		/* END-USER-CTR-CODE */
 	}
 
 	private seeker: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
-
+	private timedEvent: any;
+	private isStart: boolean = false;
 	// Write your code here.
+	start(){
+		this.timedEvent = this.scene.time.addEvent({ delay: 20, callback: this.onEvent, callbackScope: this, loop: true});
+		this.isStart = true;
+	}
+	stop(){
+		//this.timedEvent.remove(false);
+		this.isStart = false;
+		this.seeker.x = 5;
+	}
 
+	pause(){
+		this.timedEvent.paused = !this.timedEvent.paused;
+		this.isStart = false;
+	}
+
+	reset(){
+		this.seeker.x = 5;
+	}
+
+	onEvent(){
+		if(!this.isStart) return;
+		this.seeker.x += 0.1;
+		if(this.seeker.x > 40){
+			this.seeker.x = 5;
+			this.emit('reset');
+		}
+	}
+
+	update(){
+		/*this.seeker.x += 0.1;
+		if(this.seeker.x > 40){
+			this.seeker.x = 5;
+		}*/
+	}
 	/* END-USER-CODE */
 }
 
