@@ -1,3 +1,4 @@
+import { CREAM, DECORATE, FEATURES, FLOUR, FRAME, LEVEL, RIBBON, TASTE } from "../GameConstants";
 export default class Utils {
     public static scaleFix(obj: any, width: number, height: number) {
         let w = width;
@@ -38,6 +39,39 @@ export default class Utils {
 
     public static toRad(angle) { 
       return angle * (Math.PI / 180);
+    }
+
+    public static getPadding(feature: any) {
+      let paddingY = 0;
+      switch (feature) {
+        case FLOUR.BROWN:
+        case FLOUR.PINK:
+        case FLOUR.YELLOW:
+        case FRAME.CIRCLE:
+        case FRAME.HEART:
+        case FRAME.SQUARE:
+          paddingY = -20;
+          break;
+        case RIBBON.GREEN:
+        case RIBBON.RED:
+        case RIBBON.WHITE:
+        case CREAM.BROWN:
+        case CREAM.PINK:
+        case CREAM.YELLOW:
+          paddingY = -5;
+          break;
+      }
+      return paddingY;
+  
+    }
+
+    public static calPaddingY(features: any) {
+      let paddingY = 0;
+      for (let i = 0; i < features.length; i++) {
+        if (features[i] != FLOUR.BROWN && features[i] != FLOUR.PINK && features[i] != FLOUR.YELLOW)
+          paddingY += this.getPadding(features[i]);
+      }
+      return paddingY;
     }
 
     public static getSize(scene: Phaser.Scene, container: Phaser.GameObjects.Container) {

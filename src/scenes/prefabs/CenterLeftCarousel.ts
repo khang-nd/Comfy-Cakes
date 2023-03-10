@@ -52,11 +52,6 @@ export default class CenterLeftCarousel extends Phaser.GameObjects.Container {
 		carouselCenterRight.setOrigin(0, 0);
 		this.add(carouselCenterRight);
 
-		// image_1
-		const image_1 = scene.add.image(625, 27, "comfy-spritesheet", "tableCloths.png");
-		image_1.visible = false;
-		this.add(image_1);
-
 		this.carouselOne = carouselOne;
 		this.carouselTwo = carouselTwo;
 		this.carouselThree = carouselThree;

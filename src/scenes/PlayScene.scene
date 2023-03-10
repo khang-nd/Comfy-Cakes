@@ -49,6 +49,20 @@
         },
         {
             "type": "Image",
+            "id": "61889826-f00f-4958-88fa-18bdba5d90c7",
+            "label": "buttonHightlight",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "comfy-spritesheet",
+                "frame": "oval_blur.png"
+            },
+            "x": 278,
+            "y": 433,
+            "visible": false
+        },
+        {
+            "type": "Image",
             "id": "791d7621-c338-48bd-99ec-a1ee3476b0fe",
             "label": "leftBtn",
             "scope": "CLASS",
@@ -598,6 +612,64 @@
             "list": []
         },
         {
+            "prefabId": "5cc0bb62-e582-4a50-9119-513dfd5a2f46",
+            "id": "fe34a0a3-9e79-459e-a41b-5798278e8fcc",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "resultScreen",
+            "scope": "CLASS",
+            "components": [],
+            "x": 685,
+            "y": 6,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "80a07c8f-f47a-45ea-9497-31950f401a4a",
+            "id": "26af010e-981f-49e0-8faf-4be005abc0e5",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "character",
+            "scope": "CLASS",
+            "components": [],
+            "x": 1086,
+            "y": 378,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "type": "Image",
+            "id": "b74c338e-0ca4-419b-88db-6ebe98ae8066",
+            "label": "controlHightlight",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "comfy-spritesheet",
+                "frame": "rectangle_blur.png"
+            },
+            "x": 516,
+            "y": 349,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "847c001b-6fdc-43d7-9c54-13ce734359e5",
+            "label": "targetHightlight",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "comfy-spritesheet",
+                "frame": "square_blur.png"
+            },
+            "x": 63,
+            "y": 85,
+            "visible": false
+        },
+        {
             "prefabId": "2b98621a-0b96-4dde-a65a-a030b474cc47",
             "id": "b137d361-6849-4024-a4f9-5b956530ff56",
             "unlock": [
@@ -676,64 +748,6 @@
             "x": 124,
             "y": 0,
             "visible": true
-        },
-        {
-            "prefabId": "5cc0bb62-e582-4a50-9119-513dfd5a2f46",
-            "id": "fe34a0a3-9e79-459e-a41b-5798278e8fcc",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "resultScreen",
-            "scope": "CLASS",
-            "components": [],
-            "x": 685,
-            "y": 6,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "80a07c8f-f47a-45ea-9497-31950f401a4a",
-            "id": "26af010e-981f-49e0-8faf-4be005abc0e5",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "character",
-            "scope": "CLASS",
-            "components": [],
-            "x": 1086,
-            "y": 378,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "type": "Image",
-            "id": "b74c338e-0ca4-419b-88db-6ebe98ae8066",
-            "label": "controlHightlight",
-            "scope": "CLASS",
-            "components": [],
-            "texture": {
-                "key": "comfy-spritesheet",
-                "frame": "rectangle_blur.png"
-            },
-            "x": 516,
-            "y": 349,
-            "visible": false
-        },
-        {
-            "type": "Image",
-            "id": "847c001b-6fdc-43d7-9c54-13ce734359e5",
-            "label": "targetHightlight",
-            "scope": "CLASS",
-            "components": [],
-            "texture": {
-                "key": "comfy-spritesheet",
-                "frame": "square_blur.png"
-            },
-            "x": 63,
-            "y": 85,
-            "visible": false
         }
     ],
     "plainObjects": [],

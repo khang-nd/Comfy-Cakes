@@ -3,9 +3,11 @@
 import Model from "./Model";
 import { FLOUR, RIBBON, CREAM, DECORATE, FRAME, FEATURES, TASTE, LEVEL } from '../../GameConstants';
 import GameVars from "../../GameVars";
+import Utils from "../../utils/Utils";
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -45,7 +47,7 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 	private modelCurrent: any;
 	public createImage(model: Model): void {
 		let flour, cream, decorate, ribbon, taste;
-		let paddingY = -3;
+		let paddingY = 0;
 
 		for (let i = 0; i < model.features.length; i++) {
 
@@ -54,44 +56,57 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 				if (model.features[0] == FRAME.CIRCLE) {
 
 					if (model.features[i] == FLOUR.BROWN) {
-						flour = this.scene.add.image(0, -5 + i * paddingY, 'comfy-spritesheet', 'brown_circle_06.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						flour = this.scene.add.image(0, -5 + paddingY, 'comfy-spritesheet', 'brown_circle_06.png');
 						//this.modelCurrent
 						this.modelContainer.add(flour);
 					} else if (model.features[i] == FLOUR.PINK) {
-						flour = this.scene.add.image(0, -5 + i * paddingY, 'comfy-spritesheet', 'pink_circle_06.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						flour = this.scene.add.image(0, -5 + paddingY, 'comfy-spritesheet', 'pink_circle_06.png');
 						this.modelContainer.add(flour);
 					} else if (model.features[i] == FLOUR.YELLOW) {
-						flour = this.scene.add.image(0, -5 + i * paddingY, 'comfy-spritesheet', 'yellow_circle_06.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						flour = this.scene.add.image(0, -5 + paddingY, 'comfy-spritesheet', 'yellow_circle_06.png');
 						this.modelContainer.add(flour);
 					}else if (model.features[i] == RIBBON.RED) {
-						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'red_ribbon_circle.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						ribbon = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'red_ribbon_circle.png');
 						this.modelContainer.add(ribbon);
 					} else if (model.features[i] == RIBBON.GREEN) {
-						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'green_ribbon_circle.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						ribbon = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'green_ribbon_circle.png');
 						this.modelContainer.add(ribbon);
 					} else if (model.features[i] == RIBBON.WHITE) {
-						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'white_ribbon_circle.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						ribbon = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'white_ribbon_circle.png');
 						this.modelContainer.add(ribbon);
 					}else if (model.features[i] == CREAM.BROWN) {
-						cream = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'brown_cream_circle.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						cream = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'brown_cream_circle.png');
 						this.modelContainer.add(cream);
 					} else if (model.features[i] == CREAM.PINK) {
-						cream = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'pink_cream_circle.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						cream = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'pink_cream_circle.png');
 						this.modelContainer.add(cream);
 					} else if (model.features[i] == CREAM.YELLOW) {
-						cream = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'yellow_cream_circle.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						cream = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'yellow_cream_circle.png');
 						this.modelContainer.add(cream);
 					}else if (model.features[i] == DECORATE.BUTTONS) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'buttons_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0, paddingY - 20, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					} else if (model.features[i] == DECORATE.EMOTICON) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'emoticon_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0, paddingY - 20, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					} else if (model.features[i] == DECORATE.HEART) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'heart_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0, paddingY - 20, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					} else if (model.features[i] == DECORATE.LEAF) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'leaf_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0, paddingY - 20, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					}else if (model.features[i] == TASTE.BURN) {
 
@@ -104,48 +119,62 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 						}
 
 					} else if(model.features[i] == TASTE.SPICE){
-						taste = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'spice_circle.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						taste = this.scene.add.image(0, -20 + paddingY, 'comfy-spritesheet', 'spice_circle.png');
 						this.modelContainer.add(taste);
 					}
 				} else if (model.features[0] == FRAME.HEART) {
 					if (model.features[i] == FLOUR.BROWN) {
-						flour = this.scene.add.image(0, -5 + i * paddingY, 'comfy-spritesheet', 'brown_heart_06.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						flour = this.scene.add.image(0, -5 + paddingY , 'comfy-spritesheet', 'brown_heart_06.png');
 						this.modelContainer.add(flour);
 					} else if (model.features[i] == FLOUR.PINK) {
-						flour = this.scene.add.image(0, -5 + i * paddingY, 'comfy-spritesheet', 'pink_heart_06.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						flour = this.scene.add.image(0, -5 + paddingY , 'comfy-spritesheet', 'pink_heart_06.png');
 						this.modelContainer.add(flour);
 					} else if (model.features[i] == FLOUR.YELLOW) {
-						flour = this.scene.add.image(0, -5 + i * paddingY, 'comfy-spritesheet', 'yellow_heart_06.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						flour = this.scene.add.image(0, -5 + paddingY , 'comfy-spritesheet', 'yellow_heart_06.png');
 						this.modelContainer.add(flour);
 					}else if (model.features[i] == RIBBON.RED) {
-						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'red_ribbon_heart.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						ribbon = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'red_ribbon_heart.png');
 						this.modelContainer.add(ribbon);
 					} else if (model.features[i] == RIBBON.GREEN) {
-						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'green_ribbon_heart.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						ribbon = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'green_ribbon_heart.png');
 						this.modelContainer.add(ribbon);
 					} else if (model.features[i] == RIBBON.WHITE) {
-						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'white_ribbon_heart.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						ribbon = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'white_ribbon_heart.png');
 						this.modelContainer.add(ribbon);
 					}else if (model.features[i] == CREAM.BROWN) {
-						cream = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'brown_cream_heart.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						cream = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'brown_cream_heart.png');
 						this.modelContainer.add(cream);
 					} else if (model.features[i] == CREAM.PINK) {
-						cream = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'pink_cream_heart.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						cream = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'pink_cream_heart.png');
 						this.modelContainer.add(cream);
 					} else if (model.features[i] == CREAM.YELLOW) {
-						cream = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'yellow_cream_heart.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						cream = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'yellow_cream_heart.png');
 						this.modelContainer.add(cream);
 					}else if (model.features[i] == DECORATE.BUTTONS) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'buttons_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0, paddingY - 20, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					} else if (model.features[i] == DECORATE.EMOTICON) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'emoticon_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0,  paddingY - 20, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					} else if (model.features[i] == DECORATE.HEART) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'heart_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0,  paddingY - 20, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					} else if (model.features[i] == DECORATE.LEAF) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'leaf_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0,  paddingY - 20, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					}else if (model.features[i] == TASTE.BURN) {
 
@@ -158,48 +187,62 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 						}
 
 					} else if (model.features[i] == TASTE.SPICE) {
-						taste = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'spice_heart.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						taste = this.scene.add.image(0, -20  + paddingY, 'comfy-spritesheet', 'spice_heart.png');
 						this.modelContainer.add(taste);
 					}
 				} else if (model.features[0] == FRAME.SQUARE) {
 					if (model.features[i] == FLOUR.BROWN) {
-						flour = this.scene.add.image(0, -5 + i * paddingY, 'comfy-spritesheet', 'brown_square_06.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						flour = this.scene.add.image(0, -5  + paddingY , 'comfy-spritesheet', 'brown_square_06.png');
 						this.modelContainer.add(flour);
 					} else if (model.features[i] == FLOUR.PINK) {
-						flour = this.scene.add.image(0, -5 + i * paddingY, 'comfy-spritesheet', 'pink_square_06.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						flour = this.scene.add.image(0, -5 + paddingY, 'comfy-spritesheet', 'pink_square_06.png');
 						this.modelContainer.add(flour);
 					} else if (model.features[i] == FLOUR.YELLOW) {
-						flour = this.scene.add.image(0, -5 + i * paddingY, 'comfy-spritesheet', 'yellow_square_06.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						flour = this.scene.add.image(0, -5 + paddingY, 'comfy-spritesheet', 'yellow_square_06.png');
 						this.modelContainer.add(flour);
 					}else if (model.features[i] == RIBBON.RED) {
-						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'red_ribbon_square.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						ribbon = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'red_ribbon_square.png');
 						this.modelContainer.add(ribbon);
 					} else if (model.features[i] == RIBBON.GREEN) {
-						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'green_ribbon_square.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						ribbon = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'green_ribbon_square.png');
 						this.modelContainer.add(ribbon);
 					} else if (model.features[i] == RIBBON.WHITE) {
-						ribbon = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'white_ribbon_square.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						ribbon = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'white_ribbon_square.png');
 						this.modelContainer.add(ribbon);
 					}else if (model.features[i] == CREAM.BROWN) {
-						cream = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'brown_cream_square.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						cream = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'brown_cream_square.png');
 						this.modelContainer.add(cream);
 					} else if (model.features[i] == CREAM.PINK) {
-						cream = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'pink_cream_square.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						cream = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'pink_cream_square.png');
 						this.modelContainer.add(cream);
 					} else if (model.features[i] == CREAM.YELLOW) {
-						cream = this.scene.add.image(0, -15 + i * paddingY, 'comfy-spritesheet', 'yellow_cream_square.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						cream = this.scene.add.image(0, -15 + paddingY, 'comfy-spritesheet', 'yellow_cream_square.png');
 						this.modelContainer.add(cream);
 					}else if (model.features[i] == DECORATE.BUTTONS) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'buttons_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0, paddingY - 20, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					} else if (model.features[i] == DECORATE.EMOTICON) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'emoticon_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0, paddingY - 20, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					} else if (model.features[i] == DECORATE.HEART) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'heart_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0,  paddingY - 20, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					} else if (model.features[i] == DECORATE.LEAF) {
-						decorate = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'leaf_icon.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						decorate = this.scene.add.image(0, paddingY - 20, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
 						this.modelContainer.add(decorate);
 					}else if (model.features[i] == TASTE.BURN) {
 
@@ -212,12 +255,14 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 						}
 
 					} else if (model.features[i] == TASTE.SPICE) {
-						taste = this.scene.add.image(0, -20 + i * paddingY, 'comfy-spritesheet', 'spice_square.png');
+						paddingY += Utils.getPadding(model.features[i]);
+						taste = this.scene.add.image(0, -20 + paddingY, 'comfy-spritesheet', 'spice_square.png');
 						this.modelContainer.add(taste);
 					}
 				}
 
 			}
+			console.log('padding: ' + paddingY);
 		}
 	}
 	clearChild(){

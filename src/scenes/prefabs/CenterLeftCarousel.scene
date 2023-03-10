@@ -126,19 +126,6 @@
                     "x": 600,
                     "originX": 0,
                     "originY": 0
-                },
-                {
-                    "type": "Image",
-                    "id": "061f6032-48d1-4ea5-8ace-9a36e7ee9960",
-                    "label": "image_1",
-                    "components": [],
-                    "texture": {
-                        "key": "comfy-spritesheet",
-                        "frame": "tableCloths.png"
-                    },
-                    "x": 625,
-                    "y": 27,
-                    "visible": false
                 }
             ]
         }
