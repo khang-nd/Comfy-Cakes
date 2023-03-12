@@ -37,7 +37,7 @@ export default class Timer extends Phaser.GameObjects.Container {
 	private isStart: boolean = false;
 	// Write your code here.
 	start(){
-		this.timedEvent = this.scene.time.addEvent({ delay: 20, callback: this.onEvent, callbackScope: this, loop: true});
+		this.timedEvent = this.scene.time.addEvent({ delay: 1000, callback: this.onEvent, callbackScope: this, timeScale: 1000*40/5000, loop: true});
 		this.isStart = true;
 	}
 	stop(){
@@ -47,21 +47,21 @@ export default class Timer extends Phaser.GameObjects.Container {
 	}
 
 	pause(){
-		this.timedEvent.paused = !this.timedEvent.paused;
+		this.timedEvent.paused = true;
 		this.isStart = false;
+	}
+
+	resume(){
+		this.timedEvent.paused = false;
+		this.isStart = true;
 	}
 
 	reset(){
 		this.seeker.x = 5;
 	}
 
-	onEvent(){
-		if(!this.isStart) return;
-		this.seeker.x += 0.1;
-		if(this.seeker.x > 40){
-			this.seeker.x = 5;
-			this.emit('reset');
-		}
+	onEvent(timer:any){
+		
 	}
 
 	update(){
@@ -69,6 +69,13 @@ export default class Timer extends Phaser.GameObjects.Container {
 		if(this.seeker.x > 40){
 			this.seeker.x = 5;
 		}*/
+		if(!this.isStart) return;
+		
+		this.seeker.x += this.timedEvent.getProgress()/5;
+		if(this.seeker.x > 40){
+			this.seeker.x = 5;
+			this.emit('reset');
+		}
 	}
 	/* END-USER-CODE */
 }

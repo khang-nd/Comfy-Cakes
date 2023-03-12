@@ -7,7 +7,6 @@ import Utils from "../../utils/Utils";
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -26,7 +25,7 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 		this.add(screenTv);
 
 		// modelContainer
-		const modelContainer = scene.add.container(65, 118);
+		const modelContainer = scene.add.container(65, 132);
 		modelContainer.scaleX = 0.8;
 		modelContainer.scaleY = 0.8;
 		this.add(modelContainer);
@@ -110,11 +109,11 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 						this.modelContainer.add(decorate);
 					}else if (model.features[i] == TASTE.BURN) {
 
-						if (model.features[i-1] == CREAM.BROWN) {
+						if (model.features[i-2] == CREAM.BROWN) {
 							cream.setFrame('brown_burn_circle.png');
-						} else if (model.features[i-1] == CREAM.PINK) {
+						} else if (model.features[i-2] == CREAM.PINK) {
 							cream.setFrame('pink_burn_circle.png');
-						} else if (model.features[i-1] == CREAM.YELLOW) {
+						} else if (model.features[i-2] == CREAM.YELLOW) {
 							cream.setFrame('yellow_burn_circle.png');
 						}
 
@@ -178,11 +177,11 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 						this.modelContainer.add(decorate);
 					}else if (model.features[i] == TASTE.BURN) {
 
-						if (model.features[i-1] == CREAM.BROWN) {
+						if (model.features[i-2] == CREAM.BROWN) {
 							cream.setFrame('brown_burn_heart.png');
-						} else if (model.features[i-1] == CREAM.PINK) {
+						} else if (model.features[i-2] == CREAM.PINK) {
 							cream.setFrame('pink_burn_heart.png');
-						} else if (model.features[i-1] == CREAM.YELLOW) {
+						} else if (model.features[i-2] == CREAM.YELLOW) {
 							cream.setFrame('yellow_burn_heart.png');
 						}
 
@@ -246,11 +245,11 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 						this.modelContainer.add(decorate);
 					}else if (model.features[i] == TASTE.BURN) {
 
-						if (model.features[i-1] == CREAM.BROWN) {
+						if (model.features[i-2] == CREAM.BROWN) {
 							cream.setFrame('brown_burn_square.png');
-						} else if (model.features[i-1] == CREAM.PINK) {
+						} else if (model.features[i-2] == CREAM.PINK) {
 							cream.setFrame('pink_burn_square.png');
-						} else if (model.features[i-1] == CREAM.YELLOW) {
+						} else if (model.features[i-2] == CREAM.YELLOW) {
 							cream.setFrame('yellow_burn_square.png');
 						}
 
@@ -262,7 +261,7 @@ export default class TargetScreen extends Phaser.GameObjects.Container {
 				}
 
 			}
-			console.log('padding: ' + paddingY);
+
 		}
 	}
 	clearChild(){

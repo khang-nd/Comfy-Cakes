@@ -25,6 +25,7 @@ export default class Cake extends Phaser.GameObjects.Container {
 		}*/
 		this.scaleX = this.scaleY = 0.9;
 		// Write your code here.
+		
 		/* END-USER-CTR-CODE */
 	}
 

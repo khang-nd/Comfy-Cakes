@@ -98,9 +98,10 @@ export default class Character extends Phaser.GameObjects.Container {
 	}
 
 	blink(repeat: number){
-		this.eyeLeft.play({key:'eyeleft-animation' , repeat: repeat});
+		if(!this.visible) return;
+		if(this.eyeLeft)this.eyeLeft.play({key:'eyeleft-animation' , repeat: repeat});
 		
-		this.eyeRight.play({key:'eyeright-animation', repeat: repeat});
+		if(this.eyeRight)this.eyeRight.play({key:'eyeright-animation', repeat: repeat});
 		
 
 	}

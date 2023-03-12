@@ -73,6 +73,11 @@
                 "key": "taste-animations"
             },
             {
+                "url": "assets/tran-animations.json",
+                "type": "animation",
+                "key": "tran-animations"
+            },
+            {
                 "url": "assets/trash-animations.json",
                 "type": "animation",
                 "key": "trash-animations"

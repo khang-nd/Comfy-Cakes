@@ -5,6 +5,7 @@ import GameManager from "../GameManager";
 
 import Phaser from "phaser";
 import PreloadText from "../components/PreloadText";
+import AlignCanvas from "../components/AlignCanvas";
 /* START-USER-IMPORTS */
 import assetPackUrl from "../../static/assets/asset-pack.json";
 /* END-USER-IMPORTS */
@@ -39,6 +40,9 @@ export default class Preload extends Phaser.Scene {
 		// progress (components)
 		new PreloadText(progress);
 
+		// canvasRef (components)
+		new AlignCanvas(canvasRef);
+
 		this.events.emit("scene-awake");
 	}
 
@@ -57,7 +61,7 @@ export default class Preload extends Phaser.Scene {
 	}
 
 	create() {
-		
+
 		//this.scene.start("PlayScene");
 	}
 

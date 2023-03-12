@@ -46,6 +46,19 @@
             "x": 369,
             "y": 314,
             "text": "Advanced"
+        },
+        {
+            "type": "Image",
+            "id": "efdec38c-c7a7-46e8-b8b1-a6a11412cdf6",
+            "label": "CanvasRef",
+            "scope": "CLASS",
+            "components": [
+                "AlignCanvas"
+            ],
+            "texture": {
+                "key": "canvasIcon"
+            },
+            "visible": false
         }
     ],
     "plainObjects": [],

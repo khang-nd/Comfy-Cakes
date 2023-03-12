@@ -30,9 +30,6 @@ export default class Model {
                     this.features.push(frame);
                     flour = this.getRandom(FLOUR);
                     ribbon = this.getRandom(RIBBON);
-                    
-                    //feature = new Feature(frame, flour, ribbon, cream, decorate, taste);
-                    //this.features.push(feature);
                     this.features.push(flour);
                     if(i < level - 1) this.features.push(ribbon);
                     if(i == level - 1){
@@ -47,26 +44,27 @@ export default class Model {
                 break;
             case LEVEL.ADVANCED:
                 frame = this.getRandom(FRAME);
-                this.features.push(frame);
-                ribbon = null;
+                
+                
                 for (let i = 0; i < level; i++) {
-                    
+                    this.features.push(frame);
                     flour = this.getRandom(FLOUR);
-                    if(i < level - 1) ribbon = this.getRandom(RIBBON);
-                    
-                    
+                    ribbon = this.getRandom(RIBBON);
+                    this.features.push(flour);
+                    if(i < level - 1) this.features.push(ribbon);
                     if(i == level - 1){
                         cream = this.getRandom(CREAM);
                         decorate = this.getRandom(DECORATE);
                         taste = this.getRandom(TASTE);
+                        this.features.push(cream);
+                        this.features.push(decorate);
+                        this.features.push(taste);
                     }
-                    //feature = new Feature(frame, flour, ribbon, cream, decorate, taste);
-                    //this.features.push(feature);
-                    this.features.push(flour);
-                    this.features.push(ribbon);
-                    this.features.push(cream);
-                    this.features.push(decorate);
-                    this.features.push(taste);
+                    //this.features.push(flour);
+                    //this.features.push(ribbon);
+                    //this.features.push(cream);
+                    //this.features.push(decorate);
+                    //this.features.push(taste);
                 }
                 break;
         }

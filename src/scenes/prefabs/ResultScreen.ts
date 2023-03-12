@@ -5,7 +5,6 @@ import GameVars from "../../GameVars";
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-
 import Bullet from "./Bullet";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -50,12 +49,18 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
 		bulletSix.visible = false;
 		this.add(bulletSix);
 
+		// tran
+		const tran = scene.add.sprite(52, 39, "comfy-spritesheet", "tran_00.png");
+		tran.visible = false;
+		this.add(tran);
+
 		this.bulletOne = bulletOne;
 		this.bulletTwo = bulletTwo;
 		this.bulletThree = bulletThree;
 		this.bulletFour = bulletFour;
 		this.bulletFive = bulletFive;
 		this.bulletSix = bulletSix;
+		this.tran = tran;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -77,6 +82,7 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
 	private bulletFour: Bullet;
 	private bulletFive: Bullet;
 	private bulletSix: Bullet;
+	public tran: Phaser.GameObjects.Sprite;
 
 	/* START-USER-CODE */
 
@@ -100,7 +106,7 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
 	setStatusAt(id: number, status:boolean){
 		let string = status ? "pass_icon.png" : "x_icon.png";
 		this.bullets[id].setFrame(string);
-		
+
 		if(!status){
 			this.bullets[id].alpha = 0;
 			this.scene.add.tween({
@@ -113,10 +119,10 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
 				}
 			});
 		}
-		
+
 	}
 
-	
+
 
 	update(time: number, delta: number) {
 	}

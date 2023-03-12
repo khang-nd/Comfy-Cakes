@@ -43,7 +43,9 @@
             "type": "Image",
             "id": "edf6fb1f-a550-4e9a-a01c-138fb13be8db",
             "label": "CanvasRef",
-            "components": [],
+            "components": [
+                "AlignCanvas"
+            ],
             "texture": {
                 "key": "canvasIcon"
             },

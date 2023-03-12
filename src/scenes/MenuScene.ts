@@ -7,7 +7,7 @@ import GameVars from '../GameVars';
 
 import Phaser from "phaser";
 import PushOnClick from "../components/PushOnClick";
-
+import AlignCanvas from "../components/AlignCanvas";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -35,6 +35,10 @@ export default class MenuScene extends Phaser.Scene {
 		const advanced = this.add.text(369, 314, "", {});
 		advanced.text = "Advanced";
 
+		// CanvasRef
+		const canvasRef = this.add.image(0, 0, "canvasIcon");
+		canvasRef.visible = false;
+
 		// easy (components)
 		new PushOnClick(easy);
 
@@ -44,9 +48,13 @@ export default class MenuScene extends Phaser.Scene {
 		// advanced (components)
 		new PushOnClick(advanced);
 
+		// canvasRef (components)
+		new AlignCanvas(canvasRef);
+
 		this.easy = easy;
 		this.intermediate = intermediate;
 		this.advanced = advanced;
+		this.canvasRef = canvasRef;
 
 		this.events.emit("scene-awake");
 	}
@@ -54,6 +62,7 @@ export default class MenuScene extends Phaser.Scene {
 	private easy!: Phaser.GameObjects.Text;
 	private intermediate!: Phaser.GameObjects.Text;
 	private advanced!: Phaser.GameObjects.Text;
+	private canvasRef!: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 
@@ -82,7 +91,7 @@ export default class MenuScene extends Phaser.Scene {
 			GameVars.level = LEVEL.ADVANCED;
 			GameManager.enterPlayScene();
 		});
-		
+
 	}
 
 	/* END-USER-CODE */
