@@ -748,58 +748,6 @@
             "x": 124,
             "y": 0,
             "visible": true
-        },
-        {
-            "type": "Text",
-            "id": "60ed5195-065a-4add-9f7f-422a462e3dc4",
-            "label": "resultText",
-            "scope": "CLASS",
-            "components": [],
-            "x": 377,
-            "y": 153,
-            "originX": 0.5,
-            "originY": 0.5,
-            "visible": false,
-            "text": "You won",
-            "fontSize": "72px",
-            "fontStyle": "bold",
-            "color": "#ff2d2dff"
-        },
-        {
-            "type": "Text",
-            "id": "9fdbcb26-2312-46bb-9750-c72c10f8d86e",
-            "label": "mainMenu",
-            "scope": "CLASS",
-            "components": [
-                "PushOnClick"
-            ],
-            "x": 377,
-            "y": 236,
-            "originX": 0.5,
-            "originY": 0.5,
-            "visible": false,
-            "text": "Main menu\n",
-            "fontSize": "35px",
-            "fontStyle": "bold",
-            "color": "#ff2d2dff"
-        },
-        {
-            "type": "Text",
-            "id": "d0c684c6-c72f-47d8-8c68-cff9fcc99fb9",
-            "label": "replay",
-            "scope": "CLASS",
-            "components": [
-                "PushOnClick"
-            ],
-            "x": 377,
-            "y": 268,
-            "originX": 0.5,
-            "originY": 0.5,
-            "visible": false,
-            "text": "Replay",
-            "fontSize": "35px",
-            "fontStyle": "bold",
-            "color": "#ff2d2dff"
         }
     ],
     "plainObjects": [],

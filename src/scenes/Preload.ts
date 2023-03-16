@@ -1,6 +1,8 @@
 
 // You can write more code here
 import GameManager from "../GameManager";
+import GameVars from "../GameVars";
+import { LEVEL } from "../GameConstants";
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -8,6 +10,8 @@ import PreloadText from "../components/PreloadText";
 import AlignCanvas from "../components/AlignCanvas";
 /* START-USER-IMPORTS */
 import assetPackUrl from "../../static/assets/asset-pack.json";
+
+
 /* END-USER-IMPORTS */
 
 export default class Preload extends Phaser.Scene {
@@ -56,7 +60,14 @@ export default class Preload extends Phaser.Scene {
 		GameManager.setCurrentScene(this);
 		this.load.pack("asset-pack", assetPackUrl);
 		this.load.on(Phaser.Loader.Events.COMPLETE, () => {
-			GameManager.enterMenuScene();
+			window.addEventListener("message", (e) => {
+
+				GameVars.level = e.data ? e.data: LEVEL.EASY;
+				GameManager.enterPlayScene();
+			});
+			//GameVars.level = LEVEL.INTERMEDIATE;
+			//GameManager.enterPlayScene();
+			//GameManager.enterMenuScene();
 		});
 	}
 

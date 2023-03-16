@@ -8,7 +8,8 @@ export default class GameManager {
         this.currentInstance = this;
         if (GameVars.currentScene.game.device.os.desktop) {
         }
-        GameManager.readGameData();
+        //GameManager.readGameData();
+        GameManager.startGame();
     }
 
     public static readGameData(): void {
