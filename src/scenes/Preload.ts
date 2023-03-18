@@ -62,12 +62,12 @@ export default class Preload extends Phaser.Scene {
 		this.load.on(Phaser.Loader.Events.COMPLETE, () => {
 			window.addEventListener("message", (e) => {
 
-				//GameVars.level = e.data ? e.data: LEVEL.EASY;
-				//GameManager.enterPlayScene();
+				GameVars.level = e.data ? e.data: LEVEL.EASY;
+				GameManager.enterPlayScene();
 			});
-			GameVars.level = LEVEL.INTERMEDIATE;
+			//GameVars.level = LEVEL.INTERMEDIATE;
 			//GameManager.enterPlayScene();
-			GameManager.enterMenuScene();
+			//GameManager.enterMenuScene();
 		});
 	}
 
