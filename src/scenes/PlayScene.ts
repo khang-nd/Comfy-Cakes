@@ -1061,7 +1061,7 @@ export default class PlayScene extends Phaser.Scene {
 		}
 		this.isMaking = true;
 		//due to each levels, position show frame is different
-		if (GameVars.level == LEVEL.EASY) {
+		/*if (GameVars.level == LEVEL.EASY) {
 
 			let feature = this.getEnd(cake.features);
 			padding = Utils.calPaddingY(cake.features);
@@ -1152,58 +1152,106 @@ export default class PlayScene extends Phaser.Scene {
 			}
 
 
-		} else {
+		} else {*/
 			let feature = this.getEnd(cake.features);
-
-			//check if the feature has frame
-			if (feature == FRAME.CIRCLE || feature == FRAME.HEART || feature == FRAME.SQUARE) {
-				this.hightlight(this.buttonHightlight);
-				this.isMaking = false;
-				return;
-			}
+			//cal padding
+			padding = Utils.calPaddingY(cake.features);
 			//check exist cake making
 			if((this.isExistMakingCake || this.cakes.length > 1) && (GameVars.level == LEVEL.INTERMEDIATE || GameVars.level == LEVEL.ADVANCED)){
 				this.timer.start();
 				this.timer.on('reset', this.playNext, this);
 			}
-			//cal padding
-			padding = Utils.calPaddingY(cake.features);
-			//create new frame
-			frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'circle_00.png').setOrigin(0.5);
-			frame.scaleX = frame.scaleY = 0.3;
-			if(this.timer.visible)this.timer.pause();
-			this.add.tween({
-				targets: frame,
-				y: cake.y - 10 +  padding,
-				scaleX: 0.9,
-				scaleY: 0.9,
-				duration: 200,
-				onComplete: () => {
-					//play frame animation
-					frame.play('circle-frame-animation', true);
-					//trigger event animation completet to set position frame
-					frame.on('animationcomplete', () => {
-						if(this.timer.visible) this.timer.resume();
-						this.isMaking = false;
-						cake.add(frame);
-						frame.x = 0;
-						frame.y = - 10 + padding;
+			//check if the feature has frame
+			if (feature == FRAME.CIRCLE || feature == FRAME.HEART || feature == FRAME.SQUARE) {
+				//this.hightlight(this.buttonHightlight);
+				//this.isMaking = false;
+				//return;
+				//get last element in cake, scale small, remove and create new frame
+				frame = (cake.last as Phaser.GameObjects.Sprite);
 
-						cake.tableCloth.setDepth(0);
-						let fmodel = this.getStart(this.model.features);
-						//check frame cake with model
-						if(fmodel != FRAME.CIRCLE) this.hightlight(this.targetHightlight);
-					});
-					//push new feature
-					cake.features.push(FRAME.CIRCLE);
+				this.add.tween({
+					targets: frame,
+					y: -this.frameSpot.y - this.frameSpot.displayHeight,
+					scaleX: 0.3,
+					scaleY: 0.3,
+					duration: 200,
+					onComplete: () => {
 
-				},
-				callbackScope: this
-			});
+						//remove current frame
+						cake.remove(frame);
+						frame.removedFromScene();
+						frame.destroy();
+						frame = null;
+						cake.features.pop();
+						//create new frame
+						frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'circle_00.png').setOrigin(0.5);
+						frame.scaleX = frame.scaleY = 0.3;
 
+						this.add.tween({
+							targets: frame,
+							y: cake.y + 10 +  padding,
+							scaleX: 0.9,
+							scaleY: 0.9,
+							duration: 200,
+							onComplete: () => {
 
-		}
+								//play frame animation
+								frame.play('circle-frame-animation', true);
+								//trigger event animation completet to set position frame
+								frame.on('animationcomplete', () => {
+									if(this.timer.visible) this.timer.resume();
+									this.isMaking = false;
+									cake.add(frame);
+									frame.x = 0;
+									frame.y =  padding + 10;
+									cake.tableCloth.setDepth(0);
+									let fmodel = this.getStart(this.model.features);
+									//check frame cake with model
+									if(fmodel != FRAME.CIRCLE) this.hightlight(this.targetHightlight);
+								});
+								cake.features.push(FRAME.CIRCLE);
+							},
+							callbackScope: this
+						});
 
+					}
+				});
+			}else{
+				//create new frame
+				frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'circle_00.png').setOrigin(0.5);
+				frame.scaleX = frame.scaleY = 0.3;
+				if(this.timer.visible)this.timer.pause();
+				this.add.tween({
+					targets: frame,
+					y: cake.y - 10 +  padding,
+					scaleX: 0.9,
+					scaleY: 0.9,
+					duration: 200,
+					onComplete: () => {
+						//play frame animation
+						frame.play('circle-frame-animation', true);
+						//trigger event animation completet to set position frame
+						frame.on('animationcomplete', () => {
+							if(this.timer.visible) this.timer.resume();
+							this.isMaking = false;
+							cake.add(frame);
+							frame.x = 0;
+							frame.y = - 10 + padding;
+
+							cake.tableCloth.setDepth(0);
+							let fmodel = this.getStart(this.model.features);
+							//check frame cake with model
+							if(fmodel != FRAME.CIRCLE) this.hightlight(this.targetHightlight);
+						});
+						//push new feature
+						cake.features.push(FRAME.CIRCLE);
+
+					},
+					callbackScope: this
+				});
+			}
+
+		//}
 
 
 	}
@@ -1224,7 +1272,7 @@ export default class PlayScene extends Phaser.Scene {
 			return;
 		}
 		this.isMaking = true;
-		if (GameVars.level == LEVEL.EASY) {
+		/*if (GameVars.level == LEVEL.EASY) {
 			let feature = this.getEnd(cake.features);
 			padding = Utils.calPaddingY(cake.features);
 			//check if the feature has frame
@@ -1312,55 +1360,108 @@ export default class PlayScene extends Phaser.Scene {
 			}
 
 
-		} else {
+		} else {*/
 			let feature = this.getEnd(cake.features);
+			//cal padding
+			padding = Utils.calPaddingY(cake.features);
 
-			//check if the feature has frame
-			if (feature == FRAME.CIRCLE || feature == FRAME.HEART || feature == FRAME.SQUARE) {
-				this.hightlight(this.buttonHightlight);
-				this.isMaking = false;
-				return;
-			}
-					//check exist cake making
+			//check exist cake making
 			if((this.isExistMakingCake || this.cakes.length > 1) && (GameVars.level == LEVEL.INTERMEDIATE || GameVars.level == LEVEL.ADVANCED)){
 				this.timer.start();
 				this.timer.on('reset', this.playNext, this);
 			}
-			//cal padding
-			padding = Utils.calPaddingY(cake.features);
-			//create new frame
-			let frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'square_00.png').setOrigin(0.5);
-			frame.scaleX = frame.scaleY = 0.3;
-			if(this.timer.visible)this.timer.pause();
-			this.add.tween({
-				targets: frame,
-				y: cake.y - 10 +  padding,
-				scaleX: 0.9,
-				scaleY: 0.9,
-				duration: 200,
-				onComplete: () => {
-					//play frame animation
-					frame.play('square-frame-animation', true);
-					//trigger event animation completet to set position frame
-					frame.on('animationcomplete', () => {
-						this.isMaking = false;
-						if(this.timer.visible)this.timer.resume();
-						cake.add(frame);
-							frame.x = 0;
-							frame.y = - 10 + padding;
+			//check if the feature has frame
+			if (feature == FRAME.CIRCLE || feature == FRAME.HEART || feature == FRAME.SQUARE) {
+				//this.hightlight(this.buttonHightlight);
+				//this.isMaking = false;
+				//return;
 
-							cake.tableCloth.setDepth(0);
+				frame = (cake.last as Phaser.GameObjects.Sprite);
+				this.add.tween({
+					targets: frame,
+					y: -this.frameSpot.y - this.frameSpot.displayHeight,
+					scaleX: 0.3,
+					scaleY: 0.3,
+					duration: 200,
+					onComplete: () => {
+						//remove current frame
+						cake.remove(frame);
+						frame.removedFromScene();
 
-							let fmodel = this.getStart(cake.features);
-							//check frame cake with model
-							if(fmodel != FRAME.SQUARE) this.hightlight(this.targetHightlight);
-					});
-					cake.features.push(FRAME.SQUARE);
-				},
-				callbackScope: this
-			});
+						frame.destroy();
+						frame = null;
+						cake.features.pop();
+						//create new frame
+						frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'square_00.png');
+						frame.scaleX = frame.scaleY = 0.3;
 
-		}
+						this.add.tween({
+							targets: frame,
+							y: cake.y + 10 +  padding,
+							scaleX: 1,
+							scaleY: 1,
+							duration: 200,
+							onComplete: () => {
+								//play frame animation
+								frame.play('square-frame-animation', true);
+								//trigger event animation completet to set position frame
+								frame.on('animationcomplete', () => {
+									this.isMaking = false;
+									if(this.timer.visible)this.timer.resume();
+									cake.add(frame);
+									frame.x = 0;
+									frame.y =  10 + padding;
+									cake.tableCloth.setDepth(0);
+									let fmodel = this.getStart(this.model.features);
+
+									//check frame cake with model
+									if(fmodel != FRAME.SQUARE) this.hightlight(this.targetHightlight);
+								});
+								cake.features.push(FRAME.SQUARE);
+							},
+							callbackScope: this
+						});
+
+					}
+				});
+			}else{
+				//create new frame
+				let frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'square_00.png').setOrigin(0.5);
+				frame.scaleX = frame.scaleY = 0.3;
+				if(this.timer.visible)this.timer.pause();
+				this.add.tween({
+					targets: frame,
+					y: cake.y - 10 +  padding,
+					scaleX: 0.9,
+					scaleY: 0.9,
+					duration: 200,
+					onComplete: () => {
+						//play frame animation
+						frame.play('square-frame-animation', true);
+						//trigger event animation completet to set position frame
+						frame.on('animationcomplete', () => {
+							this.isMaking = false;
+							if(this.timer.visible)this.timer.resume();
+							cake.add(frame);
+								frame.x = 0;
+								frame.y = - 10 + padding;
+
+								cake.tableCloth.setDepth(0);
+
+								let fmodel = this.getStart(cake.features);
+								//check frame cake with model
+								if(fmodel != FRAME.SQUARE) this.hightlight(this.targetHightlight);
+						});
+						cake.features.push(FRAME.SQUARE);
+					},
+					callbackScope: this
+				});
+			}
+			
+			
+			
+
+		//}
 
 
 	}
@@ -1382,7 +1483,7 @@ export default class PlayScene extends Phaser.Scene {
 		}
 		this.isMaking = true;
 		//due to each levels, position show frame is different
-		if (GameVars.level == LEVEL.EASY) {
+		/*if (GameVars.level == LEVEL.EASY) {
 			let feature = this.getEnd(cake.features);
 			padding = Utils.calPaddingY(cake.features);
 			//check if the feature has frame
@@ -1469,56 +1570,107 @@ export default class PlayScene extends Phaser.Scene {
 			}
 
 
-		} else {
+		} else {*/
 			let feature = this.getEnd(cake.features);
-
-			//check if the feature has frame
-			if (feature == FRAME.CIRCLE || feature == FRAME.HEART || feature == FRAME.SQUARE) {
-				this.hightlight(this.buttonHightlight);
-				this.isMaking = false;
-				return;
-			}
-					//check exist cake making
+			padding = Utils.calPaddingY(cake.features);
+			//check exist cake making
 			if((this.isExistMakingCake || this.cakes.length > 1) && (GameVars.level == LEVEL.INTERMEDIATE || GameVars.level == LEVEL.ADVANCED)){
 				this.timer.start();
 				this.timer.on('reset', this.playNext, this);
 			}
-			//cal padding
-			padding = Utils.calPaddingY(cake.features);
-			//create new frame
-			frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'heart_00.png').setOrigin(0.5);
-			frame.scaleX = frame.scaleY = 0.3;
-			if(this.timer.visible)this.timer.pause();
-			this.add.tween({
-				targets: frame,
-				y: cake.y - 10 +  padding,
-				scaleX: 0.9,
-				scaleY: 0.9,
-				duration: 200,
-				onComplete: () => {
-					//play frame animation
-					frame.play('heart-frame-animation', true);
-					//trigger event animation completet to set position frame
-					frame.on('animationcomplete', () => {
-						this.isMaking = false;
-						if(this.timer.visible)this.timer.resume();
-						cake.add(frame);
-						frame.x = 0;
-						frame.y = - 10 + padding;
+			//check if the feature has frame
+			if (feature == FRAME.CIRCLE || feature == FRAME.HEART || feature == FRAME.SQUARE) {
+				//this.hightlight(this.buttonHightlight);
+				//this.isMaking = false;
+				//return;
+				frame = (cake.last as Phaser.GameObjects.Sprite);
+				this.add.tween({
+					targets: frame,
+					y: -this.frameSpot.y - this.frameSpot.displayHeight,
+					scaleX: 0.4,
+					scaleY: 0.4,
+					duration: 200,
+					onComplete: () => {
+						//remove current frame
+						cake.remove(frame);
+						frame.removedFromScene();
+						frame.destroy();
+						frame = null;
+						cake.features.pop();
+						//create new frame
+						frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'heart_00.png');
+						frame.scaleX = frame.scaleY = 0.4;
 
-						cake.tableCloth.setDepth(0);
-						let fmodel = this.getStart(this.model.features);
+						this.add.tween({
+							targets: frame,
+							y: cake.y + 10 +  padding,
+							scaleX: 0.9,
+							scaleY: 0.9,
+							duration: 200,
+							onComplete: () => {
+								//play frame animation
+								frame.play('heart-frame-animation', true);
+								//trigger event animation completet to set position frame
+								frame.on('animationcomplete', () => {
+									this.isMaking = false;
+									if(this.timer.visible)this.timer.resume();
+									cake.add(frame);
+									frame.x = 0;
+									frame.y =  10 + padding;
 
-						//check frame cake with model
-						if(fmodel != FRAME.HEART) this.hightlight(this.targetHightlight);
-					});
+									cake.tableCloth.setDepth(0);
+									let fmodel = this.getStart(this.model.features);
 
-					cake.features.push(FRAME.HEART);
-				},
-				callbackScope: this
-			});
+									//check frame cake with model
+									if(fmodel != FRAME.HEART) this.hightlight(this.targetHightlight);
+								});
+								cake.features.push(FRAME.HEART);
+							},
+							callbackScope: this
+						});
 
-		}
+					}
+				});
+			}else{
+				//cal padding
+				//padding = Utils.calPaddingY(cake.features);
+				//create new frame
+				frame = this.add.sprite(this.frameSpot.x, this.frameSpot.y + this.frameSpot.displayHeight, 'comfy-spritesheet', 'heart_00.png').setOrigin(0.5);
+				frame.scaleX = frame.scaleY = 0.3;
+				if(this.timer.visible)this.timer.pause();
+				this.add.tween({
+					targets: frame,
+					y: cake.y - 10 +  padding,
+					scaleX: 0.9,
+					scaleY: 0.9,
+					duration: 200,
+					onComplete: () => {
+						//play frame animation
+						frame.play('heart-frame-animation', true);
+						//trigger event animation completet to set position frame
+						frame.on('animationcomplete', () => {
+							this.isMaking = false;
+							if(this.timer.visible)this.timer.resume();
+							cake.add(frame);
+							frame.x = 0;
+							frame.y = - 10 + padding;
+
+							cake.tableCloth.setDepth(0);
+							let fmodel = this.getStart(this.model.features);
+
+							//check frame cake with model
+							if(fmodel != FRAME.HEART) this.hightlight(this.targetHightlight);
+						});
+
+						cake.features.push(FRAME.HEART);
+					},
+					callbackScope: this
+				});
+			}
+			
+			
+
+		//}
 
 
 
