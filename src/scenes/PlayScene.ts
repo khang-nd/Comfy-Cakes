@@ -549,23 +549,31 @@ export default class PlayScene extends Phaser.Scene {
 	}
 
 	moveNext(cake: Cake) {
+
 		if (cake.y < 247/* && cake.x == 60*/) {
+			this.isMaking = true;
 			this.add.tween({
 				targets: cake,
 				x: "-=30",
 				y: "+=63",
 				duration: 200,
+				onComplete:()=>{
+					this.isMaking = false;
+				}
 
 			});
 			this.leftCarousel.play('left-animation', true);
 			this.centerLeftCarousel.playNext();
 
 		} else {
+			this.isMaking = true;
 			this.add.tween({
 				targets: cake,
 				x: "+=100",
 				duration: 200,
-
+				onComplete:()=>{
+					this.isMaking = false;
+				}
 			});
 			this.leftCarousel.play('left-animation', true);
 			this.centerLeftCarousel.playNext();
@@ -580,11 +588,17 @@ export default class PlayScene extends Phaser.Scene {
 
 					if(this.canMove(cake.x -100, cake.y)){
 						if(index>=0){
+							this.isMaking = true;
 							for(let i = index; i >= 0; i--){
 								this.add.tween({
 									targets: this.cakes[i],
 									x: "-=100",
 									duration: 200,
+									onComplete:()=>{
+										if(i == 0){
+											this.isMaking = false;
+										}
+									}
 
 								});
 							}
@@ -613,13 +627,13 @@ export default class PlayScene extends Phaser.Scene {
 			if(cake.y > 148){
 
 					if(this.canMove(cake.x + 30, cake.y - 63)){
-
+						this.isMaking = true;
 						this.add.tween({
 							targets: cake,
 							x: "+=30",
 							y: "-=63",
 							duration: 200,
-
+							
 						});
 
 
@@ -629,7 +643,11 @@ export default class PlayScene extends Phaser.Scene {
 								x: "-=100",
 								//alpha: 0,
 								duration: 200,
-
+								onComplete:()=>{
+									if(i == 0){
+										this.isMaking = false;
+									}
+								}
 							});
 						}
 
@@ -728,47 +746,52 @@ export default class PlayScene extends Phaser.Scene {
 														x: '+=200',
 														duration: 800,
 														onComplete: () => {
-															if(GameVars.level == LEVEL.EASY){
-																if(this.cakeNum == 4){
+															if(this.cakeNum == 4){
 
-																	this.resultScreen.tran.visible = true;
-																	this.resultScreen.tran.play('tran-animation');
-																	//this.resultText.setText('You won');
-																	//this.resultText.visible = true;
-																	//this.mainMenu.visible = true;
-																	//this.replay.visible = true;
-
-																	//send messege to parent app
-																	//window.parent.postMessage(GameVars.level, '*');
-																	const data = {
-																		Result: "win",
-																		FailCount: this.failedCakeNum
-																	  };
-																	window.parent.postMessage(data, '*');
-																	this.cakeNum = 0;
-																	return;
-																} 
-															}else if(GameVars.level == LEVEL.ADVANCED || GameVars.level == LEVEL.INTERMEDIATE){
-																if(this.cakeNum == 5){
-																	//this.resultText.setText('You won');
-																	//this.resultText.visible = true;
-																	//this.mainMenu.visible = true;
-																	//this.replay.visible = true;
-																	//window.parent.postMessage(GameVars.level, '*');
-																	const data = {
-																		Result: "win",
-																		FailCount: this.failedCakeNum
-																	  };
-																	window.parent.postMessage(data, '*');
-																	this.cakeNum = 0;
-																	return;
-																}
-															}
+																this.resultScreen.tran.visible = true;
+																this.resultScreen.tran.play('tran-animation');
+																const data = {
+																	Result: "win",
+																	FailCount: this.failedCakeNum
+																  };
+																window.parent.postMessage(data, '*');
+																this.cakeNum = 0;
+																return;
+															} 
 															this.cakeNum++;
+															
 														}
 													});
 												}
 											});
+										}
+									});
+								}else{
+									this.box.visible = true;
+									this.hand.off('animationcomplete');
+									this.add.tween({
+										targets: this.box,
+										x: "+=150",
+										y: "-=250",
+										duration: 3000,
+										onComplete: () => {
+											this.box.visible = false;
+											this.box.x = this.initX;
+											this.box.y = this.initY;
+											
+
+											if(this.cakeNum == 5){
+												const data = {
+													Result: "win",
+													FailCount: this.failedCakeNum
+												  };
+												window.parent.postMessage(data, '*');
+												if(this.timer.visible)this.timer.stop();
+												this.cakeNum = 0;
+												return;
+											}
+
+											this.cakeNum++;											
 										}
 									});
 								}
@@ -794,6 +817,7 @@ export default class PlayScene extends Phaser.Scene {
 
 					//play alarm light
 					this.alarmLight.play('alarm-animation');
+					//this.cakeNum++;
 					this.resultScreen.setStatusAt(this.cakeNum, false);
 					this.add.tween({
 						targets: this.cakes[i],
@@ -2049,7 +2073,7 @@ export default class PlayScene extends Phaser.Scene {
 		}
 
 		let end = this.getEnd(cake.features);
-		if (end != CREAM.BROWN && end != CREAM.PINK && end != CREAM.YELLOW && end != DECORATE.BUTTONS && end != DECORATE.EMOTICON && end != DECORATE.HEART && end != DECORATE.LEAF) {
+		if (end != CREAM.BROWN && end != CREAM.PINK && end != CREAM.YELLOW && end != DECORATE.BUTTONS && end != DECORATE.EMOTICON && end != DECORATE.HEART && end != DECORATE.LEAF && end != TASTE.SPICE) {
 			return;
 		} else {
 			if(this.timer.visible)this.timer.pause();
@@ -2063,12 +2087,17 @@ export default class PlayScene extends Phaser.Scene {
 			if (end == DECORATE.BUTTONS || end == DECORATE.EMOTICON || end == DECORATE.HEART || end == DECORATE.LEAF) {
 				taste = (cake.getAt(cake.length-2) as Phaser.GameObjects.Sprite);
 				feature = this.getLast(cake.features);
-				start = this.getStart(cake.features);
+				start = this.getEndFrame(cake.features);
+				//cake.features.splice(cake.features.length-2,1);
 
-			} else {
+			} else if(end == TASTE.SPICE){
+				taste = (cake.getAt(cake.length-3) as Phaser.GameObjects.Sprite);
+				feature = cake.features[cake.features.length-3];
+				start = this.getEndFrame(cake.features);
+			}else {
 				taste = (cake.last as Phaser.GameObjects.Sprite);
 				feature = this.getEnd(cake.features);
-				start = this.getStart(cake.features);
+				start = this.getEndFrame(cake.features);
 			}
 
 
@@ -2084,6 +2113,7 @@ export default class PlayScene extends Phaser.Scene {
 						taste.setFrame('brown_burn_square.png');
 						break;
 				}
+				//cake.features.pop();
 			} else if (feature == CREAM.PINK) {
 				switch (start) {
 					case FRAME.CIRCLE:
@@ -2096,6 +2126,7 @@ export default class PlayScene extends Phaser.Scene {
 						taste.setFrame('pink_burn_square.png');
 						break;
 				}
+				//cake.features.pop();
 			} else if (feature == CREAM.YELLOW) {
 				switch (start) {
 					case FRAME.CIRCLE:
@@ -2108,8 +2139,9 @@ export default class PlayScene extends Phaser.Scene {
 						taste.setFrame('yellow_burn_square.png');
 						break;
 				}
+				//cake.features.pop();
 			}
-
+			
 			cake.features.push(TASTE.BURN);
 			if(GameVars.level == LEVEL.ADVANCED || GameVars.level == LEVEL.INTERMEDIATE ){
 				this.showChar();
@@ -2129,7 +2161,7 @@ export default class PlayScene extends Phaser.Scene {
 		}
 
 		let end = this.getEnd(cake.features);
-		if (end != CREAM.BROWN && end != CREAM.PINK && end != CREAM.YELLOW && end != DECORATE.BUTTONS && end != DECORATE.EMOTICON && end != DECORATE.HEART && end != DECORATE.LEAF) {
+		if (end != CREAM.BROWN && end != CREAM.PINK && end != CREAM.YELLOW && end != DECORATE.BUTTONS && end != DECORATE.EMOTICON && end != DECORATE.HEART && end != DECORATE.LEAF  && end != TASTE.BURN) {
 			return;
 		} else {
 			if(this.timer.visible)this.timer.pause();
@@ -2143,12 +2175,12 @@ export default class PlayScene extends Phaser.Scene {
 			if (end == DECORATE.BUTTONS || end == DECORATE.EMOTICON || end == DECORATE.HEART || end == DECORATE.LEAF) {
 				taste = (cake.getAt(cake.length-2) as Phaser.GameObjects.Sprite);
 				last = this.getLast(cake.features);
-				start = this.getStart(cake.features);
+				start = this.getEndFrame(cake.features);
 
 			} else {
 				taste = (cake.last as Phaser.GameObjects.Sprite);
 				last = this.getEnd(cake.features);
-				start = this.getStart(cake.features);
+				start = this.getEndFrame(cake.features);
 			}
 
 
@@ -2194,6 +2226,7 @@ export default class PlayScene extends Phaser.Scene {
 			return;
 		} else {
 			if(this.timer.visible)this.timer.pause();
+			this.clearCake(cake);
 			let padding =  Utils.calPaddingY(cake.features);
 			let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'red_ribbon_00.png').setOrigin(0.5, 0);
 			ribbon.play('red-ribbon-animation');
@@ -2279,6 +2312,7 @@ export default class PlayScene extends Phaser.Scene {
 			return;
 		} else {
 			if(this.timer.visible)this.timer.pause();
+			this.clearCake(cake);
 			let padding =  Utils.calPaddingY(cake.features);
 			let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'white_ribbon_00.png').setOrigin(0.5, 0);
 			ribbon.play('white-ribbon-animation');
@@ -2361,6 +2395,7 @@ export default class PlayScene extends Phaser.Scene {
 			return;
 		} else {
 			if(this.timer.visible)this.timer.pause();
+			this.clearCake(cake);
 			let padding =  Utils.calPaddingY(cake.features);
 			let ribbon = this.add.sprite(this.ribbonSpot.x, this.ribbonSpot.y + this.ribbonSpot.displayHeight, 'comfy-spritesheet', 'green_ribbon_00.png').setOrigin(0.5, 0);
 			ribbon.play('green-ribbon-animation');
@@ -2448,6 +2483,7 @@ export default class PlayScene extends Phaser.Scene {
 			return;
 		} else {
 			if(this.timer.visible)this.timer.pause();
+			
 			let padding =  Utils.calPaddingY(cake.features);
 			this.creamSpot.play('brown-spot-animation');
 			this.creamSpot.on('animationcomplete', () => {
@@ -2462,21 +2498,30 @@ export default class PlayScene extends Phaser.Scene {
 					cream.removedFromScene();
 					cream.destroy();
 				});
+				this.clearCake(cake);
+				feature = this.getEnd(cake.features);
 				//let last = (cake.last as Phaser.GameObjects.Sprite);
 				let creamSprite;
+				
 				switch (this.getEndFrame(cake.features)) {
 					case FRAME.CIRCLE:
 						if(feature == CREAM.BROWN || feature == CREAM.PINK || feature == CREAM.YELLOW || feature == RIBBON.GREEN || feature == RIBBON.RED || feature == RIBBON.WHITE){
 							creamSprite = (cake.last as Phaser.GameObjects.Sprite);
 							creamSprite.setFrame('brown_cream_circle.png');
 							cake.features.pop();
+							
 							cake.features.push(CREAM.BROWN);
 						}else{
+							if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+								cake.removeAt(cake.length-1,true);
+								cake.features.pop();
+							}
 							creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_circle.png');
 							creamSprite.scaleX = creamSprite.scaleY = 0.95;
 							cake.add(creamSprite);
 							creamSprite.x = -1;
 							creamSprite.y =  padding;
+							
 							cake.features.push(CREAM.BROWN);
 						}
 
@@ -2486,13 +2531,19 @@ export default class PlayScene extends Phaser.Scene {
 							creamSprite = (cake.last as Phaser.GameObjects.Sprite);
 							creamSprite.setFrame('brown_cream_heart.png');
 							cake.features.pop();
+							
 							cake.features.push(CREAM.BROWN);
 						}else{
+							if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+								cake.removeAt(cake.length-1,true);
+								cake.features.pop();
+							}
 							creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_heart.png');
 							creamSprite.scaleX = creamSprite.scaleY = 0.95;
 							cake.add(creamSprite);
 							creamSprite.x = -1;
 							creamSprite.y =  padding;
+							
 							cake.features.push(CREAM.BROWN);
 						}
 
@@ -2502,13 +2553,19 @@ export default class PlayScene extends Phaser.Scene {
 							creamSprite = (cake.last as Phaser.GameObjects.Sprite);
 							creamSprite.setFrame('brown_cream_square.png');
 							cake.features.pop();
+							
 							cake.features.push(CREAM.BROWN);
 						}else{
+							if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+								cake.removeAt(cake.length-1,true);
+								cake.features.pop();
+							}
 							creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'brown_cream_square.png');
 							creamSprite.scaleX = creamSprite.scaleY = 0.95;
 							cake.add(creamSprite);
 							creamSprite.x = -1;
 							creamSprite.y =  padding;
+							
 							cake.features.push(CREAM.BROWN);
 						}
 
@@ -2554,6 +2611,8 @@ export default class PlayScene extends Phaser.Scene {
 					cream.removedFromScene();
 					cream.destroy();
 				});
+				this.clearCake(cake);
+				feature = this.getEnd(cake.features);
 				//let end = (cake.end as Phaser.GameObjects.Sprite);
 				let creamSprite;
 				switch (this.getEndFrame(cake.features)) {
@@ -2562,13 +2621,19 @@ export default class PlayScene extends Phaser.Scene {
 							creamSprite = (cake.last as Phaser.GameObjects.Sprite);
 							creamSprite.setFrame('pink_cream_circle.png');
 							cake.features.pop();
+							
 							cake.features.push(CREAM.PINK);
 						}else{
+							if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+								cake.removeAt(cake.length-1,true);
+								cake.features.pop();
+							}
 							creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_circle.png');
 							creamSprite.scaleX = creamSprite.scaleY = 0.95;
 							cake.add(creamSprite);
 							creamSprite.x = -1;
 							creamSprite.y =  padding;
+							
 							cake.features.push(CREAM.PINK);
 						}
 
@@ -2578,13 +2643,19 @@ export default class PlayScene extends Phaser.Scene {
 							creamSprite = (cake.last as Phaser.GameObjects.Sprite);
 							creamSprite.setFrame('pink_cream_heart.png');
 							cake.features.pop();
+							
 							cake.features.push(CREAM.PINK);
 						}else{
+							if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+								cake.removeAt(cake.length-1,true);
+								cake.features.pop();
+							}
 							creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_heart.png');
 							creamSprite.scaleX = creamSprite.scaleY = 0.95;
 							cake.add(creamSprite);
 							creamSprite.x = -1;
 							creamSprite.y =  padding;
+							
 							cake.features.push(CREAM.PINK);
 						}
 
@@ -2596,11 +2667,16 @@ export default class PlayScene extends Phaser.Scene {
 							cake.features.pop();
 							cake.features.push(CREAM.PINK);
 						}else{
+							if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+								cake.removeAt(cake.length-1,true);
+								cake.features.pop();
+							}
 							creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'pink_cream_square.png');
 							creamSprite.scaleX = creamSprite.scaleY = 0.95;
 							cake.add(creamSprite);
 							creamSprite.x = -1;
 							creamSprite.y =  padding;
+							
 							cake.features.push(CREAM.PINK);
 						}
 
@@ -2626,6 +2702,7 @@ export default class PlayScene extends Phaser.Scene {
 			return;
 		} else {
 			if(this.timer.visible)this.timer.pause();
+			
 			let padding =  Utils.calPaddingY(cake.features);
 			this.creamSpot.play('yellow-spot-animation');
 			this.creamSpot.on('animationcomplete', () => {
@@ -2640,6 +2717,8 @@ export default class PlayScene extends Phaser.Scene {
 					cream.removedFromScene();
 					cream.destroy();
 				});
+				this.clearCake(cake);
+				feature = this.getEnd(cake.features);
 				//let end = (cake.end as Phaser.GameObjects.Sprite);
 				let creamSprite;
 				switch (this.getEndFrame(cake.features)) {
@@ -2648,13 +2727,19 @@ export default class PlayScene extends Phaser.Scene {
 							creamSprite = (cake.last as Phaser.GameObjects.Sprite);
 							creamSprite.setFrame('yellow_cream_circle.png');
 							cake.features.pop();
+							
 							cake.features.push(CREAM.YELLOW);
 						}else{
+							if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+								cake.removeAt(cake.length-1,true);
+								cake.features.pop();
+							}
 							creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_circle.png');
 							creamSprite.scaleX = creamSprite.scaleY = 0.95;
 							cake.add(creamSprite);
 							creamSprite.x = -1;
 							creamSprite.y =  padding;
+							
 							cake.features.push(CREAM.YELLOW);
 						}
 
@@ -2664,13 +2749,19 @@ export default class PlayScene extends Phaser.Scene {
 							creamSprite = (cake.last as Phaser.GameObjects.Sprite);
 							creamSprite.setFrame('yellow_cream_heart.png');
 							cake.features.pop();
+							
 							cake.features.push(CREAM.YELLOW);
 						}else{
+							if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+								cake.removeAt(cake.length-1,true);
+								cake.features.pop();
+							}
 							creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_heart.png');
 							creamSprite.scaleX = creamSprite.scaleY = 0.95;
 							cake.add(creamSprite);
 							creamSprite.x = -1;
 							creamSprite.y =  padding;
+							
 							cake.features.push(CREAM.YELLOW);
 						}
 
@@ -2680,13 +2771,19 @@ export default class PlayScene extends Phaser.Scene {
 							creamSprite = (cake.last as Phaser.GameObjects.Sprite);
 							creamSprite.setFrame('yellow_cream_square.png');
 							cake.features.pop();
+							
 							cake.features.push(CREAM.YELLOW);
 						}else{
+							if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+								cake.removeAt(cake.length-1,true);
+								cake.features.pop();
+							}
 							creamSprite = this.add.sprite(0, -5 + cake.length - 1 * -45, 'comfy-spritesheet', 'yellow_cream_square.png');
 							creamSprite.scaleX = creamSprite.scaleY = 0.95;
 							cake.add(creamSprite);
 							creamSprite.x = -1;
 							creamSprite.y =  padding;
+							
 							cake.features.push(CREAM.YELLOW);
 						}
 
@@ -2714,34 +2811,7 @@ export default class PlayScene extends Phaser.Scene {
 		} else {
 			if(this.timer.visible)this.timer.pause();
 			let padding = Utils.calPaddingY(cake.features);
-			if (end !== DECORATE.BUTTONS && end !== DECORATE.EMOTICON && end !== DECORATE.HEART && end !== DECORATE.LEAF) {
-
-				let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0.5);
-				buttons.play('buttons-animation');
-
-				this.add.tween({
-					targets: buttons,
-					y: cake.y + padding - 10,
-					duration: 200,
-					onComplete: () => {
-
-					},
-					callbackScope: this
-				});
-				buttons.on('animationcomplete', () => {
-					this.isMaking = false;
-					if(this.timer.visible)this.timer.resume();
-					buttons.off('animationcomplete');
-					buttons.removedFromScene();
-					buttons.destroy();
-					let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
-
-					buttonsSprite.x = 0;
-					buttonsSprite.y = padding;
-					cake.add(buttonsSprite);
-				});
-				cake.features.push(DECORATE.BUTTONS);
-			} else {
+			if (end == DECORATE.BUTTONS || end == DECORATE.EMOTICON || end == DECORATE.HEART || end == DECORATE.LEAF) {
 				let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
 				cake.remove(lastSprite);
 				lastSprite.removedFromScene();
@@ -2774,7 +2844,202 @@ export default class PlayScene extends Phaser.Scene {
 				});
 				cake.features.pop();
 				cake.features.push(DECORATE.BUTTONS);
+			} else {
 
+				if(end == TASTE.BURN ){
+					let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
+					cake.remove(lastSprite);
+					lastSprite.removedFromScene();
+					lastSprite.destroy();
+
+
+					let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0, 0.5);
+					buttons.play('buttons-animation');
+
+					this.add.tween({
+						targets: buttons,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					buttons.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						buttons.off('animationcomplete');
+						buttons.removedFromScene();
+						buttons.destroy();
+						let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
+
+						buttonsSprite.x = 0;
+						buttonsSprite.y = padding;
+						cake.add(buttonsSprite);
+					});
+					cake.features.splice(cake.features.length-2,1);
+					cake.features.splice(cake.features.length-1, 0, DECORATE.BUTTONS)
+				}else if(end == TASTE.SPICE){
+					let feature = this.getLast(cake.features);
+					if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+						let lastSprite = (cake.getAt(cake.length-2) as Phaser.GameObjects.Sprite);
+						cake.remove(lastSprite);
+						lastSprite.removedFromScene();
+						lastSprite.destroy();
+	
+	
+						let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0, 0.5);
+						buttons.play('buttons-animation');
+	
+						this.add.tween({
+							targets: buttons,
+							y: cake.y + padding - 10,
+							duration: 200,
+							onComplete: () => {
+	
+							},
+							callbackScope: this
+						});
+						buttons.on('animationcomplete', () => {
+							this.isMaking = false;
+							if(this.timer.visible)this.timer.resume();
+							buttons.off('animationcomplete');
+							buttons.removedFromScene();
+							buttons.destroy();
+							let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
+	
+							buttonsSprite.x = 0;
+							buttonsSprite.y = padding;
+							cake.add(buttonsSprite);
+						});
+						cake.features.splice(cake.features.length-2,1);
+						cake.features.splice(cake.features.length-1, 0, DECORATE.BUTTONS)
+					}
+				}else{
+					let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0.5);
+						buttons.play('buttons-animation');
+
+						this.add.tween({
+							targets: buttons,
+							y: cake.y + padding - 10,
+							duration: 200,
+							onComplete: () => {
+
+							},
+							callbackScope: this
+						});
+						buttons.on('animationcomplete', () => {
+							this.isMaking = false;
+							if(this.timer.visible)this.timer.resume();
+							buttons.off('animationcomplete');
+							buttons.removedFromScene();
+							buttons.destroy();
+							let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
+
+							buttonsSprite.x = 0;
+							buttonsSprite.y = padding;
+							cake.add(buttonsSprite);
+						});
+						cake.features.push(DECORATE.BUTTONS);
+				}
+				
+				/*let last = this.getLast(cake.features);
+				if(last == DECORATE.BUTTONS || last == DECORATE.EMOTICON || last == DECORATE.HEART || last == DECORATE.LEAF){
+					let lastSprite = (cake.getAt(cake.length-2) as Phaser.GameObjects.Sprite);
+					cake.remove(lastSprite);
+					lastSprite.removedFromScene();
+					lastSprite.destroy();
+
+
+					let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0, 0.5);
+					buttons.play('buttons-animation');
+
+					this.add.tween({
+						targets: buttons,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					buttons.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						buttons.off('animationcomplete');
+						buttons.removedFromScene();
+						buttons.destroy();
+						let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
+
+						buttonsSprite.x = 0;
+						buttonsSprite.y = padding;
+						cake.add(buttonsSprite);
+					});
+					cake.features.pop();
+				}else{
+					if(last == TASTE.BURN){
+						let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
+						cake.remove(lastSprite);
+						lastSprite.removedFromScene();
+						lastSprite.destroy();
+
+
+						let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0, 0.5);
+						buttons.play('buttons-animation');
+
+						this.add.tween({
+							targets: buttons,
+							y: cake.y + padding - 10,
+							duration: 200,
+							onComplete: () => {
+
+							},
+							callbackScope: this
+						});
+						buttons.on('animationcomplete', () => {
+							this.isMaking = false;
+							if(this.timer.visible)this.timer.resume();
+							buttons.off('animationcomplete');
+							buttons.removedFromScene();
+							buttons.destroy();
+							let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
+
+							buttonsSprite.x = 0;
+							buttonsSprite.y = padding;
+							cake.add(buttonsSprite);
+						});
+						cake.features.pop();
+					}else{
+						let buttons = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'buttons_00.png').setOrigin(0.5);
+						buttons.play('buttons-animation');
+
+						this.add.tween({
+							targets: buttons,
+							y: cake.y + padding - 10,
+							duration: 200,
+							onComplete: () => {
+
+							},
+							callbackScope: this
+						});
+						buttons.on('animationcomplete', () => {
+							this.isMaking = false;
+							if(this.timer.visible)this.timer.resume();
+							buttons.off('animationcomplete');
+							buttons.removedFromScene();
+							buttons.destroy();
+							let buttonsSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'buttons_icon.png').setOrigin(0.5);
+
+							buttonsSprite.x = 0;
+							buttonsSprite.y = padding;
+							cake.add(buttonsSprite);
+						});
+					}
+					
+				}*/
+
+				
+				//cake.features.push(DECORATE.BUTTONS);
 			}
 
 			if(GameVars.level == LEVEL.EASY){
@@ -2799,32 +3064,8 @@ export default class PlayScene extends Phaser.Scene {
 		} else {
 			if(this.timer.visible)this.timer.pause();
 			let padding = Utils.calPaddingY(cake.features);
-			if (end !== DECORATE.BUTTONS && end !== DECORATE.EMOTICON && end !== DECORATE.HEART && end !== DECORATE.LEAF) {
+			if (end == DECORATE.BUTTONS || end == DECORATE.EMOTICON || end == DECORATE.HEART || end == DECORATE.LEAF) {
 
-				let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
-				heart.play('heart-animation');
-				this.add.tween({
-					targets: heart,
-					y: cake.y + padding - 10,
-					duration: 200,
-					onComplete: () => {
-
-					},
-					callbackScope: this
-				});
-				heart.on('animationcomplete', () => {
-					this.isMaking = false;
-					if(this.timer.visible)this.timer.resume();
-					heart.off('animationcomplete');
-					heart.removedFromScene();
-					heart.destroy();
-					let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
-					cake.add(heartSprite);
-					heartSprite.x = 0;
-					heartSprite.y = padding;
-				});
-				cake.features.push(DECORATE.HEART);
-			} else {
 				let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
 				cake.remove(lastSprite);
 				lastSprite.removedFromScene();
@@ -2856,6 +3097,157 @@ export default class PlayScene extends Phaser.Scene {
 				});
 				cake.features.pop();
 				cake.features.push(DECORATE.HEART);
+			} else {
+				if(end == TASTE.BURN ){
+					let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
+					cake.remove(lastSprite);
+					lastSprite.removedFromScene();
+					lastSprite.destroy();
+
+
+					let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
+					heart.play('heart-animation');
+					this.add.tween({
+						targets: heart,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					heart.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						heart.off('animationcomplete');
+						heart.removedFromScene();
+						heart.destroy();
+						let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
+
+						heartSprite.x = 0;
+						heartSprite.y = padding;
+						cake.add(heartSprite);
+					});
+					cake.features.splice(cake.features.length-2,1);
+					cake.features.splice(cake.features.length-1, 0, DECORATE.HEART);
+				}else if(end == TASTE.SPICE){
+					let feature = this.getLast(cake.features);
+					if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+						let lastSprite = (cake.getAt(cake.length-2) as Phaser.GameObjects.Sprite);
+						cake.remove(lastSprite);
+						lastSprite.removedFromScene();
+						lastSprite.destroy();
+
+
+						let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
+						heart.play('heart-animation');
+						this.add.tween({
+							targets: heart,
+							y: cake.y + padding - 10,
+							duration: 200,
+							onComplete: () => {
+
+							},
+							callbackScope: this
+						});
+						heart.on('animationcomplete', () => {
+							this.isMaking = false;
+							if(this.timer.visible)this.timer.resume();
+							heart.off('animationcomplete');
+							heart.removedFromScene();
+							heart.destroy();
+							let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
+
+							heartSprite.x = 0;
+							heartSprite.y = padding;
+							cake.add(heartSprite);
+						});
+						cake.features.splice(cake.features.length-2,1);
+						cake.features.splice(cake.features.length-1, 0, DECORATE.HEART);
+					}
+				}else{
+					let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
+					heart.play('heart-animation');
+					this.add.tween({
+						targets: heart,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					heart.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						heart.off('animationcomplete');
+						heart.removedFromScene();
+						heart.destroy();
+						let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
+						cake.add(heartSprite);
+						heartSprite.x = 0;
+						heartSprite.y = padding;
+					});
+					cake.features.push(DECORATE.HEART);
+				}
+				/*let last = this.getLast(cake.features);
+				if(last == DECORATE.BUTTONS || last == DECORATE.EMOTICON || last == DECORATE.HEART || last == DECORATE.LEAF){
+					let lastSprite = (cake.getAt(cake.length-2) as Phaser.GameObjects.Sprite);
+					cake.remove(lastSprite);
+					lastSprite.removedFromScene();
+					lastSprite.destroy();
+
+
+					let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
+					heart.play('heart-animation');
+					this.add.tween({
+						targets: heart,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					heart.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						heart.off('animationcomplete');
+						heart.removedFromScene();
+						heart.destroy();
+						let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
+
+						heartSprite.x = 0;
+						heartSprite.y = padding;
+						cake.add(heartSprite);
+					});
+					cake.features.pop();
+				}else{
+					let heart = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'heart_icon_00.png').setOrigin(0, 0.5);
+					heart.play('heart-animation');
+					this.add.tween({
+						targets: heart,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					heart.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						heart.off('animationcomplete');
+						heart.removedFromScene();
+						heart.destroy();
+						let heartSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'heart_icon.png').setOrigin(0.5);
+						cake.add(heartSprite);
+						heartSprite.x = 0;
+						heartSprite.y = padding;
+					});
+				}*/
+				
+				
 			}
 
 			if(GameVars.level == LEVEL.EASY){
@@ -2879,33 +3271,8 @@ export default class PlayScene extends Phaser.Scene {
 		} else {
 			if(this.timer.visible)this.timer.pause();
 			let padding = Utils.calPaddingY(cake.features);
-			if (end !== DECORATE.BUTTONS && end !== DECORATE.EMOTICON && end !== DECORATE.HEART && end !== DECORATE.LEAF) {
+			if (end == DECORATE.BUTTONS || end == DECORATE.EMOTICON || end == DECORATE.HEART || end == DECORATE.LEAF) {
 
-				let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
-				emoticon.play('emoticon-animation');
-				this.add.tween({
-					targets: emoticon,
-					y: cake.y + padding - 10,
-					duration: 200,
-					onComplete: () => {
-
-					},
-					callbackScope: this
-				});
-				emoticon.on('animationcomplete', () => {
-					this.isMaking = false;
-					if(this.timer.visible)this.timer.resume();
-					emoticon.off('animationcomplete');
-					emoticon.removedFromScene();
-					emoticon.destroy();
-					let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
-
-					emoticonSprite.x = 0;
-					emoticonSprite.y = padding;
-					cake.add(emoticonSprite);
-				});
-				cake.features.push(DECORATE.EMOTICON);
-			} else {
 				let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
 				cake.remove(lastSprite);
 				lastSprite.removedFromScene();
@@ -2937,6 +3304,164 @@ export default class PlayScene extends Phaser.Scene {
 				});
 				cake.features.pop();
 				cake.features.push(DECORATE.EMOTICON);
+
+
+			} else {
+
+				if(end == TASTE.BURN ){
+					let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
+					cake.remove(lastSprite);
+					lastSprite.removedFromScene();
+					lastSprite.destroy();
+
+
+					let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
+					emoticon.play('emoticon-animation');
+					this.add.tween({
+						targets: emoticon,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					emoticon.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						emoticon.off('animationcomplete');
+						emoticon.removedFromScene();
+						emoticon.destroy();
+						let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
+
+						emoticonSprite.x = 0;
+						emoticonSprite.y = padding;
+						cake.add(emoticonSprite);
+					});
+					cake.features.splice(cake.features.length-2,1);
+					cake.features.splice(cake.features.length-1, 0, DECORATE.EMOTICON);
+				}else if(end == TASTE.SPICE){
+					let feature = this.getLast(cake.features);
+					if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+						let lastSprite = (cake.getAt(cake.length-2) as Phaser.GameObjects.Sprite);
+						cake.remove(lastSprite);
+						lastSprite.removedFromScene();
+						lastSprite.destroy();
+
+
+						let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
+						emoticon.play('emoticon-animation');
+						this.add.tween({
+							targets: emoticon,
+							y: cake.y + padding - 10,
+							duration: 200,
+							onComplete: () => {
+
+							},
+							callbackScope: this
+						});
+						emoticon.on('animationcomplete', () => {
+							this.isMaking = false;
+							if(this.timer.visible)this.timer.resume();
+							emoticon.off('animationcomplete');
+							emoticon.removedFromScene();
+							emoticon.destroy();
+							let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
+
+							emoticonSprite.x = 0;
+							emoticonSprite.y = padding;
+							cake.add(emoticonSprite);
+						});
+						cake.features.splice(cake.features.length-2,1);
+					cake.features.splice(cake.features.length-1, 0, DECORATE.EMOTICON);
+					}
+				}else{
+					let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
+					emoticon.play('emoticon-animation');
+					this.add.tween({
+						targets: emoticon,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					emoticon.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						emoticon.off('animationcomplete');
+						emoticon.removedFromScene();
+						emoticon.destroy();
+						let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
+
+						emoticonSprite.x = 0;
+						emoticonSprite.y = padding;
+						cake.add(emoticonSprite);
+					});
+					cake.features.push(DECORATE.EMOTICON);
+				}
+
+				/*let last = this.getLast(cake.features);
+				if(last == DECORATE.BUTTONS || last == DECORATE.EMOTICON || last == DECORATE.HEART || last == DECORATE.LEAF){
+					let lastSprite = (cake.getAt(cake.length-2) as Phaser.GameObjects.Sprite);
+					cake.remove(lastSprite);
+					lastSprite.removedFromScene();
+					lastSprite.destroy();
+
+
+					let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
+					emoticon.play('emoticon-animation');
+					this.add.tween({
+						targets: emoticon,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					emoticon.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						emoticon.off('animationcomplete');
+						emoticon.removedFromScene();
+						emoticon.destroy();
+						let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
+
+						emoticonSprite.x = 0;
+						emoticonSprite.y = padding;
+						cake.add(emoticonSprite);
+					});
+					cake.features.pop();
+				}else{
+					let emoticon = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'emoticon_00.png').setOrigin(0, 0.5);
+					emoticon.play('emoticon-animation');
+					this.add.tween({
+						targets: emoticon,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					emoticon.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						emoticon.off('animationcomplete');
+						emoticon.removedFromScene();
+						emoticon.destroy();
+						let emoticonSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'emoticon_icon.png').setOrigin(0.5);
+
+						emoticonSprite.x = 0;
+						emoticonSprite.y = padding;
+						cake.add(emoticonSprite);
+					});
+				}*/
+
+				
+				
 			}
 
 			if(GameVars.level == LEVEL.EASY){
@@ -2960,34 +3485,9 @@ export default class PlayScene extends Phaser.Scene {
 			this.isMaking = true;
 			if(this.timer.visible)this.timer.pause();
 			let padding = Utils.calPaddingY(cake.features);
-			if (end !== DECORATE.BUTTONS && end !== DECORATE.EMOTICON && end !== DECORATE.HEART && end !== DECORATE.LEAF) {
+			if (end == DECORATE.BUTTONS || end == DECORATE.EMOTICON || end == DECORATE.HEART || end == DECORATE.LEAF) {
+	
 
-				let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
-				leaf.scaleX = leaf.scaleY = 1.5;
-				leaf.play('leaf-animation');
-				this.add.tween({
-					targets: leaf,
-					y: cake.y + padding-10,
-					duration: 200,
-					onComplete: () => {
-
-					},
-					callbackScope: this
-				});
-				leaf.on('animationcomplete', () => {
-					this.isMaking = false;
-					if(this.timer.visible)this.timer.resume();
-					leaf.off('animationcomplete');
-					leaf.removedFromScene();
-					leaf.destroy();
-					let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
-
-					leafSprite.x = 0;
-					leafSprite.y = padding;
-					cake.add(leafSprite);
-				});
-				cake.features.push(DECORATE.LEAF);
-			} else {
 				let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
 				cake.remove(lastSprite);
 				lastSprite.removedFromScene();
@@ -3020,6 +3520,167 @@ export default class PlayScene extends Phaser.Scene {
 				});
 				cake.features.pop();
 				cake.features.push(DECORATE.LEAF);
+			} else {
+
+				if(end == TASTE.BURN ){
+					let lastSprite = (cake.last as Phaser.GameObjects.Sprite);
+					cake.remove(lastSprite);
+					lastSprite.removedFromScene();
+					lastSprite.destroy();
+
+
+					let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
+					leaf.scaleX = leaf.scaleY = 1.5;
+					leaf.play('leaf-animation');
+					this.add.tween({
+						targets: leaf,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					leaf.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						leaf.off('animationcomplete');
+						leaf.removedFromScene();
+						leaf.destroy();
+						let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
+
+						leafSprite.x = 0;
+						leafSprite.y = padding;
+						cake.add(leafSprite);
+					});
+					cake.features.splice(cake.features.length-2,1);
+					cake.features.splice(cake.features.length-1, 0, DECORATE.LEAF);
+				}else if(end == TASTE.SPICE){
+					let feature = this.getLast(cake.features);
+					if(feature == DECORATE.BUTTONS || feature == DECORATE.EMOTICON || feature == DECORATE.HEART || feature == DECORATE.LEAF){
+						let lastSprite = (cake.getAt(cake.length-2) as Phaser.GameObjects.Sprite);
+						cake.remove(lastSprite);
+						lastSprite.removedFromScene();
+						lastSprite.destroy();
+
+
+						let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
+						leaf.scaleX = leaf.scaleY = 1.5;
+						leaf.play('leaf-animation');
+						this.add.tween({
+							targets: leaf,
+							y: cake.y + padding - 10,
+							duration: 200,
+							onComplete: () => {
+
+							},
+							callbackScope: this
+						});
+						leaf.on('animationcomplete', () => {
+							this.isMaking = false;
+							if(this.timer.visible)this.timer.resume();
+							leaf.off('animationcomplete');
+							leaf.removedFromScene();
+							leaf.destroy();
+							let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
+
+							leafSprite.x = 0;
+							leafSprite.y = padding;
+							cake.add(leafSprite);
+						});
+						cake.features.splice(cake.features.length-2,1);
+					cake.features.splice(cake.features.length-1, 0, DECORATE.LEAF);
+					}
+				}else{
+					let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
+					leaf.scaleX = leaf.scaleY = 1.5;
+					leaf.play('leaf-animation');
+					this.add.tween({
+						targets: leaf,
+						y: cake.y + padding-10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					leaf.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						leaf.off('animationcomplete');
+						leaf.removedFromScene();
+						leaf.destroy();
+						let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
+
+						leafSprite.x = 0;
+						leafSprite.y = padding;
+						cake.add(leafSprite);
+					});
+					cake.features.push(DECORATE.LEAF);
+				}
+
+				/*let last = this.getLast(cake.features);
+				if(last == DECORATE.BUTTONS || last == DECORATE.EMOTICON || last == DECORATE.HEART || last == DECORATE.LEAF){
+					let lastSprite = (cake.getAt(cake.length-2) as Phaser.GameObjects.Sprite);
+					cake.remove(lastSprite);
+					lastSprite.removedFromScene();
+					lastSprite.destroy();
+
+
+					let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
+					leaf.scaleX = leaf.scaleY = 1.5;
+					leaf.play('leaf-animation');
+					this.add.tween({
+						targets: leaf,
+						y: cake.y + padding - 10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					leaf.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						leaf.off('animationcomplete');
+						leaf.removedFromScene();
+						leaf.destroy();
+						let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
+
+						leafSprite.x = 0;
+						leafSprite.y = padding;
+						cake.add(leafSprite);
+					});
+					cake.features.pop();
+				}else{
+					let leaf = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y + this.decorateSpot.displayHeight, 'comfy-spritesheet', 'leaf_00.png').setOrigin(0, 0.5);
+					leaf.scaleX = leaf.scaleY = 1.5;
+					leaf.play('leaf-animation');
+					this.add.tween({
+						targets: leaf,
+						y: cake.y + padding-10,
+						duration: 200,
+						onComplete: () => {
+
+						},
+						callbackScope: this
+					});
+					leaf.on('animationcomplete', () => {
+						this.isMaking = false;
+						if(this.timer.visible)this.timer.resume();
+						leaf.off('animationcomplete');
+						leaf.removedFromScene();
+						leaf.destroy();
+						let leafSprite = this.add.sprite(this.decorateSpot.x, this.decorateSpot.y, 'comfy-spritesheet', 'leaf_icon.png').setOrigin(0.5);
+
+						leafSprite.x = 0;
+						leafSprite.y = padding;
+						cake.add(leafSprite);
+					});
+				}*/
+
+				
+				
 			}
 
 			if(GameVars.level == LEVEL.EASY){
@@ -3069,6 +3730,31 @@ export default class PlayScene extends Phaser.Scene {
 		}
 		return frame;
 	}
+
+	clearCake(cake: Cake){
+		let i = cake.features.length-1;
+		let j = cake.length-1;
+		while(cake.features[i] ==DECORATE.BUTTONS || cake.features[i] ==DECORATE.EMOTICON || cake.features[i] ==DECORATE.HEART || cake.features[i] ==DECORATE.LEAF ||
+			cake.features[i] ==TASTE.BURN || cake.features[i] ==TASTE.SPICE /*|| cake.features[i] ==CREAM.BROWN || cake.features[i] ==CREAM.PINK || cake.features[i] ==CREAM.YELLOW*/){
+				
+				if(cake.features[i] !=TASTE.BURN /*&&  (cake.features[i] !=FLOUR.BROWN || cake.features[i] !=FLOUR.PINK || cake.features[i] !=FLOUR.YELLOW)*/){
+					cake.removeAt(j,true);
+					j--;
+				}
+				cake.features.pop();
+				i--;
+		}
+	}
+
+	getEndDecorate(array: any){
+		let dec = null;
+		for(let i = 0; i < array.length; i++){
+			if(array[i] == DECORATE.BUTTONS || array[i] == DECORATE.EMOTICON || array[i] == DECORATE.HEART || array[i] == DECORATE.LEAF){
+				dec = array[i];
+			}
+		}
+		return dec;
+	}
 	getFrameNum(array: any){
 		let count = 0;
 		for(let i = 0; i < array.length; i++){
@@ -3106,14 +3792,6 @@ export default class PlayScene extends Phaser.Scene {
 		return true;
 	}
 
-	getIndex(cake:any){
-		for(let i = 0; i < this.cakes.length; i++){
-			if(this.cakes[i] == cake){
-				return i;
-			}
-		}
-		return null
-	}
 
 	shake(object: any) {
 		this.tweens.add({
@@ -3124,6 +3802,14 @@ export default class PlayScene extends Phaser.Scene {
 			repeat: 1
 		});
 
+	}
+
+	getIndex(array: any, obj:any){
+		for(let i = 0;  i< array.length; i++){
+			if(array[i] == obj){
+				return i;
+			}
+		}
 	}
 
 

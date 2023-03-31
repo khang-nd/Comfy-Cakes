@@ -60,14 +60,22 @@ export default class Preload extends Phaser.Scene {
 		GameManager.setCurrentScene(this);
 		this.load.pack("asset-pack", assetPackUrl);
 		this.load.on(Phaser.Loader.Events.COMPLETE, () => {
+			/*if(!this.game.device.os.desktop){
+				window.addEventListener("message", (e) => {
+
+					GameVars.level = e.data ? e.data: LEVEL.EASY;
+					GameManager.enterPlayScene();
+				});
+			}else{
+				//GameVars.level = LEVEL.ADVANCED;
+				//GameManager.enterPlayScene();
+				//GameManager.enterMenuScene();
+			}*/
 			window.addEventListener("message", (e) => {
 
 				GameVars.level = e.data ? e.data: LEVEL.EASY;
 				GameManager.enterPlayScene();
 			});
-			//GameVars.level = LEVEL.INTERMEDIATE;
-			//GameManager.enterPlayScene();
-			//GameManager.enterMenuScene();
 		});
 	}
 
