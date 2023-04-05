@@ -14,7 +14,7 @@ export enum CREAM {
 export enum RIBBON {
 	RED = 'RED_RIBBON',
 	GREEN = 'GREEN_RIBBON',
-	WHITE = 'GREEN_RIBBON',
+	WHITE = 'WHITE_RIBBON',
 };
 
 export enum DECORATE {
